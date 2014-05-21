@@ -54,8 +54,7 @@ support NDK, this is the way to build this project.
 1. Install the [NDK](https://developer.android.com/tools/sdk/ndk/index.html)
 . (Tested with ndk-r9d.)
 2. Add NDK to `$PATH`.
-3. Run `prebuild` from `leveldb/src/main/jni-prebuild`
-4. Use with Gradle
+3. Build with Gradle (task runs right after `preBuild`)
 
 ## TODO
 

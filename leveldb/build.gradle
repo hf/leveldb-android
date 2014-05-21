@@ -30,7 +30,6 @@ android {
         testFunctionalTest true
     }
 
-
     productFlavors {
         x86 {
             ndk {
@@ -48,4 +47,16 @@ android {
 
 dependencies {
 
+}
+
+task 'preBuildLevelDB' {
+    mustRunAfter 'preBuild', 'preDebugBuild', 'preDebugTestBuild', 'preReleaseBuild', \
+        'preArmDebugBuild', 'preArmDebugTestBuild', 'preArmReleaseBuild', \
+         'preX86DebugBuild', 'preX86DebugTestBuild', 'preX86ReleaseBuild'
+
+    exec {
+        workingDir 'src/main/jni-prebuild'
+
+        commandLine './prebuild'
+    }
 }
