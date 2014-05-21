@@ -80,10 +80,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LevelDBTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="LevelDB.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="183" column="28" selection-start="6000" selection-end="6000" vertical-scroll-proportion="5.7727275" vertical-offset="3645" max-vertical-offset="8778">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#destroy#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#repair#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#LevelDB#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#LevelDB#1;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#close#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#put#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#put#1;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#put#2;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#put#3;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#put#4;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#getBytes#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#getBytes#1;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#get#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#del#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#del#1;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#del#2;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#getPropertyBytes#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#getProperty#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#getProperty#1;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#getPath#0;class#LevelDB#0" expanded="true" />
+                <element signature="e#9002#9003#0" expanded="true" />
+                <element signature="e#9029#9030#0" expanded="true" />
+                <element signature="docComment;method#setPath#0;class#LevelDB#0" expanded="true" />
+                <element signature="e#9161#9162#0" expanded="true" />
+                <element signature="e#9193#9194#0" expanded="true" />
+                <element signature="docComment;method#isClosed#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#checkIfClosed#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#nopen#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#nclose#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#nput#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#ndelete#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#nget#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#ngetProperty#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#ndestroy#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#nrepair#0;class#LevelDB#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LevelDBClosedException.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBClosedException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="26" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="440">
+              <folding>
+                <element signature="docComment;class#LevelDBClosedException#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db.h" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/leveldb/include/leveldb/db.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="109" column="0" selection-start="4030" selection-end="4482" vertical-scroll-proportion="23.88889" vertical-offset="3043" max-vertical-offset="3674">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LevelDBTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/leveldb/src/androidTest/java/org/leveldb/test/LevelDBTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="1" selection-start="641" selection-end="641" vertical-scroll-proportion="1.0746269" vertical-offset="284" max-vertical-offset="726">
+            <state line="51" column="36" selection-start="1367" selection-end="1367" vertical-scroll-proportion="0.0" vertical-offset="904" max-vertical-offset="1540">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1530,16 +1597,17 @@
         <option value="$PROJECT_DIR$/local.properties" />
         <option value="$PROJECT_DIR$/test/build.gradle" />
         <option value="$PROJECT_DIR$/leveldb/build.gradle" />
-        <option value="$PROJECT_DIR$/leveldb/src/androidTest/java/org/leveldb/test/LevelDBTest.java" />
         <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBNotSupportedException.java" />
         <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBInvalidArgumentException.java" />
         <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBException.java" />
         <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBIOException.java" />
         <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBNotFoundException.java" />
         <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBCorruptionException.java" />
-        <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java" />
         <option value="$PROJECT_DIR$/leveldb/src/main/jni/org_leveldb_LevelDB.cc" />
         <option value="$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_LevelDB.cc" />
+        <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBClosedException.java" />
+        <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java" />
+        <option value="$PROJECT_DIR$/leveldb/src/androidTest/java/org/leveldb/test/LevelDBTest.java" />
       </list>
     </option>
   </component>
@@ -1547,6 +1615,43 @@
     <option name="y" value="25" />
     <option name="width" value="1366" />
     <option name="height" value="743" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Class structure</id>
+          </State>
+          <State>
+            <id>Code style issues</id>
+          </State>
+          <State>
+            <id>Declaration redundancy</id>
+          </State>
+          <State>
+            <id>Error handling</id>
+          </State>
+          <State>
+            <id>Inheritance issues</id>
+          </State>
+          <State>
+            <id>Javadoc issues</id>
+          </State>
+          <State>
+            <id>TestNG</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Abstraction issues</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1651,6 +1756,96 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="jni-prebuild" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leveldb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leveldb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leveldb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jni-prebuild" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leveldb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leveldb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leveldb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leveldb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jni-prebuild" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leveldb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leveldb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leveldb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leveldb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leveldb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1710,6 +1905,18 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="androidTest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -1723,26 +1930,33 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
+    <property name="options.lastSelected" value="preferences.sourceCode.Java" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-    <property name="SearchEverywhereHistory" value="&#10;local.properties" />
+    <property name="SearchEverywhereHistory" value="reformat code&#10;refor&#10;reforma&#10;local.properties" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="LayoutCode.rearrangeEntriesJava" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="junit.framework.TestCase" />
-    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.leveldb" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="junit.framework.TestCase" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/leveldb/jni" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.leveldb.exception" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/leveldb/src/main" />
@@ -1943,7 +2157,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.52342486" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.52342486" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1953,7 +2167,7 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.82875603" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.82875603" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2155,22 +2369,170 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBClosedException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="43" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1254">
+        <state line="7" column="26" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="440">
+          <folding>
+            <element signature="docComment;class#LevelDBClosedException#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/leveldb/include/leveldb/db.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="109" column="0" selection-start="4030" selection-end="4482" vertical-scroll-proportion="23.88889" vertical-offset="3043" max-vertical-offset="3674">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="34" selection-start="296" selection-end="296" vertical-scroll-proportion="0.30397236" vertical-offset="0" max-vertical-offset="579">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/androidTest/java/org/leveldb/test/LevelDBTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="1" selection-start="641" selection-end="641" vertical-scroll-proportion="1.0746269" vertical-offset="284" max-vertical-offset="726">
+        <state line="51" column="36" selection-start="1367" selection-end="1367" vertical-scroll-proportion="0.0" vertical-offset="904" max-vertical-offset="1540">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="183" column="28" selection-start="6000" selection-end="6000" vertical-scroll-proportion="5.7727275" vertical-offset="3645" max-vertical-offset="8778">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#destroy#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#repair#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#LevelDB#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#LevelDB#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#close#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#put#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#put#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#put#2;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#put#3;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#put#4;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getBytes#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getBytes#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#get#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#del#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#del#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#del#2;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getPropertyBytes#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getProperty#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getProperty#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getPath#0;class#LevelDB#0" expanded="true" />
+            <element signature="e#9002#9003#0" expanded="true" />
+            <element signature="e#9029#9030#0" expanded="true" />
+            <element signature="docComment;method#setPath#0;class#LevelDB#0" expanded="true" />
+            <element signature="e#9161#9162#0" expanded="true" />
+            <element signature="e#9193#9194#0" expanded="true" />
+            <element signature="docComment;method#isClosed#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#checkIfClosed#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nopen#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nclose#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nput#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#ndelete#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nget#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#ngetProperty#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#ndestroy#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nrepair#0;class#LevelDB#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Android</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>leveldb-leveldb</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Gradle: 19.1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
 

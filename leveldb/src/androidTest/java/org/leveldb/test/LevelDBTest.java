@@ -2,6 +2,8 @@ package org.leveldb.test;
 
 import android.test.InstrumentationTestCase;
 import org.leveldb.LevelDB;
+import org.leveldb.exception.LevelDBException;
+import org.leveldb.exception.LevelDBIOException;
 
 import java.io.File;
 
@@ -10,20 +12,55 @@ import java.io.File;
  */
 public class LevelDBTest extends InstrumentationTestCase {
 
-    public void testGeneral() throws Exception {
+    public String getPath(String name) {
+        return new File(getInstrumentation().getContext().getFilesDir(), name).getAbsolutePath();
+    }
 
-        File filesDir = getInstrumentation().getContext().getFilesDir();
+    public void testOpening() throws Exception {
+        boolean threwException = false;
 
-        LevelDB levelDB = new LevelDB(new File(filesDir, "leveldb").getAbsolutePath(), true);
+        try {
+            new LevelDB(getPath("leveldb-test"), false);
+        } catch (LevelDBException e) {
+            threwException = true;
+        }
+
+        assertTrue(threwException);
+    }
+
+    public void testOpenAndDestroy() throws Exception {
+        LevelDB levelDB = new LevelDB(getPath("leveldb-test"), true);
+
+        levelDB.close();
+
+        LevelDB.destroy(getPath("leveldb-test"));
+
+        boolean threwException = false;
+
+        try {
+            new LevelDB(getPath("leveldb-test"), false);
+        } catch (LevelDBException e) {
+            threwException = true;
+        }
+
+        assertTrue(threwException);
+    }
+
+    public void testGetPutDeleteString() throws Exception {
+        LevelDB levelDB = new LevelDB(getPath("leveldb-test"), true);
 
         levelDB.put("key", "value");
 
-        assertTrue("value".equals(levelDB.get("key")));
+        String value = levelDB.get("key");
+
+        assertEquals("value", value);
 
         levelDB.del("key");
 
         assertNull(levelDB.get("key"));
 
         levelDB.close();
+
+        levelDB.destroy(getPath("leveldb-test"));
     }
 }
