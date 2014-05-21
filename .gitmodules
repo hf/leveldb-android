@@ -1,0 +1,6 @@
+[submodule "leveldb/jni/leveldb"]
+	path = leveldb/jni/leveldb
+	url = https://code.google.com/p/leveldb/
+[submodule "leveldb/src/main/jni-prebuild/leveldb"]
+	path = leveldb/src/main/jni-prebuild/leveldb
+	url = https://code.google.com/p/leveldb/

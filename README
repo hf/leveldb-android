@@ -1,0 +1,10 @@
+
+  LevelDB for Android
+  -------------------
+
+  This is a Java wrapper for the amazing LevelDB (https://code.google.com/p/leveldb/) by Google.
+
+  LevelDB supports only ARM and X86 ABIs. MIPS is not supported. (Someone implement port/atomic_pointer.h for MIPS.)
+
+  More information soon to follow.
+
