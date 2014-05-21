@@ -1,5 +1,10 @@
 <component name="CopyrightManager">
-  <settings default="">
-    <module2copyright />
+  <settings default="BSD 3-Clause">
+    <module2copyright>
+      <element module="All" copyright="BSD 3-Clause" />
+    </module2copyright>
+    <LanguageOptions name="JAVA">
+      <option name="fileLocation" value="2" />
+    </LanguageOptions>
   </settings>
 </component>

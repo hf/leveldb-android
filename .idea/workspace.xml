@@ -80,16 +80,87 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="build.gradle" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="build.gradle" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/leveldb/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="29" selection-start="1077" selection-end="1077" vertical-scroll-proportion="0.27450982" vertical-offset="678" max-vertical-offset="1034">
+            <state line="23" column="21" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1034">
               <folding>
-                <element signature="e#242#838#0" expanded="true" />
-                <element signature="e#319#611#0" expanded="true" />
                 <element signature="e#632#835#0" expanded="true" />
+                <element signature="e#882#1218#0" expanded="true" />
                 <element signature="e#1132#1216#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="org_leveldb_LevelDB.cc" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_LevelDB.cc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="0" selection-start="1984" selection-end="1984" vertical-scroll-proportion="0.0" vertical-offset="376" max-vertical-offset="6556">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="org_leveldb_WriteBatch_Native.cc" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_WriteBatch_Native.cc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="3" selection-start="1983" selection-end="1983" vertical-scroll-proportion="0.9256757" vertical-offset="332" max-vertical-offset="2134">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LevelDB.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="3" selection-start="22" selection-end="2005" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="9900">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#destroy#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#repair#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#LevelDB#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#LevelDB#1;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#close#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#put#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#put#1;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#put#2;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#put#4;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#getBytes#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#getBytes#1;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#get#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#del#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#del#1;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#del#2;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#getPropertyBytes#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#getProperty#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#getProperty#1;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#getPath#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#setPath#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#isClosed#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#checkIfClosed#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#nopen#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#nclose#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#nput#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#ndelete#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#nget#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#ngetProperty#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#ndestroy#0;class#LevelDB#0" expanded="true" />
+                <element signature="docComment;method#nrepair#0;class#LevelDB#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="64" column="14" selection-start="1591" selection-end="1591" vertical-scroll-proportion="-5.6923075" vertical-offset="1260" max-vertical-offset="1826">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1502,17 +1573,17 @@
         <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBNotFoundException.java" />
         <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBCorruptionException.java" />
         <option value="$PROJECT_DIR$/leveldb/src/main/jni/org_leveldb_LevelDB.cc" />
-        <option value="$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_LevelDB.cc" />
         <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBClosedException.java" />
         <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java" />
         <option value="$PROJECT_DIR$/leveldb/src/androidTest/java/org/leveldb/test/LevelDBTest.java" />
         <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/WriteBatch.java" />
         <option value="$PROJECT_DIR$/leveldb/src/main/jni/Android.mk" />
         <option value="$PROJECT_DIR$/leveldb/src/main/jni-prebuild/.gitignore" />
-        <option value="$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_WriteBatch_Native.cc" />
         <option value="$PROJECT_DIR$/leveldb/src/main/jni-prebuild/prebuild.sh" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/leveldb/build.gradle" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_LevelDB.cc" />
+        <option value="$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_WriteBatch_Native.cc" />
       </list>
     </option>
   </component>
@@ -1685,6 +1756,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leveldb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leveldb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leveldb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leveldb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="androidTest" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1702,7 +1803,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="options.lastSelected" value="preferences.sourceCode.Java" />
+    <property name="options.lastSelected" value="com.ansorgit.plugins.bash.settings.BashProjectSettingsConfigurable" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -1931,7 +2032,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.52342486" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.52342486" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1941,7 +2042,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.82875603" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1996,7 +2097,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="53" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1034" />
+        <state line="39" column="53" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1034">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#destroy#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#repair#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#LevelDB#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#LevelDB#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#close#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#put#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#put#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#put#2;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#put#4;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getBytes#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getBytes#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#get#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#del#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#del#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#del#2;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getPropertyBytes#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getProperty#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getProperty#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getPath#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#setPath#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#isClosed#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#checkIfClosed#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nopen#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nclose#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nput#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#ndelete#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nget#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#ngetProperty#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#ndestroy#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nrepair#0;class#LevelDB#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/build.gradle">
@@ -2025,7 +2161,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="53" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1034" />
+        <state line="39" column="53" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1034">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#destroy#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#repair#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#LevelDB#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#LevelDB#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#close#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#put#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#put#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#put#2;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#put#4;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getBytes#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getBytes#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#get#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#del#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#del#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#del#2;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getPropertyBytes#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getProperty#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getProperty#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getPath#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#setPath#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#isClosed#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#checkIfClosed#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nopen#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nclose#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nput#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#ndelete#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nget#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#ngetProperty#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#ndestroy#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nrepair#0;class#LevelDB#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/build.gradle">
@@ -2100,32 +2271,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBIOException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330" />
+        <state line="1" column="0" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBNotFoundException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="62" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308" />
+        <state line="5" column="62" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBCorruptionException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="64" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308" />
+        <state line="5" column="64" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="51" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308" />
+        <state line="6" column="51" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBClosedException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="26" selection-start="201" selection-end="201" vertical-scroll-proportion="0.26013514" vertical-offset="0" max-vertical-offset="592" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="49" selection-start="4114" selection-end="4114" vertical-scroll-proportion="0.0" vertical-offset="1890" max-vertical-offset="9240" />
+        <state line="7" column="26" selection-start="201" selection-end="201" vertical-scroll-proportion="0.26013514" vertical-offset="0" max-vertical-offset="592">
+          <folding>
+            <element signature="docComment;class#LevelDBClosedException#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/.gitignore">
@@ -2133,29 +2311,9 @@
         <state line="0" column="10" selection-start="10" selection-end="10" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="388" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/WriteBatch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="52" selection-start="2833" selection-end="2833" vertical-scroll-proportion="0.0" vertical-offset="1599" max-vertical-offset="4862" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_WriteBatch_Native.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="66" selection-start="573" selection-end="573" vertical-scroll-proportion="0.4087838" vertical-offset="154" max-vertical-offset="1210" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/prebuild">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="15" selection-start="254" selection-end="254" vertical-scroll-proportion="0.5574324" vertical-offset="0" max-vertical-offset="770" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="471" selection-end="471" vertical-scroll-proportion="0.6219081" vertical-offset="0" max-vertical-offset="1056">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/.gitignore">
@@ -2174,15 +2332,105 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="14" selection-start="1591" selection-end="1591" vertical-scroll-proportion="-5.6923075" vertical-offset="1260" max-vertical-offset="1826">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/WriteBatch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="52" selection-start="3694" selection-end="3694" vertical-scroll-proportion="4.0276337" vertical-offset="0" max-vertical-offset="5786">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#WriteBatch#0" expanded="true" />
+            <element signature="docComment;class#Native#0;class#WriteBatch#0" expanded="true" />
+            <element signature="docComment;method#nativePointer#0;class#Native#0;class#WriteBatch#0" expanded="true" />
+            <element signature="docComment;method#close#0;class#Native#0;class#WriteBatch#0" expanded="true" />
+            <element signature="docComment;method#isClosed#0;class#Native#0;class#WriteBatch#0" expanded="true" />
+            <element signature="docComment;method#ncreate#0;class#Native#0;class#WriteBatch#0" expanded="true" />
+            <element signature="docComment;method#nput#0;class#Native#0;class#WriteBatch#0" expanded="true" />
+            <element signature="docComment;method#ndelete#0;class#Native#0;class#WriteBatch#0" expanded="true" />
+            <element signature="docComment;method#nclose#0;class#Native#0;class#WriteBatch#0" expanded="true" />
+            <element signature="docComment;class#Operation#0;class#WriteBatch#0" expanded="true" />
+            <element signature="class#Operation#0;class#WriteBatch#0" expanded="true" />
+            <element signature="docComment;method#WriteBatch#0;class#WriteBatch#0" expanded="true" />
+            <element signature="docComment;method#put#0;class#WriteBatch#0" expanded="true" />
+            <element signature="docComment;method#put#1;class#WriteBatch#0" expanded="true" />
+            <element signature="docComment;method#put#2;class#WriteBatch#0" expanded="true" />
+            <element signature="docComment;method#del#0;class#WriteBatch#0" expanded="true" />
+            <element signature="docComment;method#del#1;class#WriteBatch#0" expanded="true" />
+            <element signature="docComment;method#toNative#0;class#WriteBatch#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="29" selection-start="1077" selection-end="1077" vertical-scroll-proportion="0.27450982" vertical-offset="678" max-vertical-offset="1034">
+        <state line="23" column="21" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1034">
           <folding>
-            <element signature="e#242#838#0" expanded="true" />
-            <element signature="e#319#611#0" expanded="true" />
             <element signature="e#632#835#0" expanded="true" />
+            <element signature="e#882#1218#0" expanded="true" />
             <element signature="e#1132#1216#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="3" selection-start="22" selection-end="2005" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="9900">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#destroy#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#repair#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#LevelDB#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#LevelDB#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#close#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#put#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#put#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#put#2;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#put#4;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getBytes#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getBytes#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#get#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#del#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#del#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#del#2;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getPropertyBytes#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getProperty#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getProperty#1;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#getPath#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#setPath#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#isClosed#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#checkIfClosed#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nopen#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nclose#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nput#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#ndelete#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nget#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#ngetProperty#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#ndestroy#0;class#LevelDB#0" expanded="true" />
+            <element signature="docComment;method#nrepair#0;class#LevelDB#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_LevelDB.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="0" selection-start="1984" selection-end="1984" vertical-scroll-proportion="0.0" vertical-offset="376" max-vertical-offset="6556">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_WriteBatch_Native.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="3" selection-start="1983" selection-end="1983" vertical-scroll-proportion="0.9256757" vertical-offset="332" max-vertical-offset="2134">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2192,6 +2440,18 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="Copyright.UI">
+        <settings>
+          <last-edited>BSD 3-Clause</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
