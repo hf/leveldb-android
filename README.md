@@ -67,3 +67,11 @@ support NDK, this is the way to build this project.
 * Snappy compression
 * Support Table API
 * `LevelDB#close()` in `Object#finalize()` (probably a very bad idea)
+
+## License
+
+This wrapper library is licensed under the
+[BSD 3-Clause License](http://opensource.org/licenses/BSD-3-Clause),
+same as the code from Google.
+
+See `LICENSE.txt` for the full Copyright.
