@@ -2,21 +2,17 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-$(shell TARGET_OS=OS_ANDROID_CROSSCOMPILE $(LOCAL_PATH)/leveldb/build_detect_platform $(LOCAL_PATH)/leveldb/common.mk $(LOCAL_PATH)/leveldb)
+$(shell TARGET_OS=OS_ANDROID_CROSSCOMPILE $(LOCAL_PATH)/leveldb/build_detect_platform $(LOCAL_PATH)/common.mk $(LOCAL_PATH)/leveldb)
 
-include $(LOCAL_PATH)/leveldb/common.mk
+include $(LOCAL_PATH)/common.mk
 
 LEVELDB_SOURCES := $(foreach source, $(SOURCES), leveldb/$(source))
-
-$(info $(LEVELDB_SOURCES))
 
 LOCAL_MODULE := leveldb
 LOCAL_CXXFLAGS += $(PLATFORM_CXXFLAGS)
 
-$(info $(LOCAL_CXXFLAGS))
-
 LOCAL_C_INCLUDES := $(LOCAL_PATH) $(LOCAL_PATH)/leveldb $(LOCAL_PATH)/leveldb/include
-LOCAL_SRC_FILES := $(LEVELDB_SOURCES) org_leveldb_LevelDB.cc
+LOCAL_SRC_FILES := $(LEVELDB_SOURCES) org_leveldb_LevelDB.cc org_leveldb_WriteBatch_Native.cc
 LOCAL_LDLIBS += -llog -ldl
 
 include $(BUILD_SHARED_LIBRARY)

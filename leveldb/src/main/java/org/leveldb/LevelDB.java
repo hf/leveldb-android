@@ -4,10 +4,12 @@ import android.util.Log;
 import org.leveldb.exception.LevelDBClosedException;
 import org.leveldb.exception.LevelDBException;
 
+import java.io.Closeable;
+
 /**
  * Object for interacting with the native LevelDB.
  */
-public class LevelDB {
+public class LevelDB implements Closeable {
     static {
         System.loadLibrary("leveldb");
     }
@@ -67,6 +69,7 @@ public class LevelDB {
      * Closes this database, i.e. releases native resources. You may call this multiple times. You cannot use any other
      * method on this object after closing it.
      */
+    @Override
     public void close() {
         if (ndb != 0) {
             nclose(ndb);
@@ -143,6 +146,22 @@ public class LevelDB {
      */
     public void put(String key, String value) throws LevelDBException {
         put(key, value, false);
+    }
+
+    public void write(WriteBatch writeBatch, boolean sync) throws LevelDBException {
+        checkIfClosed();
+
+        WriteBatch.Native nativeWriteBatch = writeBatch.toNative();
+
+        nwrite(ndb, sync, nativeWriteBatch.nativePointer());
+
+        nativeWriteBatch.close();
+
+        nativeWriteBatch = null;
+    }
+
+    public void write(WriteBatch writeBatch) throws LevelDBException {
+        write(writeBatch, false);
     }
 
     /**
@@ -355,6 +374,8 @@ public class LevelDB {
      * @throws LevelDBException
      */
     private static native void ndelete(long ndb, boolean sync, byte[] key) throws LevelDBException;
+
+    private static native void nwrite(long ndb, boolean sync, long nwb) throws LevelDBException;
 
     /**
      * Natively retrieves key-value pair from the database. Pointer is unchecked.

@@ -79,86 +79,7 @@
     <favorites_list name="leveldb" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="LevelDB.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="183" column="28" selection-start="6000" selection-end="6000" vertical-scroll-proportion="5.7727275" vertical-offset="3645" max-vertical-offset="8778">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#destroy#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#repair#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#LevelDB#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#LevelDB#1;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#close#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#put#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#put#1;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#put#2;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#put#3;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#put#4;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#getBytes#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#getBytes#1;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#get#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#del#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#del#1;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#del#2;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#getPropertyBytes#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#getProperty#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#getProperty#1;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#getPath#0;class#LevelDB#0" expanded="true" />
-                <element signature="e#9002#9003#0" expanded="true" />
-                <element signature="e#9029#9030#0" expanded="true" />
-                <element signature="docComment;method#setPath#0;class#LevelDB#0" expanded="true" />
-                <element signature="e#9161#9162#0" expanded="true" />
-                <element signature="e#9193#9194#0" expanded="true" />
-                <element signature="docComment;method#isClosed#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#checkIfClosed#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#nopen#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#nclose#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#nput#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#ndelete#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#nget#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#ngetProperty#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#ndestroy#0;class#LevelDB#0" expanded="true" />
-                <element signature="docComment;method#nrepair#0;class#LevelDB#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LevelDBClosedException.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBClosedException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="26" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="440">
-              <folding>
-                <element signature="docComment;class#LevelDBClosedException#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="db.h" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/leveldb/include/leveldb/db.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="109" column="0" selection-start="4030" selection-end="4482" vertical-scroll-proportion="23.88889" vertical-offset="3043" max-vertical-offset="3674">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LevelDBTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/leveldb/src/androidTest/java/org/leveldb/test/LevelDBTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="36" selection-start="1367" selection-end="1367" vertical-scroll-proportion="0.0" vertical-offset="904" max-vertical-offset="1540">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -183,10 +104,6 @@
           </key>
           <value>
             <list>
-              <ExternalProjectPojo>
-                <option name="name" value=":test" />
-                <option name="path" value="$PROJECT_DIR$/test" />
-              </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value=":leveldb" />
                 <option name="path" value="$PROJECT_DIR$/leveldb" />
@@ -653,14 +570,29 @@
                 <option name="name" value="assemble" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Assembles all Arm builds" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="assembleArm" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles the Debug build for flavor Arm" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="assembleArmDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles the Test build for the ArmDebug build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="assembleArmDebugTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles the Release build for flavor Arm" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="assembleArmRelease" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Assembles all Debug builds" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
                 <option name="name" value="assembleDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles the Test build for the Debug build" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="assembleDebugTest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
@@ -672,6 +604,31 @@
                 <option name="name" value="assembleRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Assembles all the Test applications" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="assembleTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles all X86 builds" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="assembleX86" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles the Debug build for flavor X86" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="assembleX86Debug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles the Test build for the X86Debug build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="assembleX86DebugTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles the Release build for flavor X86" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="assembleX86Release" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Assembles and tests this project." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
                 <option name="name" value="build" />
@@ -687,14 +644,24 @@
                 <option name="name" value="buildNeeded" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Assembles a bundle containing the library in Debug." />
+                <option name="description" value="Assembles a bundle containing the library in ArmDebug." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="bundleDebug" />
+                <option name="name" value="bundleArmDebug" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Assembles a bundle containing the library in Release." />
+                <option name="description" value="Assembles a bundle containing the library in ArmRelease." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="bundleRelease" />
+                <option name="name" value="bundleArmRelease" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles a bundle containing the library in X86Debug." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="bundleX86Debug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles a bundle containing the library in X86Release." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="bundleX86Release" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs all checks." />
@@ -703,11 +670,19 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="checkDebugManifest" />
+                <option name="name" value="checkArmDebugManifest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="checkReleaseManifest" />
+                <option name="name" value="checkArmReleaseManifest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="checkX86DebugManifest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="checkX86ReleaseManifest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Deletes the build directory." />
@@ -716,35 +691,51 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="compileDebugAidl" />
+                <option name="name" value="compileArmDebugAidl" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="compileDebugJava" />
+                <option name="name" value="compileArmDebugJava" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="compileDebugNdk" />
+                <option name="name" value="compileArmDebugNdk" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="compileDebugRenderscript" />
+                <option name="name" value="compileArmDebugRenderscript" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="compileDebugTestAidl" />
+                <option name="name" value="compileArmDebugTestAidl" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="compileDebugTestJava" />
+                <option name="name" value="compileArmDebugTestJava" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="compileDebugTestNdk" />
+                <option name="name" value="compileArmDebugTestNdk" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="compileDebugTestRenderscript" />
+                <option name="name" value="compileArmDebugTestRenderscript" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="compileArmReleaseAidl" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="compileArmReleaseJava" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="compileArmReleaseNdk" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="compileArmReleaseRenderscript" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
@@ -752,24 +743,66 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="compileReleaseAidl" />
+                <option name="name" value="compileX86DebugAidl" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="compileReleaseJava" />
+                <option name="name" value="compileX86DebugJava" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="compileReleaseNdk" />
+                <option name="name" value="compileX86DebugNdk" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="compileReleaseRenderscript" />
+                <option name="name" value="compileX86DebugRenderscript" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Installs and runs the tests for Build 'debug' on connected devices." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="compileX86DebugTestAidl" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="compileX86DebugTestJava" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="compileX86DebugTestNdk" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="compileX86DebugTestRenderscript" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="compileX86ReleaseAidl" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="compileX86ReleaseJava" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="compileX86ReleaseNdk" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="compileX86ReleaseRenderscript" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Installs and runs instrumentation tests for all flavors on connected devices." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
                 <option name="name" value="connectedAndroidTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Installs and runs the tests for Build 'armDebug' on connected devices." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="connectedAndroidTestArmDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Installs and runs the tests for Build 'x86Debug' on connected devices." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="connectedAndroidTestX86Debug" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs all device checks on currently connected devices." />
@@ -778,11 +811,24 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="copyDebugLint" />
+                <option name="name" value="copyArmDebugLint" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="copyReleaseLint" />
+                <option name="name" value="copyArmReleaseLint" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="copyX86DebugLint" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="copyX86ReleaseLint" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Installs and runs instrumentation tests using all Device Providers." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="deviceAndroidTest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs all device checks using Device Providers and Test Servers." />
@@ -791,60 +837,117 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="dexDebugTest" />
+                <option name="name" value="dexArmDebugTest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="generateDebugBuildConfig" />
+                <option name="name" value="dexX86DebugTest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="generateDebugResValues" />
+                <option name="name" value="generateArmDebugBuildConfig" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="generateDebugResources" />
+                <option name="name" value="generateArmDebugResValues" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="generateDebugSources" />
+                <option name="name" value="generateArmDebugResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="generateDebugTestBuildConfig" />
+                <option name="name" value="generateArmDebugSources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="generateDebugTestResValues" />
+                <option name="name" value="generateArmDebugTestBuildConfig" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="generateDebugTestResources" />
+                <option name="name" value="generateArmDebugTestResValues" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="generateDebugTestSources" />
+                <option name="name" value="generateArmDebugTestResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="generateReleaseBuildConfig" />
+                <option name="name" value="generateArmDebugTestSources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="generateReleaseResValues" />
+                <option name="name" value="generateArmReleaseBuildConfig" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="generateReleaseResources" />
+                <option name="name" value="generateArmReleaseResValues" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="generateReleaseSources" />
+                <option name="name" value="generateArmReleaseResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Installs the Test build for the Debug build" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="installDebugTest" />
+                <option name="name" value="generateArmReleaseSources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="generateX86DebugBuildConfig" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="generateX86DebugResValues" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="generateX86DebugResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="generateX86DebugSources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="generateX86DebugTestBuildConfig" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="generateX86DebugTestResValues" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="generateX86DebugTestResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="generateX86DebugTestSources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="generateX86ReleaseBuildConfig" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="generateX86ReleaseResValues" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="generateX86ReleaseResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="generateX86ReleaseSources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Installs the Test build for the ArmDebug build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="installArmDebugTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Installs the Test build for the X86Debug build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="installX86DebugTest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs lint on all variants." />
@@ -852,82 +955,172 @@
                 <option name="name" value="lint" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Runs lint on the Debug build" />
+                <option name="description" value="Runs lint on the ArmDebug build" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="lintDebug" />
+                <option name="name" value="lintArmDebug" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Runs lint on the Release build" />
+                <option name="description" value="Runs lint on the ArmRelease build" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="lintRelease" />
+                <option name="name" value="lintArmRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Runs lint on the X86Debug build" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="mergeDebugAssets" />
+                <option name="name" value="lintX86Debug" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Runs lint on the X86Release build" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="mergeDebugProguardFiles" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="mergeDebugTestAssets" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="mergeDebugTestResources" />
+                <option name="name" value="lintX86Release" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="mergeReleaseAssets" />
+                <option name="name" value="mergeArmDebugAssets" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="mergeReleaseProguardFiles" />
+                <option name="name" value="mergeArmDebugProguardFiles" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="packageDebugJar" />
+                <option name="name" value="mergeArmDebugTestAssets" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="packageDebugJniLibs" />
+                <option name="name" value="mergeArmDebugTestResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="packageDebugLocalJar" />
+                <option name="name" value="mergeArmReleaseAssets" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="packageDebugRenderscript" />
+                <option name="name" value="mergeArmReleaseProguardFiles" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="packageDebugResources" />
+                <option name="name" value="mergeX86DebugAssets" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="packageDebugTest" />
+                <option name="name" value="mergeX86DebugProguardFiles" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="packageReleaseJar" />
+                <option name="name" value="mergeX86DebugTestAssets" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="packageReleaseJniLibs" />
+                <option name="name" value="mergeX86DebugTestResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="packageReleaseLocalJar" />
+                <option name="name" value="mergeX86ReleaseAssets" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="packageReleaseRenderscript" />
+                <option name="name" value="mergeX86ReleaseProguardFiles" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="packageReleaseResources" />
+                <option name="name" value="packageArmDebugJar" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageArmDebugJniLibs" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageArmDebugLocalJar" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageArmDebugRenderscript" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageArmDebugResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageArmDebugTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageArmReleaseJar" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageArmReleaseJniLibs" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageArmReleaseLocalJar" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageArmReleaseRenderscript" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageArmReleaseResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageX86DebugJar" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageX86DebugJniLibs" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageX86DebugLocalJar" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageX86DebugRenderscript" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageX86DebugResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageX86DebugTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageX86ReleaseJar" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageX86ReleaseJniLibs" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageX86ReleaseLocalJar" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageX86ReleaseRenderscript" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="packageX86ReleaseResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="preArmDebugBuild" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="preArmDebugTestBuild" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="preArmReleaseBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
@@ -935,67 +1128,119 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="preDebugBuild" />
+                <option name="name" value="preDexArmDebugTest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="preDebugTestBuild" />
+                <option name="name" value="preDexX86DebugTest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="preDexDebugTest" />
+                <option name="name" value="preX86DebugBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="preReleaseBuild" />
+                <option name="name" value="preX86DebugTestBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="prepareDebugDependencies" />
+                <option name="name" value="preX86ReleaseBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="prepareDebugTestDependencies" />
+                <option name="name" value="prepareArmDebugDependencies" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="prepareReleaseDependencies" />
+                <option name="name" value="prepareArmDebugTestDependencies" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="processDebugJavaRes" />
+                <option name="name" value="prepareArmReleaseDependencies" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="processDebugManifest" />
+                <option name="name" value="prepareX86DebugDependencies" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="processDebugResources" />
+                <option name="name" value="prepareX86DebugTestDependencies" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="processDebugTestJavaRes" />
+                <option name="name" value="prepareX86ReleaseDependencies" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="processDebugTestManifest" />
+                <option name="name" value="processArmDebugJavaRes" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="processDebugTestResources" />
+                <option name="name" value="processArmDebugManifest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="processReleaseJavaRes" />
+                <option name="name" value="processArmDebugResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="processReleaseManifest" />
+                <option name="name" value="processArmDebugTestJavaRes" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="processReleaseResources" />
+                <option name="name" value="processArmDebugTestManifest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="processArmDebugTestResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="processArmReleaseJavaRes" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="processArmReleaseManifest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="processArmReleaseResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="processX86DebugJavaRes" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="processX86DebugManifest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="processX86DebugResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="processX86DebugTestJavaRes" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="processX86DebugTestManifest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="processX86DebugTestResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="processX86ReleaseJavaRes" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="processX86ReleaseManifest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="processX86ReleaseResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Displays the signing info for each variant" />
@@ -1008,379 +1253,17 @@
                 <option name="name" value="uninstallAll" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Uninstalls the Test build for the Debug build" />
+                <option name="description" value="Uninstalls the Test build for the ArmDebug build" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="uninstallDebugTest" />
+                <option name="name" value="uninstallArmDebugTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Uninstalls the Test build for the X86Debug build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
+                <option name="name" value="uninstallX86DebugTest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/leveldb" />
-                <option name="name" value="validateDebugSigning" />
-              </ExternalTaskPojo>
-            </list>
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/test">
-          <value>
-            <list>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the Android dependencies of the project" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="androidDependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles all variants of all applications and secondary packages." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="assemble" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles all Debug builds" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="assembleDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles the Test build for the Debug build" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="assembleDebugTest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles all Release builds" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="assembleRelease" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="build" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project and all projects that depend on it." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="buildDependents" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project and all projects it depends on." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="buildNeeded" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs all checks." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="check" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="checkDebugManifest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="checkReleaseManifest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Deletes the build directory." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="clean" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="compileDebugAidl" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="compileDebugJava" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="compileDebugNdk" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="compileDebugRenderscript" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="compileDebugTestAidl" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="compileDebugTestJava" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="compileDebugTestNdk" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="compileDebugTestRenderscript" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="compileLint" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="compileReleaseAidl" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="compileReleaseJava" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="compileReleaseNdk" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="compileReleaseRenderscript" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Installs and runs the tests for Build 'debug' on connected devices." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="connectedAndroidTest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs all device checks on currently connected devices." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="connectedCheck" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs all device checks using Device Providers and Test Servers." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="deviceCheck" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="dexDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="dexDebugTest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="dexRelease" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="generateDebugBuildConfig" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="generateDebugResValues" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="generateDebugResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="generateDebugSources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="generateDebugTestBuildConfig" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="generateDebugTestResValues" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="generateDebugTestResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="generateDebugTestSources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="generateReleaseBuildConfig" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="generateReleaseResValues" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="generateReleaseResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="generateReleaseSources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Installs the Debug build" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="installDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Installs the Test build for the Debug build" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="installDebugTest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs lint on all variants." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="lint" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs lint on the Debug build" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="lintDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs lint on the Release build" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="lintRelease" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs lint on just the fatal issues in the Release build" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="lintVitalRelease" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="mergeDebugAssets" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="mergeDebugResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="mergeDebugTestAssets" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="mergeDebugTestResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="mergeReleaseAssets" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="mergeReleaseResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="packageDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="packageDebugTest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="packageRelease" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="preBuild" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="preDebugBuild" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="preDebugTestBuild" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="preDexDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="preDexDebugTest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="preDexRelease" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="preReleaseBuild" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:appcompat-v7:19.1.0" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="prepareComAndroidSupportAppcompatV71910Library" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="prepareDebugDependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="prepareDebugTestDependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="prepareReleaseDependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="processDebugJavaRes" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="processDebugManifest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="processDebugResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="processDebugTestJavaRes" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="processDebugTestManifest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="processDebugTestResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="processReleaseJavaRes" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="processReleaseManifest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="processReleaseResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the signing info for each variant" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="signingReport" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Uninstall all applications." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="uninstallAll" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Uninstalls the Debug build" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="uninstallDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Uninstalls the Test build for the Debug build" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="uninstallDebugTest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Uninstalls the Release build" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
-                <option name="name" value="uninstallRelease" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/test" />
                 <option name="name" value="validateDebugSigning" />
               </ExternalTaskPojo>
             </list>
@@ -1596,7 +1479,6 @@
         <option value="$PROJECT_DIR$/leveldb/src/instrumentTest/java/org/leveldb/LevelDBTest.java" />
         <option value="$PROJECT_DIR$/local.properties" />
         <option value="$PROJECT_DIR$/test/build.gradle" />
-        <option value="$PROJECT_DIR$/leveldb/build.gradle" />
         <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBNotSupportedException.java" />
         <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBInvalidArgumentException.java" />
         <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBException.java" />
@@ -1608,6 +1490,13 @@
         <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBClosedException.java" />
         <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java" />
         <option value="$PROJECT_DIR$/leveldb/src/androidTest/java/org/leveldb/test/LevelDBTest.java" />
+        <option value="$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/WriteBatch.java" />
+        <option value="$PROJECT_DIR$/leveldb/build.gradle" />
+        <option value="$PROJECT_DIR$/leveldb/src/main/jni/Android.mk" />
+        <option value="$PROJECT_DIR$/leveldb/src/main/jni-prebuild/.gitignore" />
+        <option value="$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_WriteBatch_Native.cc" />
+        <option value="$PROJECT_DIR$/leveldb/src/main/jni-prebuild/prebuild.sh" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -1679,7 +1568,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1778,139 +1666,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jni-prebuild" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leveldb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leveldb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leveldb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leveldb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jni-prebuild" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leveldb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leveldb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leveldb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leveldb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leveldb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leveldb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leveldb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leveldb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leveldb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leveldb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exception" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leveldb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leveldb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leveldb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="androidTest" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leveldb" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1920,6 +1688,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -1944,6 +1713,8 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -1997,19 +1768,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -2035,6 +1793,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2158,7 +1929,6 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.52342486" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -2167,18 +1937,19 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.82875603" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.82875603" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2203,11 +1974,26 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
+    <entry file="file://$PROJECT_DIR$/leveldb/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="53" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1034">
+        <state line="1" column="13" selection-start="20" selection-end="20" vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="264">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="924">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="53" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1034" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/build.gradle">
@@ -2226,23 +2012,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/local.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="42" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="154">
-          <folding />
-        </state>
+        <state line="1" column="42" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="154" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="69" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="264">
-          <folding />
-        </state>
+        <state line="5" column="69" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="264" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="53" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1034">
-          <folding />
-        </state>
+        <state line="39" column="53" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1034" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/build.gradle">
@@ -2261,16 +2041,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/local.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="42" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="154">
-          <folding />
-        </state>
+        <state line="1" column="42" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="154" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="69" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="264">
-          <folding />
-        </state>
+        <state line="5" column="69" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="264" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/main/AndroidManifest.xml">
@@ -2299,16 +2075,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="69" selection-start="222" selection-end="222" vertical-scroll-proportion="0.19332162" vertical-offset="0" max-vertical-offset="569">
-          <folding />
-        </state>
+        <state line="5" column="69" selection-start="222" selection-end="222" vertical-scroll-proportion="0.19332162" vertical-offset="0" max-vertical-offset="569" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/local.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="42" selection-start="81" selection-end="81" vertical-scroll-proportion="0.038664322" vertical-offset="0" max-vertical-offset="569">
-          <folding />
-        </state>
+        <state line="1" column="42" selection-start="81" selection-end="81" vertical-scroll-proportion="0.038664322" vertical-offset="0" max-vertical-offset="569" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.gradle">
@@ -2320,81 +2092,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/build/reports/androidTests/connected/all/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1826">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="31" selection-start="605" selection-end="605" vertical-scroll-proportion="0.0" vertical-offset="95" max-vertical-offset="1034">
-          <folding>
-            <element signature="e#633#836#0" expanded="false" />
-            <element signature="e#647#722#0" expanded="false" />
-            <element signature="e#665#712#0" expanded="false" />
-            <element signature="e#665#712#0" expanded="false" />
-            <element signature="e#735#830#0" expanded="false" />
-            <element signature="e#753#820#0" expanded="false" />
-            <element signature="e#753#820#0" expanded="false" />
-            <element signature="e#854#858#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1826" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBIOException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-          <folding />
-        </state>
+        <state line="1" column="0" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBNotFoundException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="62" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308">
-          <folding />
-        </state>
+        <state line="5" column="62" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBCorruptionException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="64" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308">
-          <folding />
-        </state>
+        <state line="5" column="64" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="51" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308">
-          <folding />
-        </state>
+        <state line="6" column="51" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBClosedException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="26" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="440">
-          <folding>
-            <element signature="docComment;class#LevelDBClosedException#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/leveldb/include/leveldb/db.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="0" selection-start="4030" selection-end="4482" vertical-scroll-proportion="23.88889" vertical-offset="3043" max-vertical-offset="3674">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="34" selection-start="296" selection-end="296" vertical-scroll-proportion="0.30397236" vertical-offset="0" max-vertical-offset="579">
-          <folding />
-        </state>
+        <state line="7" column="26" selection-start="201" selection-end="201" vertical-scroll-proportion="0.26013514" vertical-offset="0" max-vertical-offset="592" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/androidTest/java/org/leveldb/test/LevelDBTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="36" selection-start="1367" selection-end="1367" vertical-scroll-proportion="0.0" vertical-offset="904" max-vertical-offset="1540">
+        <state line="78" column="36" selection-start="2109" selection-end="2109" vertical-scroll-proportion="0.5168919" vertical-offset="1366" max-vertical-offset="1958">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2403,46 +2131,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="183" column="28" selection-start="6000" selection-end="6000" vertical-scroll-proportion="5.7727275" vertical-offset="3645" max-vertical-offset="8778">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#destroy#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#repair#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#LevelDB#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#LevelDB#1;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#close#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#put#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#put#1;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#put#2;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#put#3;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#put#4;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#getBytes#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#getBytes#1;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#get#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#del#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#del#1;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#del#2;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#getPropertyBytes#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#getProperty#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#getProperty#1;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#getPath#0;class#LevelDB#0" expanded="true" />
-            <element signature="e#9002#9003#0" expanded="true" />
-            <element signature="e#9029#9030#0" expanded="true" />
-            <element signature="docComment;method#setPath#0;class#LevelDB#0" expanded="true" />
-            <element signature="e#9161#9162#0" expanded="true" />
-            <element signature="e#9193#9194#0" expanded="true" />
-            <element signature="docComment;method#isClosed#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#checkIfClosed#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#nopen#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#nclose#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#nput#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#ndelete#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#nget#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#ngetProperty#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#ndestroy#0;class#LevelDB#0" expanded="true" />
-            <element signature="docComment;method#nrepair#0;class#LevelDB#0" expanded="true" />
-          </folding>
+        <state line="128" column="49" selection-start="4114" selection-end="4114" vertical-scroll-proportion="0.0" vertical-offset="1890" max-vertical-offset="9240" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="74" selection-start="540" selection-end="540" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="10" selection-start="10" selection-end="10" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="388" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/WriteBatch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="52" selection-start="2833" selection-end="2833" vertical-scroll-proportion="0.0" vertical-offset="1599" max-vertical-offset="4862" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_WriteBatch_Native.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="66" selection-start="573" selection-end="573" vertical-scroll-proportion="0.4087838" vertical-offset="154" max-vertical-offset="1210" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/prebuild">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="15" selection-start="254" selection-end="254" vertical-scroll-proportion="0.5574324" vertical-offset="0" max-vertical-offset="770" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="471" selection-end="471" vertical-scroll-proportion="0.6219081" vertical-offset="0" max-vertical-offset="1056">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="13" selection-start="20" selection-end="20" vertical-scroll-proportion="0.037162162" vertical-offset="0" max-vertical-offset="592">
+          <folding />
         </state>
       </provider>
     </entry>

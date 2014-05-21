@@ -1,0 +1,29 @@
+#!/bin/bash
+
+PREBUILD_DIR=`dirname $0`
+
+JNI_DIR=$PREBUILD_DIR/../jni
+JNI_LIBS_DIR=$PREBUILD_DIR/../jniLibs
+
+LIBS_DIR=$PREBUILD_DIR/../libs
+
+rm -rf $JNI_DIR
+rm -fr $JNI_LIBS_DIR
+cp -r $PREBUILD_DIR $JNI_DIR
+
+ndk-build --directory $JNI_DIR
+
+BUILD_STATUS=$?
+
+if [ $BUILD_STATUS -eq 0 ]
+then
+    cp -r $LIBS_DIR $JNI_LIBS_DIR
+fi
+
+rm -rf $JNI_DIR
+
+exit $BUILD_STATUS
+
+
+
+

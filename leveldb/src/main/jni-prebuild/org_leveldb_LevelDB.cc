@@ -1,6 +1,7 @@
 #include "org_leveldb_LevelDB.h"
 #include <iostream>
 #include "leveldb/db.h"
+#include "leveldb/write_batch.h"
 #include "leveldb/env.h"
 #include <android/log.h>
 
@@ -110,6 +111,23 @@ JNIEXPORT void JNICALL Java_org_leveldb_LevelDB_nput
 
   env->ReleaseByteArrayElements(key, (jbyte*) keyData, 0);
   env->ReleaseByteArrayElements(value, (jbyte*) valueData, 0);
+
+  throwExceptionFromStatus(env, status);
+}
+
+JNIEXPORT void JNICALL Java_org_leveldb_LevelDB_nwrite
+  (JNIEnv *env, jclass cself, jlong ndb, jboolean sync, jlong nwb) {
+
+  NDBHolder* holder = (NDBHolder*) ndb;
+
+  leveldb::DB* db = holder->db;
+
+  leveldb::WriteOptions options;
+  options.sync = sync == JNI_TRUE;
+
+  leveldb::WriteBatch* wb = (leveldb::WriteBatch*) nwb;
+
+  leveldb::Status status = db->Write(options, wb);
 
   throwExceptionFromStatus(env, status);
 }

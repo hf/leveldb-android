@@ -41,6 +41,14 @@ JNIEXPORT void JNICALL Java_org_leveldb_LevelDB_ndelete
 
 /*
  * Class:     org_leveldb_LevelDB
+ * Method:    nwrite
+ * Signature: (JZJ)V
+ */
+JNIEXPORT void JNICALL Java_org_leveldb_LevelDB_nwrite
+  (JNIEnv *, jclass, jlong, jboolean, jlong);
+
+/*
+ * Class:     org_leveldb_LevelDB
  * Method:    nget
  * Signature: (J[B)[B
  */

@@ -2,6 +2,7 @@ package org.leveldb.test;
 
 import android.test.InstrumentationTestCase;
 import org.leveldb.LevelDB;
+import org.leveldb.WriteBatch;
 import org.leveldb.exception.LevelDBException;
 import org.leveldb.exception.LevelDBIOException;
 
@@ -61,6 +62,24 @@ public class LevelDBTest extends InstrumentationTestCase {
 
         levelDB.close();
 
-        levelDB.destroy(getPath("leveldb-test"));
+        LevelDB.destroy(getPath("leveldb-test"));
+    }
+
+    public void testWriteBatch() throws Exception {
+        LevelDB levelDB = new LevelDB(getPath("leveldb-test"), true);
+
+        levelDB.write(new WriteBatch().put("key", "value").put("data", "store"));
+
+        assertEquals("value", levelDB.get("key"));
+        assertEquals("store", levelDB.get("data"));
+
+        levelDB.write(new WriteBatch().put("key", "value1").del("data"));
+
+        assertEquals("value1", levelDB.get("key"));
+        assertNull(levelDB.get("data"));
+
+        levelDB.close();
+
+        LevelDB.destroy(getPath("leveldb-test"));
     }
 }
