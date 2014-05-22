@@ -29,20 +29,6 @@ android {
         testHandleProfiling true
         testFunctionalTest true
     }
-
-    productFlavors {
-        x86 {
-            ndk {
-                abiFilter "x86"
-            }
-        }
-        arm {
-            ndk {
-                abiFilters "armeabi-v7a", "armeabi"
-            }
-        }
-    }
-
 }
 
 dependencies {
