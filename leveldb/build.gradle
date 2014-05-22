@@ -49,14 +49,14 @@ dependencies {
 
 }
 
-task 'preBuildLevelDB' {
-    mustRunAfter 'preBuild', 'preDebugBuild', 'preDebugTestBuild', 'preReleaseBuild', \
-        'preArmDebugBuild', 'preArmDebugTestBuild', 'preArmReleaseBuild', \
-         'preX86DebugBuild', 'preX86DebugTestBuild', 'preX86ReleaseBuild'
+task preBuildLevelDB {
 
-    exec {
-        workingDir 'src/main/jni-prebuild'
-
-        commandLine './prebuild'
+    doLast {
+        exec {
+            commandLine 'sh', projectDir.getAbsolutePath() + '/src/main/jni-prebuild/prebuild'
+        }
     }
 }
+
+preBuild.dependsOn preBuildLevelDB
+preBuild {}.mustRunAfter preBuildLevelDB
