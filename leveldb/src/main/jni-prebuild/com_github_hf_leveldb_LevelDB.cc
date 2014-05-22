@@ -42,9 +42,12 @@
 
 #include "com_github_hf_leveldb_LevelDB.h"
 #include <iostream>
+
 #include "leveldb/db.h"
 #include "leveldb/write_batch.h"
 #include "leveldb/env.h"
+#include "leveldb/cache.h"
+
 #include <android/log.h>
 
 // Redirects leveldb's logging to the Android logger.
@@ -59,10 +62,12 @@ public:
 // closed in Java_com_github_hf_leveldb_LevelDB_nclose.
 class NDBHolder {
 public:
-  NDBHolder(leveldb::DB* ldb, AndroidLogger* llogger) : db(ldb), logger(llogger) {}
+  NDBHolder(leveldb::DB* ldb, AndroidLogger* llogger, leveldb::Cache* lcache) : db(ldb), logger(llogger), cache(lcache) {}
 
   leveldb::DB* db;
   AndroidLogger* logger;
+
+  leveldb::Cache* cache;
 };
 
 // Throws the appropriate Java exception for the given status. Make sure you
@@ -93,28 +98,46 @@ void throwExceptionFromStatus(JNIEnv *env, leveldb::Status &status) {
 }
 
 JNIEXPORT jlong JNICALL Java_com_github_hf_leveldb_LevelDB_nopen
-(JNIEnv *env, jclass cself, jboolean createIfMissing, jstring path) {
+(JNIEnv *env, jclass cself, jboolean createIfMissing, jint cacheSize, jint blockSize, jint writeBufferSize, jstring path) {
 
   const char *nativePath = env->GetStringUTFChars(path, 0);
 
   leveldb::DB *db;
 
   AndroidLogger* logger = new AndroidLogger();
+  leveldb::Cache* cache = NULL;
+
+  if (cacheSize != 0) {
+    cache = leveldb::NewLRUCache((size_t) cacheSize);
+  }
 
   leveldb::Options options;
   options.create_if_missing = createIfMissing == JNI_TRUE;
   options.info_log = logger;
+
+  if (cache != NULL) {
+    options.block_cache = cache;
+  }
+
+  if (blockSize != 0) {
+    options.block_size = (size_t) blockSize;
+  }
+
+  if (writeBufferSize != 0) {
+    options.write_buffer_size = (size_t) writeBufferSize;
+  }
 
   leveldb::Status status = leveldb::DB::Open(options, nativePath, &db);
 
   env->ReleaseStringUTFChars(path, nativePath);
 
   if (status.ok()) {
-    NDBHolder* holder = new NDBHolder(db, logger);
+    NDBHolder* holder = new NDBHolder(db, logger, cache);
 
     return (jlong) holder;
   } else {
     delete logger;
+    delete cache;
   }
 
   throwExceptionFromStatus(env, status);
@@ -128,6 +151,7 @@ JNIEXPORT void JNICALL Java_com_github_hf_leveldb_LevelDB_nclose
     NDBHolder* holder = (NDBHolder*) ndb;
 
     delete holder->db;
+    delete holder->cache;
     delete holder->logger;
     delete holder;
   }

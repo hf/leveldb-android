@@ -1,4 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.github.hf.leveldb">
+    package="org.leveldb">
+
+    <application android:allowBackup="true"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher">
+
+    </application>
 
 </manifest>

@@ -10,10 +10,10 @@ extern "C" {
 /*
  * Class:     com_github_hf_leveldb_LevelDB
  * Method:    nopen
- * Signature: (ZLjava/lang/String;)J
+ * Signature: (ZIIILjava/lang/String;)J
  */
 JNIEXPORT jlong JNICALL Java_com_github_hf_leveldb_LevelDB_nopen
-  (JNIEnv *, jclass, jboolean, jstring);
+  (JNIEnv *, jclass, jboolean, jint, jint, jint, jstring);
 
 /*
  * Class:     com_github_hf_leveldb_LevelDB

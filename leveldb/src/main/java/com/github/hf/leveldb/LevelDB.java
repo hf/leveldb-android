@@ -91,7 +91,7 @@ public class LevelDB implements Closeable {
      * @throws LevelDBException
      */
     public LevelDB(String path, boolean createIfMissing) throws LevelDBException {
-        ndb = nopen(createIfMissing, path);
+        ndb = nopen(createIfMissing, 2 * (2 << 10), 0, 0, path);
 
         setPath(path);
     }
@@ -387,7 +387,7 @@ public class LevelDB implements Closeable {
      * @return the native structure pointer
      * @throws LevelDBException
      */
-    private static native long nopen(boolean createIfMissing, String path) throws LevelDBException;
+    private static native long nopen(boolean createIfMissing, int cacheSize, int blockSize, int writeBufferSize, String path) throws LevelDBException;
 
     /**
      * Natively closes pointers and memory. Pointer is unchecked.

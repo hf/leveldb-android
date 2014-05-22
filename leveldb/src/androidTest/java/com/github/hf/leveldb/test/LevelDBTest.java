@@ -43,6 +43,7 @@ package com.github.hf.leveldb.test;
  */
 
 import android.test.InstrumentationTestCase;
+import android.util.Log;
 import com.github.hf.leveldb.LevelDB;
 import com.github.hf.leveldb.WriteBatch;
 import com.github.hf.leveldb.exception.LevelDBException;
@@ -91,7 +92,11 @@ public class LevelDBTest extends InstrumentationTestCase {
     public void testGetPutDeleteString() throws Exception {
         LevelDB levelDB = new LevelDB(getPath("leveldb-test"), true);
 
+        long start = System.currentTimeMillis();
         levelDB.put("key", "value");
+        long end = System.currentTimeMillis();
+
+        Log.d(LevelDBTest.class.getName(), String.format("Time: %d", end - start));
 
         String value = levelDB.get("key");
 
