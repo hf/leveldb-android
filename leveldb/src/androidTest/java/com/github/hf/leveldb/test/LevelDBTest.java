@@ -1,4 +1,4 @@
-package org.leveldb.test;
+package com.github.hf.leveldb.test;
 
 /*
  * Stojan Dimitrovski
@@ -43,10 +43,9 @@ package org.leveldb.test;
  */
 
 import android.test.InstrumentationTestCase;
-import org.leveldb.LevelDB;
-import org.leveldb.WriteBatch;
-import org.leveldb.exception.LevelDBException;
-import org.leveldb.exception.LevelDBIOException;
+import com.github.hf.leveldb.LevelDB;
+import com.github.hf.leveldb.WriteBatch;
+import com.github.hf.leveldb.exception.LevelDBException;
 
 import java.io.File;
 

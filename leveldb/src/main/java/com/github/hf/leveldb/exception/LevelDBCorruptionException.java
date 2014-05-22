@@ -1,4 +1,4 @@
-package org.leveldb.exception;
+package com.github.hf.leveldb.exception;
 
 /*
  * Stojan Dimitrovski
@@ -45,8 +45,8 @@ package org.leveldb.exception;
 /**
  * Created by hermann on 5/21/14.
  */
-public class LevelDBNotFoundException extends LevelDBException {
-    public LevelDBNotFoundException(String detailMessage) {
+public class LevelDBCorruptionException extends LevelDBException {
+    public LevelDBCorruptionException(String detailMessage) {
         super(detailMessage);
     }
 }

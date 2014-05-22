@@ -1,4 +1,4 @@
-package org.leveldb;
+package com.github.hf.leveldb;
 
 /*
  * Stojan Dimitrovski
@@ -43,8 +43,8 @@ package org.leveldb;
  */
 
 import android.util.Log;
-import org.leveldb.exception.LevelDBClosedException;
-import org.leveldb.exception.LevelDBException;
+import com.github.hf.leveldb.exception.LevelDBClosedException;
+import com.github.hf.leveldb.exception.LevelDBException;
 
 import java.io.Closeable;
 
@@ -101,7 +101,7 @@ public class LevelDB implements Closeable {
      *
      * @param path the path to the database
      * @throws LevelDBException
-     * @see org.leveldb.LevelDB#LevelDB(String, boolean)
+     * @see LevelDB#LevelDB(String, boolean)
      */
     public LevelDB(String path) throws LevelDBException {
         this(path, true);
@@ -147,7 +147,7 @@ public class LevelDB implements Closeable {
      * @param value the value
      * @param sync  whether this is a synchronous (true) or asynchronous (false) write
      * @throws LevelDBException
-     * @see org.leveldb.LevelDB#put(byte[], byte[], boolean)
+     * @see LevelDB#put(byte[], byte[], boolean)
      */
     public void put(String key, byte[] value, boolean sync) throws LevelDBException {
         put(key.getBytes(), value, sync);
@@ -159,7 +159,7 @@ public class LevelDB implements Closeable {
      * @param key   key to use, converted to byte using the system's default encoding
      * @param value the value
      * @throws LevelDBException
-     * @see org.leveldb.LevelDB#put(byte[], byte[], boolean)
+     * @see LevelDB#put(byte[], byte[], boolean)
      */
     public void put(String key, byte[] value) throws LevelDBException {
         put(key, value, false);
@@ -172,7 +172,7 @@ public class LevelDB implements Closeable {
      * @param value the value
      * @param sync  whether this is a synchronous (true) or asynchronous (false) write
      * @throws LevelDBException
-     * @see org.leveldb.LevelDB#put(byte[], byte[], boolean)
+     * @see LevelDB#put(byte[], byte[], boolean)
      */
     public void put(String key, String value, boolean sync) throws LevelDBException {
         put(key.getBytes(), value.getBytes(), sync);
@@ -184,7 +184,7 @@ public class LevelDB implements Closeable {
      * @param key   key to use, converted to byte using the system's default encoding
      * @param value the value
      * @throws LevelDBException
-     * @see org.leveldb.LevelDB#put(byte[], byte[], boolean)
+     * @see LevelDB#put(byte[], byte[], boolean)
      */
     public void put(String key, String value) throws LevelDBException {
         put(key, value, false);
@@ -225,7 +225,7 @@ public class LevelDB implements Closeable {
      * @param key the key, encoded with the system's encoding
      * @return the value, or <tt>null</tt>
      * @throws LevelDBException
-     * @see org.leveldb.LevelDB#getBytes(String)
+     * @see LevelDB#getBytes(String)
      */
     public byte[] getBytes(String key) throws LevelDBException {
         return getBytes(key.getBytes());
@@ -237,7 +237,7 @@ public class LevelDB implements Closeable {
      * @param key the key, encoded with the system's encoding
      * @return the value, decoded with the system's default encoding, or <tt>null</tt>
      * @throws LevelDBException
-     * @see org.leveldb.LevelDB#getBytes(byte[])
+     * @see LevelDB#getBytes(byte[])
      */
     public String get(String key) throws LevelDBException {
         byte[] value = getBytes(key);
@@ -268,7 +268,7 @@ public class LevelDB implements Closeable {
      * @param key  the key, encoded with the system's encoding
      * @param sync whether this is a synchronous (true) or asynchronous (false) delete
      * @throws LevelDBException
-     * @see org.leveldb.LevelDB#del(byte[], boolean)
+     * @see LevelDB#del(byte[], boolean)
      */
     public void del(String key, boolean sync) throws LevelDBException {
         del(key.getBytes(), sync);
@@ -316,7 +316,7 @@ public class LevelDB implements Closeable {
      * @param key the key
      * @return property data encoded with the system's default encoding, or <tt>null</tt>
      * @throws LevelDBClosedException
-     * @see org.leveldb.LevelDB#getPropertyBytes(byte[])
+     * @see LevelDB#getPropertyBytes(byte[])
      */
     public String getProperty(byte[] key) throws LevelDBClosedException {
         byte[] value = getPropertyBytes(key);
@@ -367,7 +367,7 @@ public class LevelDB implements Closeable {
     }
 
     /**
-     * Checks if this database has been closed. If it has, throws a {@link org.leveldb.exception.LevelDBClosedException}.
+     * Checks if this database has been closed. If it has, throws a {@link com.github.hf.leveldb.exception.LevelDBClosedException}.
      *
      * Use before calling any of the native functions that require the ndb pointer.
      *

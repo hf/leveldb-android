@@ -14,7 +14,7 @@ overhead.)
 
 Only the basic API is supported.
 
-LevelDB's native log output is tagged: `org.leveldb:N`
+LevelDB's native log output is tagged: `com.github.hf.leveldb:N`
 
 ## Example
 

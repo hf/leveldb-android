@@ -24,7 +24,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testPackageName "org.leveldb.test"
+        testPackageName "com.github.hf.leveldb.test"
         testInstrumentationRunner "android.test.InstrumentationTestRunner"
         testHandleProfiling true
         testFunctionalTest true

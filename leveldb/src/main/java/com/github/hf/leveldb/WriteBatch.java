@@ -1,4 +1,4 @@
-package org.leveldb;
+package com.github.hf.leveldb;
 
 /*
  * Stojan Dimitrovski
@@ -56,7 +56,7 @@ public class WriteBatch {
     /**
      * Native object a-la <tt>leveldb::WriteBatch</tt>.
      *
-     * Make sure after use you call {@link org.leveldb.WriteBatch.Native#close()}.
+     * Make sure after use you call {@link WriteBatch.Native#close()}.
      */
     protected static class Native implements Closeable {
         static {
@@ -178,7 +178,7 @@ public class WriteBatch {
     private LinkedList<Operation> operations;
 
     /**
-     * Creates a new empty WriteBatch. Use {@link org.leveldb.LevelDB#write(WriteBatch, boolean)} or variants to write
+     * Creates a new empty WriteBatch. Use {@link LevelDB#write(WriteBatch, boolean)} or variants to write
      * it to the database.
      */
     public WriteBatch() {
@@ -191,7 +191,7 @@ public class WriteBatch {
      * @param key   the key to write
      * @param value the value to write
      * @return the WriteBatch object for chaining
-     * @see org.leveldb.LevelDB#put(byte[], byte[], boolean)
+     * @see LevelDB#put(byte[], byte[], boolean)
      */
     public WriteBatch put(byte[] key, byte[] value) {
         operations.add(Operation.put(key, value));
@@ -205,7 +205,7 @@ public class WriteBatch {
      * @param key   the key to write
      * @param value the value to write
      * @return the WriteBatch object for chaining
-     * @see org.leveldb.LevelDB#put(String, byte[])
+     * @see LevelDB#put(String, byte[])
      */
     public WriteBatch put(String key, byte[] value) {
         return put(key.getBytes(), value);
@@ -217,7 +217,7 @@ public class WriteBatch {
      * @param key   the key to write
      * @param value the value to write
      * @return the WriteBatch object for chaining
-     * @see org.leveldb.LevelDB#put(String, String)
+     * @see LevelDB#put(String, String)
      */
     public WriteBatch put(String key, String value) {
         return put(key, value.getBytes());
@@ -228,7 +228,7 @@ public class WriteBatch {
      *
      * @param key
      * @return the WriteBatch object for chaining
-     * @see org.leveldb.LevelDB#del(byte[], boolean)
+     * @see LevelDB#del(byte[], boolean)
      */
     public WriteBatch del(byte[] key) {
         operations.add(Operation.del(key));
@@ -247,7 +247,7 @@ public class WriteBatch {
     }
 
     /**
-     * Creates a new {@link org.leveldb.WriteBatch.Native} object for internal use.
+     * Creates a new {@link WriteBatch.Native} object for internal use.
      *
      * @return a new native object with the specified operations
      */

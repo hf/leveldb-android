@@ -80,54 +80,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="build.gradle" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="build.gradle" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/leveldb/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="0" selection-start="896" selection-end="896" vertical-scroll-proportion="1.1333333" vertical-offset="376" max-vertical-offset="968">
+            <state line="16" column="9" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="1166">
               <folding>
-                <element signature="e#242#838#0" expanded="true" />
-                <element signature="e#319#611#0" expanded="true" />
-                <element signature="e#909#1015#0" expanded="true" />
-                <element signature="e#909#1015#0" expanded="true" />
+                <element signature="e#319#621#0" expanded="true" />
+                <element signature="e#642#845#0" expanded="true" />
+                <element signature="e#656#731#0" expanded="true" />
+                <element signature="e#744#839#0" expanded="true" />
+                <element signature="e#863#867#0" expanded="true" />
+                <element signature="e#890#1033#0" expanded="true" />
+                <element signature="e#904#1031#0" expanded="true" />
+                <element signature="e#919#1025#0" expanded="true" />
+                <element signature="e#919#1025#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prebuild" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/prebuild">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leveldb/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="30" selection-start="237" selection-end="237" vertical-scroll-proportion="0.0" vertical-offset="286" max-vertical-offset="770">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="org_leveldb_LevelDB.cc" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_LevelDB.cc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="0" selection-start="1984" selection-end="1984" vertical-scroll-proportion="0.0" vertical-offset="902" max-vertical-offset="6556">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LevelDB.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="3" selection-start="22" selection-end="2005" vertical-scroll-proportion="0.0" vertical-offset="924" max-vertical-offset="10164">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="14" selection-start="1591" selection-end="1591" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="1826">
+            <state line="4" column="0" selection-start="119" selection-end="119" vertical-scroll-proportion="0.32592592" vertical-offset="0" max-vertical-offset="270">
               <folding />
             </state>
           </provider>
@@ -1850,10 +1825,16 @@
         <option value="$PROJECT_DIR$/leveldb/src/main/jni/Android.mk" />
         <option value="$PROJECT_DIR$/leveldb/src/main/jni-prebuild/.gitignore" />
         <option value="$PROJECT_DIR$/leveldb/src/main/jni-prebuild/prebuild.sh" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_LevelDB.cc" />
         <option value="$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_WriteBatch_Native.cc" />
+        <option value="$PROJECT_DIR$/leveldb/src/main/jni-prebuild/com_github_hf_leveldb_WriteBatch_Native.cc" />
+        <option value="$PROJECT_DIR$/leveldb/src/main/jni-prebuild/genjavaheaders" />
+        <option value="$PROJECT_DIR$/leveldb/src/main/jni-prebuild/com_github_hf_leveldb_LevelDB.cc" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/leveldb/src/main/jni-prebuild/Android.mk" />
+        <option value="$PROJECT_DIR$/leveldb/src/androidTest/java/com/github/hf/leveldb/test/LevelDBTest.java" />
         <option value="$PROJECT_DIR$/leveldb/build.gradle" />
+        <option value="$PROJECT_DIR$/leveldb/src/main/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -2057,10 +2038,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="androidTest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -2091,17 +2068,26 @@
     <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="junit.framework.TestCase" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.leveldb" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="junit.framework.TestCase" />
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.github.hf.leveldb.test" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/leveldb/jni" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.leveldb.exception" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.github.hf.leveldb.test" />
+      <recent name="com.github.hf.leveldb" />
+      <recent name="com.github.hf.leveldb.exception" />
+      <recent name="com.github.hf.leveldb.exceptions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/leveldb/src/main" />
@@ -2342,11 +2328,12 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5201939" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5201939" sideWeight="0.49940687" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279483" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5201939" sideWeight="0.5005931" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -2358,12 +2345,11 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3623298" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279483" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2392,10 +2378,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="50" column="0" selection-start="858" selection-end="858" vertical-scroll-proportion="0.0" vertical-offset="352" max-vertical-offset="968">
           <folding>
-            <element signature="e#242#838#0" expanded="true" />
-            <element signature="e#319#611#0" expanded="true" />
-            <element signature="e#909#1015#0" expanded="true" />
-            <element signature="e#909#1015#0" expanded="true" />
+            <element signature="e#319#621#0" expanded="true" />
+            <element signature="e#642#845#0" expanded="true" />
+            <element signature="e#656#731#0" expanded="true" />
+            <element signature="e#744#839#0" expanded="true" />
+            <element signature="e#863#867#0" expanded="true" />
+            <element signature="e#890#1033#0" expanded="true" />
+            <element signature="e#904#1031#0" expanded="true" />
+            <element signature="e#919#1025#0" expanded="true" />
+            <element signature="e#919#1025#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2407,14 +2398,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_LevelDB.cc">
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/com_github_hf_leveldb_LevelDB.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="0" selection-start="1984" selection-end="1984" vertical-scroll-proportion="0.0" vertical-offset="902" max-vertical-offset="6556">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/com/github/hf/leveldb/LevelDB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="3" selection-start="22" selection-end="2005" vertical-scroll-proportion="0.0" vertical-offset="924" max-vertical-offset="10164">
           <folding />
@@ -2435,27 +2426,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="21" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0" vertical-offset="506" max-vertical-offset="1474">
           <folding>
-            <element signature="e#242#838#0" expanded="true" />
-            <element signature="e#319#611#0" expanded="true" />
-            <element signature="e#909#1015#0" expanded="true" />
-            <element signature="e#909#1015#0" expanded="true" />
+            <element signature="e#319#621#0" expanded="true" />
+            <element signature="e#642#845#0" expanded="true" />
+            <element signature="e#656#731#0" expanded="true" />
+            <element signature="e#744#839#0" expanded="true" />
+            <element signature="e#863#867#0" expanded="true" />
+            <element signature="e#890#1033#0" expanded="true" />
+            <element signature="e#904#1031#0" expanded="true" />
+            <element signature="e#919#1025#0" expanded="true" />
+            <element signature="e#919#1025#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_LevelDB.cc">
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/com_github_hf_leveldb_LevelDB.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="0" selection-start="1984" selection-end="1984" vertical-scroll-proportion="0.0" vertical-offset="376" max-vertical-offset="6556">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_WriteBatch_Native.cc">
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/com_github_hf_leveldb_WriteBatch_Native.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="3" selection-start="1983" selection-end="1983" vertical-scroll-proportion="0.0" vertical-offset="880" max-vertical-offset="2134" />
+        <state line="40" column="3" selection-start="1983" selection-end="1983" vertical-scroll-proportion="0.0" vertical-offset="880" max-vertical-offset="2134">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/com/github/hf/leveldb/LevelDB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="3" selection-start="22" selection-end="2005" vertical-scroll-proportion="0.0" vertical-offset="924" max-vertical-offset="10164">
           <folding />
@@ -2487,7 +2485,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/com/github/hf/leveldb/LevelDB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="53" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1034">
           <folding />
@@ -2498,10 +2496,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="14" selection-start="445" selection-end="445" vertical-scroll-proportion="0.0" vertical-offset="616" max-vertical-offset="792">
           <folding>
-            <element signature="e#242#838#0" expanded="true" />
-            <element signature="e#319#611#0" expanded="true" />
-            <element signature="e#909#1015#0" expanded="true" />
-            <element signature="e#909#1015#0" expanded="true" />
+            <element signature="e#319#621#0" expanded="true" />
+            <element signature="e#642#845#0" expanded="true" />
+            <element signature="e#656#731#0" expanded="true" />
+            <element signature="e#744#839#0" expanded="true" />
+            <element signature="e#863#867#0" expanded="true" />
+            <element signature="e#890#1033#0" expanded="true" />
+            <element signature="e#904#1031#0" expanded="true" />
+            <element signature="e#919#1025#0" expanded="true" />
+            <element signature="e#919#1025#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2521,7 +2524,7 @@
         <state line="5" column="69" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="264" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/com/github/hf/leveldb/LevelDB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="53" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1034">
           <folding />
@@ -2532,10 +2535,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="14" selection-start="445" selection-end="445" vertical-scroll-proportion="0.0" vertical-offset="616" max-vertical-offset="792">
           <folding>
-            <element signature="e#242#838#0" expanded="true" />
-            <element signature="e#319#611#0" expanded="true" />
-            <element signature="e#909#1015#0" expanded="true" />
-            <element signature="e#909#1015#0" expanded="true" />
+            <element signature="e#319#621#0" expanded="true" />
+            <element signature="e#642#845#0" expanded="true" />
+            <element signature="e#656#731#0" expanded="true" />
+            <element signature="e#744#839#0" expanded="true" />
+            <element signature="e#863#867#0" expanded="true" />
+            <element signature="e#890#1033#0" expanded="true" />
+            <element signature="e#904#1031#0" expanded="true" />
+            <element signature="e#919#1025#0" expanded="true" />
+            <element signature="e#919#1025#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2553,13 +2561,6 @@
     <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="69" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="264" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="18" selection-start="247" selection-end="247" vertical-scroll-proportion="0.25925925" vertical-offset="0" max-vertical-offset="594">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
@@ -2599,29 +2600,41 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1826" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBIOException.java">
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/com/github/hf/leveldb/exception/LevelDBIOException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330" />
+        <state line="1" column="0" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBNotFoundException.java">
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/com/github/hf/leveldb/exception/LevelDBNotFoundException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="62" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308" />
+        <state line="5" column="62" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBCorruptionException.java">
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/com/github/hf/leveldb/exception/LevelDBCorruptionException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="64" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308" />
+        <state line="5" column="64" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBException.java">
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/com/github/hf/leveldb/exception/LevelDBException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="51" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308" />
+        <state line="6" column="51" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/exception/LevelDBClosedException.java">
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/com/github/hf/leveldb/exception/LevelDBClosedException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="26" selection-start="201" selection-end="201" vertical-scroll-proportion="0.26013514" vertical-offset="0" max-vertical-offset="592" />
+        <state line="7" column="26" selection-start="201" selection-end="201" vertical-scroll-proportion="0.26013514" vertical-offset="0" max-vertical-offset="592">
+          <folding>
+            <element signature="docComment;class#LevelDBClosedException#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/.gitignore">
@@ -2634,22 +2647,7 @@
         <state line="1" column="13" selection-start="20" selection-end="20" vertical-scroll-proportion="0.037162162" vertical-offset="0" max-vertical-offset="592" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/androidTest/java/org/leveldb/test/LevelDBTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="36" selection-start="2109" selection-end="2109" vertical-scroll-proportion="0.9628378" vertical-offset="1102" max-vertical-offset="1958" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="14" selection-start="1591" selection-end="1591" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="1826">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/WriteBatch.java">
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/com/github/hf/leveldb/WriteBatch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="106" column="52" selection-start="3694" selection-end="3694" vertical-scroll-proportion="4.0276337" vertical-offset="0" max-vertical-offset="5786">
           <folding>
@@ -2676,21 +2674,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/org/leveldb/LevelDB.java">
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/java/com/github/hf/leveldb/LevelDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="3" selection-start="22" selection-end="2005" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="9900">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_WriteBatch_Native.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="2258" selection-end="2258" vertical-scroll-proportion="0.42680776" vertical-offset="880" max-vertical-offset="2134" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/org_leveldb_LevelDB.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="0" selection-start="1984" selection-end="1984" vertical-scroll-proportion="0.0" vertical-offset="902" max-vertical-offset="6556">
+        <state line="42" column="3" selection-start="32" selection-end="2015" vertical-scroll-proportion="0.0" vertical-offset="924" max-vertical-offset="10164">
           <folding />
         </state>
       </provider>
@@ -2702,15 +2688,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/com_github_hf_leveldb_LevelDB.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.5574324" vertical-offset="330" max-vertical-offset="2002">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/gen-java-headers">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="35" selection-start="210" selection-end="210" vertical-scroll-proportion="0.26013514" vertical-offset="0" max-vertical-offset="592">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="61" selection-start="577" selection-end="577" vertical-scroll-proportion="0.37809187" vertical-offset="138" max-vertical-offset="1826">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/com_github_hf_leveldb_LevelDB.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="0" selection-start="2409" selection-end="2409" vertical-scroll-proportion="0.0" vertical-offset="863" max-vertical-offset="6556">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/Android.mk">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="85" selection-start="524" selection-end="524" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="528">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/androidTest/java/com/github/hf/leveldb/test/LevelDBTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="13" selection-start="2282" selection-end="2282" vertical-scroll-proportion="0.3123878" vertical-offset="860" max-vertical-offset="2750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/com_github_hf_leveldb_WriteBatch_Native.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.8952703" vertical-offset="530" max-vertical-offset="1122">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/jni-prebuild/com_github_hf_leveldb_WriteBatch_Native.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="0" selection-start="1984" selection-end="1984" vertical-scroll-proportion="0.0" vertical-offset="807" max-vertical-offset="2134">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/leveldb/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="896" selection-end="896" vertical-scroll-proportion="1.1333333" vertical-offset="376" max-vertical-offset="968">
+        <state line="16" column="9" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="1166">
           <folding>
-            <element signature="e#242#838#0" expanded="true" />
-            <element signature="e#319#611#0" expanded="true" />
-            <element signature="e#909#1015#0" expanded="true" />
-            <element signature="e#909#1015#0" expanded="true" />
+            <element signature="e#319#621#0" expanded="true" />
+            <element signature="e#642#845#0" expanded="true" />
+            <element signature="e#656#731#0" expanded="true" />
+            <element signature="e#744#839#0" expanded="true" />
+            <element signature="e#863#867#0" expanded="true" />
+            <element signature="e#890#1033#0" expanded="true" />
+            <element signature="e#904#1031#0" expanded="true" />
+            <element signature="e#919#1025#0" expanded="true" />
+            <element signature="e#919#1025#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leveldb/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="119" selection-end="119" vertical-scroll-proportion="0.32592592" vertical-offset="0" max-vertical-offset="270">
+          <folding />
         </state>
       </provider>
     </entry>

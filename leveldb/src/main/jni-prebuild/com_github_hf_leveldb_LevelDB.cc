@@ -40,7 +40,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "org_leveldb_LevelDB.h"
+#include "com_github_hf_leveldb_LevelDB.h"
 #include <iostream>
 #include "leveldb/db.h"
 #include "leveldb/write_batch.h"
@@ -51,12 +51,12 @@
 class AndroidLogger : public leveldb::Logger {
 public:
   virtual void Logv(const char* format, va_list ap) {
-    __android_log_vprint(ANDROID_LOG_INFO, "org.leveldb:N", format, ap);
+    __android_log_vprint(ANDROID_LOG_INFO, "com.github.hf.leveldb:N", format, ap);
   }
 };
 
 // Holds references to heap-allocated native objects so that they can be
-// closed in Java_org_leveldb_LevelDB_nclose.
+// closed in Java_com_github_hf_leveldb_LevelDB_nclose.
 class NDBHolder {
 public:
   NDBHolder(leveldb::DB* ldb, AndroidLogger* llogger) : db(ldb), logger(llogger) {}
@@ -74,25 +74,25 @@ void throwExceptionFromStatus(JNIEnv *env, leveldb::Status &status) {
   }
 
   if (status.IsIOError()) {
-    jclass ioExceptionClass = env->FindClass("org/leveldb/exception/LevelDBIOException");
+    jclass ioExceptionClass = env->FindClass("com/github/hf/leveldb/exception/LevelDBIOException");
 
     env->ThrowNew(ioExceptionClass, status.ToString().data());
   } else if (status.IsCorruption()) {
-    jclass corruptionExceptionClass = env->FindClass("org/leveldb/exception/LevelDBCorruptionException");
+    jclass corruptionExceptionClass = env->FindClass("com/github/hf/leveldb/exception/LevelDBCorruptionException");
 
     env->ThrowNew(corruptionExceptionClass, status.ToString().data());
   } else if (status.IsNotFound()) {
-    jclass notFoundExceptionClass = env->FindClass("org/leveldb/exception/LevelDBNotFoundException");
+    jclass notFoundExceptionClass = env->FindClass("com/github/hf/leveldb/exception/LevelDBNotFoundException");
 
     env->ThrowNew(notFoundExceptionClass, status.ToString().data());
   } else {
-    jclass exceptionClass = env->FindClass("org/leveldb/exception/LevelDBException");
+    jclass exceptionClass = env->FindClass("com/github/hf/leveldb/exception/LevelDBException");
 
     env->ThrowNew(exceptionClass, status.ToString().data());
   }
 }
 
-JNIEXPORT jlong JNICALL Java_org_leveldb_LevelDB_nopen
+JNIEXPORT jlong JNICALL Java_com_github_hf_leveldb_LevelDB_nopen
 (JNIEnv *env, jclass cself, jboolean createIfMissing, jstring path) {
 
   const char *nativePath = env->GetStringUTFChars(path, 0);
@@ -122,7 +122,7 @@ JNIEXPORT jlong JNICALL Java_org_leveldb_LevelDB_nopen
   return 0;
 }
 
-JNIEXPORT void JNICALL Java_org_leveldb_LevelDB_nclose
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_LevelDB_nclose
 (JNIEnv *env, jclass cself, jlong ndb) {
   if (ndb != 0) {
     NDBHolder* holder = (NDBHolder*) ndb;
@@ -133,7 +133,7 @@ JNIEXPORT void JNICALL Java_org_leveldb_LevelDB_nclose
   }
 }
 
-JNIEXPORT void JNICALL Java_org_leveldb_LevelDB_nput
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_LevelDB_nput
 (JNIEnv *env, jclass cself, jlong ndb, jboolean sync, jbyteArray key, jbyteArray value) {
 
   NDBHolder* holder = (NDBHolder*) ndb;
@@ -157,7 +157,7 @@ JNIEXPORT void JNICALL Java_org_leveldb_LevelDB_nput
   throwExceptionFromStatus(env, status);
 }
 
-JNIEXPORT void JNICALL Java_org_leveldb_LevelDB_nwrite
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_LevelDB_nwrite
   (JNIEnv *env, jclass cself, jlong ndb, jboolean sync, jlong nwb) {
 
   NDBHolder* holder = (NDBHolder*) ndb;
@@ -174,7 +174,7 @@ JNIEXPORT void JNICALL Java_org_leveldb_LevelDB_nwrite
   throwExceptionFromStatus(env, status);
 }
 
-JNIEXPORT jbyteArray JNICALL Java_org_leveldb_LevelDB_nget
+JNIEXPORT jbyteArray JNICALL Java_com_github_hf_leveldb_LevelDB_nget
 (JNIEnv *env, jclass cself, jlong ndb, jbyteArray key) {
 
   NDBHolder* holder = (NDBHolder*) ndb;
@@ -212,7 +212,7 @@ JNIEXPORT jbyteArray JNICALL Java_org_leveldb_LevelDB_nget
   return 0;
 }
 
-JNIEXPORT void JNICALL Java_org_leveldb_LevelDB_ndelete
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_LevelDB_ndelete
 (JNIEnv *env, jclass cself, jlong ndb, jboolean sync, jbyteArray key) {
 
   NDBHolder* holder = (NDBHolder*) ndb;
@@ -233,7 +233,7 @@ JNIEXPORT void JNICALL Java_org_leveldb_LevelDB_ndelete
   throwExceptionFromStatus(env, status);
 }
 
-JNIEXPORT jbyteArray JNICALL Java_org_leveldb_LevelDB_ngetProperty
+JNIEXPORT jbyteArray JNICALL Java_com_github_hf_leveldb_LevelDB_ngetProperty
 (JNIEnv *env, jclass cself, jlong ndb, jbyteArray key) {
 
   NDBHolder* holder = (NDBHolder*) ndb;
@@ -267,7 +267,7 @@ JNIEXPORT jbyteArray JNICALL Java_org_leveldb_LevelDB_ngetProperty
   return 0;
 }
 
-JNIEXPORT void JNICALL Java_org_leveldb_LevelDB_ndestroy
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_LevelDB_ndestroy
 (JNIEnv *env, jclass cself, jstring path) {
 
   const char *nativePath = env->GetStringUTFChars(path, 0);
@@ -279,7 +279,7 @@ JNIEXPORT void JNICALL Java_org_leveldb_LevelDB_ndestroy
   throwExceptionFromStatus(env, status);
 }
 
-JNIEXPORT void JNICALL Java_org_leveldb_LevelDB_nrepair
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_LevelDB_nrepair
 (JNIEnv *env, jclass cself, jstring path) {
 
   const char *nativePath = env->GetStringUTFChars(path, 0);

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+JNI_PREBUILD_DIR=`dirname $0`
+JAVA_SOURCES_DIR=$JNI_PREBUILD_DIR/../java
+
+NATIVE_SOURCES='com.github.hf.leveldb.LevelDB com.github.hf.leveldb.WriteBatch$Native'
+
+/usr/java/latest/bin/javah -d $JNI_PREBUILD_DIR -classpath $JAVA_SOURCES_DIR $NATIVE_SOURCES
