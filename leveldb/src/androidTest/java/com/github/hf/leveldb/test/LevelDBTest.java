@@ -44,7 +44,9 @@ package com.github.hf.leveldb.test;
 
 import android.test.InstrumentationTestCase;
 import android.util.Log;
+import com.github.hf.leveldb.Iterator;
 import com.github.hf.leveldb.LevelDB;
+import com.github.hf.leveldb.SimpleWriteBatch;
 import com.github.hf.leveldb.exception.LevelDBException;
 
 import java.io.File;
@@ -122,6 +124,67 @@ public class LevelDBTest extends InstrumentationTestCase {
 
         assertEquals("value1", levelDB.get("key"));
         assertNull(levelDB.get("data"));
+
+        levelDB.close();
+
+        LevelDB.destroy(getPath("leveldb-test"));
+    }
+
+    public static final String[] ITERATION = {
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
+            "g",
+            "h"
+    };
+
+    public void testIteration() throws Exception {
+        LevelDB levelDB = new LevelDB(getPath("leveldb-test"), true);
+
+        SimpleWriteBatch writeBatch = levelDB.writeBatch();
+
+        for (String i : ITERATION) {
+            writeBatch.put(i, i);
+        }
+
+        writeBatch.write(levelDB);
+
+        Iterator iterator = levelDB.iterator();
+
+        assertFalse(iterator.isValid());
+
+        assertNull(iterator.key());
+        assertNull(iterator.value());
+
+        iterator.seekToFirst();
+
+        for (int i = 0; i < ITERATION.length; i++) {
+            assertTrue(iterator.isValid());
+
+            byte[] key = iterator.key();
+            byte[] value = iterator.value();
+
+            assertNotNull(key);
+            assertNotNull(value);
+
+            String keyString = new String(key);
+            String valueString = new String(value);
+
+            assertEquals(keyString, ITERATION[i]);
+            assertEquals(valueString, ITERATION[i]);
+
+            iterator.next();
+        }
+
+        assertFalse(iterator.isValid());
+
+        assertNull(iterator.key());
+        assertNull(iterator.value());
+
+        iterator.close();
 
         levelDB.close();
 

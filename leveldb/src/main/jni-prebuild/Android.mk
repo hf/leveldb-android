@@ -12,7 +12,7 @@ LOCAL_MODULE := leveldb
 LOCAL_CXXFLAGS += $(PLATFORM_CXXFLAGS)
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH) $(LOCAL_PATH)/leveldb $(LOCAL_PATH)/leveldb/include
-LOCAL_SRC_FILES := $(LEVELDB_SOURCES) com_github_hf_leveldb_LevelDB.cc com_github_hf_leveldb_WriteBatch_Native.cc
+LOCAL_SRC_FILES := $(LEVELDB_SOURCES) com_github_hf_leveldb_LevelDB.cc com_github_hf_leveldb_WriteBatch_Native.cc com_github_hf_leveldb_Iterator.cc
 LOCAL_LDLIBS += -llog -ldl
 
 include $(BUILD_SHARED_LIBRARY)

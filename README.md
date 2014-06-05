@@ -61,10 +61,11 @@ support NDK, this is the way to build this project.
 
 * ~~WriteBatch API~~
 * Publish on Maven
-* Iteration API
-* Compaction API
+* ~~Iteration API~~
 * Snapshot API
+* Comparator API
 * Greater configurability
+* Compaction API
 * Snappy compression
 * Support Table API
 * `LevelDB#close()` in `Object#finalize()` (probably a very bad idea)

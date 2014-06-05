@@ -362,6 +362,34 @@ public class LevelDB implements Closeable {
     }
 
     /**
+     * Creates a new {@link com.github.hf.leveldb.Iterator} that iterates over this database.
+     *
+     * The returned iterator is not thread safe and must be closed with {@link Iterator#close()}
+     * before closing this database.
+     *
+     * @param fillCache whether iterating fills the internal cache
+     * @return a new iterator
+     * @throws LevelDBClosedException
+     */
+    public Iterator iterator(boolean fillCache) throws LevelDBClosedException {
+        checkIfClosed();
+
+        return new Iterator(niterate(ndb, fillCache));
+    }
+
+    /**
+     * Creates a new iterator that fills the cache.
+     *
+     * @see #iterator(boolean)
+     *
+     * @returna new iterator
+     * @throws LevelDBClosedException
+     */
+    public Iterator iterator() throws LevelDBClosedException {
+        return iterator(true);
+    }
+
+    /**
      * The path that this database has been opened with.
      *
      * @return the path
@@ -475,4 +503,13 @@ public class LevelDB implements Closeable {
      * @throws LevelDBException
      */
     private static native void nrepair(String path) throws LevelDBException;
+
+    /**
+     * Natively creates a new iterator. Corresponds to <tt>leveldb::DB->NewIterator()</tt>.
+     *
+     * @param ndb
+     * @param fillCache
+     * @return
+     */
+    private static native long niterate(long ndb, boolean fillCache);
 }

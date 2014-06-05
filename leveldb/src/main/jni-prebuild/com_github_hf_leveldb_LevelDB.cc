@@ -314,3 +314,18 @@ JNIEXPORT void JNICALL Java_com_github_hf_leveldb_LevelDB_nrepair
 
   throwExceptionFromStatus(env, status);
 }
+
+JNIEXPORT jlong JNICALL Java_com_github_hf_leveldb_LevelDB_niterate
+(JNIEnv *env, jclass cself, jlong ndb, jboolean fillCache) {
+  NDBHolder* holder = (NDBHolder*) ndb;
+
+  leveldb::DB* db = holder->db;
+
+  leveldb::ReadOptions options;
+
+  options.fill_cache = (bool) fillCache;
+
+  leveldb::Iterator* it = db->NewIterator(options);
+
+  return (jlong) it;
+}

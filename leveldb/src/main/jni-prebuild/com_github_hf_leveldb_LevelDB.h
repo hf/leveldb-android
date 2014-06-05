@@ -79,6 +79,14 @@ JNIEXPORT void JNICALL Java_com_github_hf_leveldb_LevelDB_ndestroy
 JNIEXPORT void JNICALL Java_com_github_hf_leveldb_LevelDB_nrepair
   (JNIEnv *, jclass, jstring);
 
+/*
+ * Class:     com_github_hf_leveldb_LevelDB
+ * Method:    niterate
+ * Signature: (JZ)J
+ */
+JNIEXPORT jlong JNICALL Java_com_github_hf_leveldb_LevelDB_niterate
+  (JNIEnv *, jclass, jlong, jboolean);
+
 #ifdef __cplusplus
 }
 #endif
