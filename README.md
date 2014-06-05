@@ -37,10 +37,11 @@ LevelDB levelDB = new LevelDB("path/to/leveldb", true);
 
 levelDB.put("sql", "is lovely!");
 
-levelDB.write(new WriteBatch()
+levelDB.writeBatch()
   .put("leveldb", "Is awesome!")
   .put("magic", new byte[] { 0, 1, 2, 3, 4 })
-  .del("sql"));
+  .del("sql")
+  .write(levelDB);
 
 levelDB.close(); // closing is a must!
 

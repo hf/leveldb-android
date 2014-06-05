@@ -190,10 +190,17 @@ public class LevelDB implements Closeable {
         put(key, value, false);
     }
 
+    /**
+     * Writes a {@link com.github.hf.leveldb.WriteBatch} to the database.
+     *
+     * @param writeBatch the WriteBatch to write
+     * @param sync whether this is a synchronous (true) or asynchronous (false) write
+     * @throws LevelDBException
+     */
     public void write(WriteBatch writeBatch, boolean sync) throws LevelDBException {
         checkIfClosed();
 
-        WriteBatch.Native nativeWriteBatch = writeBatch.toNative();
+        WriteBatch.Native nativeWriteBatch = new WriteBatch.Native(writeBatch);
 
         nwrite(ndb, sync, nativeWriteBatch.nativePointer());
 
@@ -202,8 +209,23 @@ public class LevelDB implements Closeable {
         nativeWriteBatch = null;
     }
 
+    /**
+     * Writes a {@link com.github.hf.leveldb.WriteBatch} to the database, asynchronously.
+     *
+     * @param writeBatch the WriteBatch to write
+     * @throws LevelDBException
+     */
     public void write(WriteBatch writeBatch) throws LevelDBException {
         write(writeBatch, false);
+    }
+
+    /**
+     * Creates a new {@link com.github.hf.leveldb.SimpleWriteBatch}.
+     *
+     * @return
+     */
+    public SimpleWriteBatch writeBatch() {
+        return new SimpleWriteBatch();
     }
 
     /**

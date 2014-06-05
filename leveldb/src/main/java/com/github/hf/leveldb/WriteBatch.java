@@ -43,22 +43,22 @@ package com.github.hf.leveldb;
  */
 
 import android.util.Log;
+import com.github.hf.leveldb.exception.LevelDBException;
 
 import java.io.Closeable;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Holds a batch write operation. (Something like a transaction.)
  */
-public class WriteBatch {
+public interface WriteBatch extends Iterable<WriteBatch.Operation> {
 
     /**
      * Native object a-la <tt>leveldb::WriteBatch</tt>.
      *
-     * Make sure after use you call {@link WriteBatch.Native#close()}.
+     * Make sure after use you call {@link SimpleWriteBatch.Native#close()}.
      */
-    protected static class Native implements Closeable {
+    public static class Native implements Closeable {
         static {
             System.loadLibrary("leveldb");
         }
@@ -66,20 +66,15 @@ public class WriteBatch {
         // Don't touch this. If you do, something somewhere dies.
         private long nwb;
 
-        protected Native(List<Operation> operations) {
+        protected Native(WriteBatch writeBatch) {
             nwb = ncreate();
 
-            for (Operation operation : operations) {
-                switch (operation.type) {
-                    case Operation.PUT:
-                        nput(nwb, operation.key, operation.value);
+            for (WriteBatch.Operation operation : writeBatch) {
 
-                        break;
-
-                    case Operation.DELETE:
-                        ndelete(nwb, operation.key);
-
-                        break;
+                if (operation.isPut()) {
+                    nput(nwb, operation.getKey(), operation.getValue());
+                } else {
+                    ndelete(nwb, operation.getKey());
                 }
             }
         }
@@ -118,14 +113,14 @@ public class WriteBatch {
         }
 
         /**
-         * Native create. Corresponds to: <tt>new leveldb::WriteBatch()</tt>
+         * Native create. Corresponds to: <tt>new leveldb::SimpleWriteBatch()</tt>
          *
          * @return pointer to native structure
          */
         private static native long ncreate();
 
         /**
-         * Native WriteBatch put. Pointer is unchecked.
+         * Native SimpleWriteBatch put. Pointer is unchecked.
          *
          * @param nwb   native structure pointer
          * @param key
@@ -134,7 +129,7 @@ public class WriteBatch {
         private static native void nput(long nwb, byte[] key, byte[] value);
 
         /**
-         * Native WriteBatch delete. Pointer is unchecked.
+         * Native SimpleWriteBatch delete. Pointer is unchecked.
          *
          * @param nwb native structure pointer
          * @param key
@@ -150,108 +145,84 @@ public class WriteBatch {
     }
 
     /**
-     * An operation on the database (put or delete).
+     * Interace for a WriteBatch operation. LevelDB supports puts and deletions.
      */
-    private static class Operation {
-        public static final int PUT = 0;
-        public static final int DELETE = 1;
+    public interface Operation {
+        /**
+         * The key to put or delete.
+         *
+         * @return the key, never null
+         */
+        public byte[] getKey();
 
-        private int type;
-        private byte[] key;
-        private byte[] value;
+        /**
+         * The value to associate with {@link #getKey()}.
+         *
+         * @return could be <tt>null</tt>, especially if {@link #isDel()} <tt>== true</tt>
+         */
+        public byte[] getValue();
 
-        public static Operation put(byte[] key, byte[] value) {
-            return new Operation(PUT, key, value);
-        }
+        /**
+         * Whether this operation is a put.
+         *
+         * @return
+         */
+        public boolean isPut();
 
-        public static Operation del(byte[] key) {
-            return new Operation(DELETE, key, null);
-        }
-
-        private Operation(int type, byte[] key, byte[] value) {
-            this.type = type;
-            this.key = key;
-            this.value = value;
-        }
-    }
-
-    private LinkedList<Operation> operations;
-
-    /**
-     * Creates a new empty WriteBatch. Use {@link LevelDB#write(WriteBatch, boolean)} or variants to write
-     * it to the database.
-     */
-    public WriteBatch() {
-        operations = new LinkedList<Operation>();
+        /**
+         * Whether this operation is a delete.
+         *
+         * @return
+         */
+        public boolean isDel();
     }
 
     /**
-     * Writes a key-value pair to the database.
+     * Put the key-value pair in the database.
      *
      * @param key   the key to write
      * @param value the value to write
-     * @return the WriteBatch object for chaining
-     * @see LevelDB#put(byte[], byte[], boolean)
+     * @return this WriteBatch for chaining
      */
-    public WriteBatch put(byte[] key, byte[] value) {
-        operations.add(Operation.put(key, value));
-
-        return this;
-    }
+    public WriteBatch put(byte[] key, byte[] value);
 
     /**
-     * Writes a key-value pair to the database.
+     * Delete the key from the database.
      *
-     * @param key   the key to write
-     * @param value the value to write
-     * @return the WriteBatch object for chaining
-     * @see LevelDB#put(String, byte[])
+     * @param key the key to delete
+     * @return this WriteBatch for chaining
      */
-    public WriteBatch put(String key, byte[] value) {
-        return put(key.getBytes(), value);
-    }
+    public WriteBatch del(byte[] key);
 
     /**
-     * Writes a key-value pair to the database.
+     * Insert a {@link com.github.hf.leveldb.WriteBatch.Operation} in this WriteBatch.
      *
-     * @param key   the key to write
-     * @param value the value to write
-     * @return the WriteBatch object for chaining
-     * @see LevelDB#put(String, String)
+     * @param operation the operation to insert
+     * @return this WriteBatch for chaining
      */
-    public WriteBatch put(String key, String value) {
-        return put(key, value.getBytes());
-    }
+    public WriteBatch insert(Operation operation);
 
     /**
-     * Deletes key from database.
+     * Get all operations in this WriteBatch.
      *
-     * @param key
-     * @return the WriteBatch object for chaining
-     * @see LevelDB#del(byte[], boolean)
+     * @return never null
      */
-    public WriteBatch del(byte[] key) {
-        operations.add(Operation.del(key));
-
-        return this;
-    }
+    public Collection<Operation> getAllOperations();
 
     /**
-     * Removes key-value pair
+     * Commit this WriteBatch to the database.
      *
-     * @param key
-     * @return the WriteBatch object for chaining
+     * @param levelDB the {@link com.github.hf.leveldb.LevelDB} database to write to
+     * @param sync    whether this is a synchronous (true) or asynchronous (false) write
+     * @throws LevelDBException
      */
-    public WriteBatch del(String key) {
-        return del(key.getBytes());
-    }
+    public void write(LevelDB levelDB, boolean sync) throws LevelDBException;
 
     /**
-     * Creates a new {@link WriteBatch.Native} object for internal use.
+     * Commit this WriteBatch to the database asynchronously.
      *
-     * @return a new native object with the specified operations
+     * @param levelDB the {@link com.github.hf.leveldb.LevelDB} database to write to
+     * @throws LevelDBException
      */
-    protected Native toNative() {
-        return new Native(operations);
-    }
+    public void write(LevelDB levelDB) throws LevelDBException;
 }

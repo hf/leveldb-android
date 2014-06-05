@@ -48,9 +48,9 @@
 JNIEXPORT jlong JNICALL Java_com_github_hf_leveldb_WriteBatch_00024Native_ncreate
 (JNIEnv *env, jclass cself) {
 
-  leveldb::WriteBatch* writeBatch = new leveldb::WriteBatch();
+  leveldb::WriteBatch* WriteBatchImplementation = new leveldb::WriteBatch();
 
-  return (jlong) writeBatch;
+  return (jlong) WriteBatchImplementation;
 }
 
 JNIEXPORT void JNICALL Java_com_github_hf_leveldb_WriteBatch_00024Native_nput

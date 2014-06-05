@@ -45,7 +45,6 @@ package com.github.hf.leveldb.test;
 import android.test.InstrumentationTestCase;
 import android.util.Log;
 import com.github.hf.leveldb.LevelDB;
-import com.github.hf.leveldb.WriteBatch;
 import com.github.hf.leveldb.exception.LevelDBException;
 
 import java.io.File;
@@ -114,12 +113,12 @@ public class LevelDBTest extends InstrumentationTestCase {
     public void testWriteBatch() throws Exception {
         LevelDB levelDB = new LevelDB(getPath("leveldb-test"), true);
 
-        levelDB.write(new WriteBatch().put("key", "value").put("data", "store"));
+        levelDB.writeBatch().put("key", "value").put("data", "store").write(levelDB);
 
         assertEquals("value", levelDB.get("key"));
         assertEquals("store", levelDB.get("data"));
 
-        levelDB.write(new WriteBatch().put("key", "value1").del("data"));
+        levelDB.writeBatch().put("key", "value1").del("data").write(levelDB);
 
         assertEquals("value1", levelDB.get("key"));
         assertNull(levelDB.get("data"));
