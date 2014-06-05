@@ -77,7 +77,7 @@ LevelDB levelDB = new LevelDB("path/to/leveldb");
 
 Iterator iterator = levelDB.iterator();
 
-for (iterator.seekToLast(); iterator.isValid(); iterator.prev()) {
+for (iterator.seekToLast(); iterator.isValid(); iterator.previous()) {
   byte[] key = iterator.key();
   byte[] value = iterator.value();
 }
