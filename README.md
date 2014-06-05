@@ -12,11 +12,11 @@ Currently it does not use [Snappy](https://code.google.com/p/snappy/) for data
 compression. (There is really no need for this in Android, i.e. it's unnecessary
 overhead.)
 
-Only the basic API is supported.
-
 LevelDB's native log output is tagged: `com.github.hf.leveldb:N`
 
 ## Example
+
+### Opening, Closing, Putting, Deleting
 
 ```java
 LevelDB levelDB =
@@ -31,7 +31,7 @@ byte[] magic = levelDB.getBytes("magic");
 levelDB.close(); // closing is a must!
 ```
 
-... or using WriteBatches.
+### WriteBatch (a.k.a. Transactions)
 
 ```java
 LevelDB levelDB = new LevelDB("path/to/leveldb"); // createIfMissing == true
@@ -47,6 +47,63 @@ levelDB.writeBatch()
 levelDB.close(); // closing is a must!
 
 ```
+
+### Iteration Over Key-Value Pairs
+
+LevelDB is a key-value store, but it has some nice iteration features.
+
+Every key-value pair inside LevelDB is ordered. Until the comparator wrapper API
+is finished you can iterate over your LevelDB in the key's lexicographical order.
+
+```java
+LevelDB levelDB = new LevelDB("path/to/leveldb");
+
+Iterator iterator = levelDB.iterator();
+
+for (iterator.seekToFirst(); iterator.isValid(); iterator.next()) {
+  byte[] key = iterator.key();
+  byte[] value = iterator.value();
+}
+
+iterator.close(); // closing is a must!
+```
+
+#### Reverse Iteration
+
+*It is somewhat slower than forward iteration.*
+
+```java
+LevelDB levelDB = new LevelDB("path/to/leveldb");
+
+Iterator iterator = levelDB.iterator();
+
+for (iterator.seekToLast(); iterator.isValid(); iterator.prev()) {
+  byte[] key = iterator.key();
+  byte[] value = iterator.value();
+}
+
+iterator.close(); // closing is a must!
+```
+
+#### Iterate from a Staring Position
+
+```java
+LevelDB levelDB = new LevelDB("path/to/leveldb");
+
+Iterator iterator = levelDB.iterator();
+
+for (iterator.seek("leveldb".getBytes()); iterator.isValid(); iterator.next()) {
+  byte[] key = iterator.key();
+  byte[] value = iterator.value();
+}
+
+iterator.close(); // closing is a must!
+```
+
+This will start from the key `leveldb` if it exists, or from the one that
+follows (eg. `sql`, i.e. `l` < `s`).
+
+**Yes, the API needs more thought.**
 
 ## Building
 
