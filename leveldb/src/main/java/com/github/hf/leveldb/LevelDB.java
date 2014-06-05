@@ -56,6 +56,60 @@ public class LevelDB implements Closeable {
         System.loadLibrary("leveldb");
     }
 
+    /**
+     * Specifies a configuration to open the database with.
+     */
+    public static final class Configuration {
+        private boolean createIfMissing;
+        private int cacheSize;
+        private int blockSize;
+        private int writeBufferSize;
+
+        private Configuration() {
+            createIfMissing = true;
+        }
+
+        public boolean createIfMissing() {
+            return createIfMissing;
+        }
+
+        public Configuration createIfMissing(boolean createIfMissing) {
+            this.createIfMissing = createIfMissing;
+
+            return this;
+        }
+
+        public int cacheSize() {
+            return cacheSize;
+        }
+
+        public Configuration cacheSize(int cacheSize) {
+            this.cacheSize = Math.abs(cacheSize);
+
+            return this;
+        }
+
+        public int blockSize() {
+            return this.blockSize;
+        }
+
+        public Configuration blockSize(int blockSize) {
+            this.blockSize = Math.abs(blockSize);
+
+            return this;
+        }
+
+        public int writeBufferSize() {
+            return writeBufferSize;
+        }
+
+        public Configuration writeBufferSize(int writeBufferSize) {
+            this.writeBufferSize = writeBufferSize;
+
+            return this;
+        }
+    }
+
     // This is the underlying pointer. If you touch this, all hell breaks loose and everyone dies.
     private long ndb;
 
@@ -83,15 +137,29 @@ public class LevelDB implements Closeable {
         nrepair(path);
     }
 
+    public static Configuration configure() {
+        return new Configuration();
+    }
+
     /**
      * Opens a new LevelDB database.
      *
+     * @see com.github.hf.leveldb.LevelDB.Configuration
+     *
      * @param path            the path to the database
-     * @param createIfMissing whether the database should be created if missing
+     * @param configuration   configuration for this database
      * @throws LevelDBException
      */
-    public LevelDB(String path, boolean createIfMissing) throws LevelDBException {
-        ndb = nopen(createIfMissing, 2 * (2 << 10), 0, 0, path);
+    public LevelDB(String path, Configuration configuration) throws LevelDBException {
+        if (configuration == null) {
+            configuration = configure();
+        }
+
+        ndb = nopen(configuration.createIfMissing(),
+                configuration.cacheSize(),
+                configuration.blockSize(),
+                configuration.writeBufferSize(),
+                path);
 
         setPath(path);
     }
@@ -101,10 +169,10 @@ public class LevelDB implements Closeable {
      *
      * @param path the path to the database
      * @throws LevelDBException
-     * @see LevelDB#LevelDB(String, boolean)
+     * @see LevelDB#LevelDB(String, com.github.hf.leveldb.LevelDB.Configuration)
      */
     public LevelDB(String path) throws LevelDBException {
-        this(path, true);
+        this(path, null);
     }
 
     /**
@@ -117,7 +185,7 @@ public class LevelDB implements Closeable {
             nclose(ndb);
             ndb = 0;
         } else {
-            Log.i("org.leveldb", "Trying to close database multiple times.");
+            Log.i("com.github.hf.leveldb.LevelDB", "Trying to close database multiple times.");
         }
     }
 

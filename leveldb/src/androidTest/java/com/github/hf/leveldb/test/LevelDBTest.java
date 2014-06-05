@@ -64,7 +64,7 @@ public class LevelDBTest extends InstrumentationTestCase {
         boolean threwException = false;
 
         try {
-            new LevelDB(getPath("leveldb-test"), false);
+            new LevelDB(getPath("leveldb-test"), LevelDB.configure().createIfMissing(false));
         } catch (LevelDBException e) {
             threwException = true;
         }
@@ -73,7 +73,7 @@ public class LevelDBTest extends InstrumentationTestCase {
     }
 
     public void testOpenAndDestroy() throws Exception {
-        LevelDB levelDB = new LevelDB(getPath("leveldb-test"), true);
+        LevelDB levelDB = new LevelDB(getPath("leveldb-test"));
 
         levelDB.close();
 
@@ -82,7 +82,7 @@ public class LevelDBTest extends InstrumentationTestCase {
         boolean threwException = false;
 
         try {
-            new LevelDB(getPath("leveldb-test"), false);
+            new LevelDB(getPath("leveldb-test"), LevelDB.configure().createIfMissing(false));
         } catch (LevelDBException e) {
             threwException = true;
         }
@@ -91,7 +91,7 @@ public class LevelDBTest extends InstrumentationTestCase {
     }
 
     public void testGetPutDeleteString() throws Exception {
-        LevelDB levelDB = new LevelDB(getPath("leveldb-test"), true);
+        LevelDB levelDB = new LevelDB(getPath("leveldb-test"));
 
         long start = System.currentTimeMillis();
         levelDB.put("key", "value");
@@ -113,7 +113,7 @@ public class LevelDBTest extends InstrumentationTestCase {
     }
 
     public void testWriteBatch() throws Exception {
-        LevelDB levelDB = new LevelDB(getPath("leveldb-test"), true);
+        LevelDB levelDB = new LevelDB(getPath("leveldb-test"));
 
         levelDB.writeBatch().put("key", "value").put("data", "store").write(levelDB);
 
@@ -142,7 +142,7 @@ public class LevelDBTest extends InstrumentationTestCase {
     };
 
     public void testIteration() throws Exception {
-        LevelDB levelDB = new LevelDB(getPath("leveldb-test"), true);
+        LevelDB levelDB = new LevelDB(getPath("leveldb-test"));
 
         SimpleWriteBatch writeBatch = levelDB.writeBatch();
 

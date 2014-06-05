@@ -19,7 +19,8 @@ LevelDB's native log output is tagged: `com.github.hf.leveldb:N`
 ## Example
 
 ```java
-LevelDB levelDB = new LevelDB("path/to/leveldb", true);
+LevelDB levelDB =
+    new LevelDB("path/to/leveldb", LevelDB.configure().createIfMissing(true));
 
 levelDB.put("leveldb", "Is awesome!");
 String value = levelDB.get("leveldb");
@@ -33,7 +34,7 @@ levelDB.close(); // closing is a must!
 ... or using WriteBatches.
 
 ```java
-LevelDB levelDB = new LevelDB("path/to/leveldb", true);
+LevelDB levelDB = new LevelDB("path/to/leveldb"); // createIfMissing == true
 
 levelDB.put("sql", "is lovely!");
 
