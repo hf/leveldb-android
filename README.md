@@ -61,8 +61,8 @@ LevelDB levelDB = new LevelDB("path/to/leveldb");
 Iterator iterator = levelDB.iterator();
 
 for (iterator.seekToFirst(); iterator.isValid(); iterator.next()) {
-  byte[] key = iterator.key();
-  byte[] value = iterator.value();
+  String key   = iterator.key();
+  String value = iterator.value();
 }
 
 iterator.close(); // closing is a must!
@@ -78,8 +78,8 @@ LevelDB levelDB = new LevelDB("path/to/leveldb");
 Iterator iterator = levelDB.iterator();
 
 for (iterator.seekToLast(); iterator.isValid(); iterator.previous()) {
-  byte[] key = iterator.key();
-  byte[] value = iterator.value();
+  String key   = iterator.key();
+  String value = iterator.value();
 }
 
 iterator.close(); // closing is a must!
@@ -92,9 +92,9 @@ LevelDB levelDB = new LevelDB("path/to/leveldb");
 
 Iterator iterator = levelDB.iterator();
 
-for (iterator.seek("leveldb".getBytes()); iterator.isValid(); iterator.next()) {
-  byte[] key = iterator.key();
-  byte[] value = iterator.value();
+for (iterator.seek("leveldb"); iterator.isValid(); iterator.next()) {
+  String key   = iterator.key();
+  String value = iterator.value();
 }
 
 iterator.close(); // closing is a must!

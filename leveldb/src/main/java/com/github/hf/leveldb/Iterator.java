@@ -167,7 +167,7 @@ public class Iterator implements Closeable {
      * @return the key under the iterator, <tt>null</tt> if invalid
      * @throws LevelDBClosedException
      */
-    public byte[] key() throws LevelDBClosedException {
+    public byte[] keyBytes() throws LevelDBClosedException {
         checkIfClosed();
 
         if (!isValid()) {
@@ -178,6 +178,24 @@ public class Iterator implements Closeable {
     }
 
     /**
+     * Get the key under the iterator as a {@link java.lang.String}.
+     *
+     * Requires: {@link #isValid()}
+     *
+     * @return the key under the iterator, <tt>null</tt> if invalid
+     * @throws LevelDBClosedException
+     */
+    public String key() throws LevelDBClosedException {
+        byte[] key = keyBytes();
+
+        if (key != null) {
+            return new String(key);
+        }
+
+        return null;
+    }
+
+    /**
      * Get the value under the iterator.
      *
      * Requires: {@link #isValid()}
@@ -185,7 +203,7 @@ public class Iterator implements Closeable {
      * @return the value under the iterator, <tt>null</tt> if invalid
      * @throws LevelDBClosedException
      */
-    public byte[] value() throws LevelDBClosedException {
+    public byte[] valueBytes() throws LevelDBClosedException {
         checkIfClosed();
 
         if (!isValid()) {
@@ -193,6 +211,22 @@ public class Iterator implements Closeable {
         }
 
         return nvalue(nit);
+    }
+
+    /**
+     * Gets the value under the iterator as a {@link java.lang.String}.
+     *
+     * @return the value under the iterator, <tt>null</tt> if invalid
+     * @throws LevelDBClosedException
+     */
+    public String valueString() throws LevelDBClosedException {
+        byte[] value = valueBytes();
+
+        if (value != null) {
+            return new String(value);
+        }
+
+        return null;
     }
 
     /**
