@@ -1,0 +1,17 @@
+language: android
+android:
+  components:
+    - build-tools-19.1.0
+    - extra-android-m2repository
+
+before_install:
+  - wget http://dl.google.com/android/ndk/android-ndk-r9d-linux-x86_64.tar.bz2
+  - tar -xf android-ndk-r9d-linux-x86_64.tar.bz2
+  - export PATH=$PATH:$PWD/android-ndk-r9d
+
+before_script:
+  - echo no | android create avd --force -n test -t android-16 --abi armeabi-v7a
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - ./ci/wait_for_emulator.sh
+
+script: ./gradlew connectedCheck
