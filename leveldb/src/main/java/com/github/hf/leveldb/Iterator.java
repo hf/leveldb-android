@@ -219,7 +219,7 @@ public class Iterator implements Closeable {
      * @return the value under the iterator, <tt>null</tt> if invalid
      * @throws LevelDBClosedException
      */
-    public String valueString() throws LevelDBClosedException {
+    public String value() throws LevelDBClosedException {
         byte[] value = valueBytes();
 
         if (value != null) {

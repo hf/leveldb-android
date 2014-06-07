@@ -164,8 +164,11 @@ public class LevelDBTest extends InstrumentationTestCase {
         for (int i = 0; i < ITERATION.length; i++) {
             assertTrue(iterator.isValid());
 
-            byte[] key = iterator.key();
-            byte[] value = iterator.value();
+            byte[] key = iterator.keyBytes();
+            byte[] value = iterator.valueBytes();
+
+            String keyStringI = iterator.key();
+            String valueStringI = iterator.value();
 
             assertNotNull(key);
             assertNotNull(value);
@@ -175,6 +178,9 @@ public class LevelDBTest extends InstrumentationTestCase {
 
             assertEquals(keyString, ITERATION[i]);
             assertEquals(valueString, ITERATION[i]);
+
+            assertEquals(keyString, keyStringI);
+            assertEquals(valueString, valueStringI);
 
             iterator.next();
         }

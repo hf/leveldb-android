@@ -1,3 +1,5 @@
+![Travis CI](https://travis-ci.org/hf/leveldb-android.svg?branch=master)
+
 # LevelDB for Android
 
 This is a Java wrapper for the amazing
