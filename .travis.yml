@@ -2,8 +2,6 @@ language: android
 env:
   matrix:
     - ANDROID_ABI=armeabi-v7a
-    - ANDROID_ABI=armeabi
-    - ANDROID_ABI=x86
 
 android:
   components:
@@ -16,7 +14,6 @@ before_install:
   - wget http://dl.google.com/android/ndk/android-ndk-r9d-linux-x86_64.tar.bz2
   - tar -xf android-ndk-r9d-linux-x86_64.tar.bz2
   - export PATH=$PATH:$PWD/android-ndk-r9d
-  - ./gradlew --refresh-dependencies
 
 before_script:
   - ./ci/wait_for_emulator.sh
