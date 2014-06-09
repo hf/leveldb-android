@@ -44,7 +44,7 @@ levelDB.writeBatch()
   .put("leveldb", "Is awesome!")
   .put("magic", new byte[] { 0, 1, 2, 3, 4 })
   .del("sql")
-  .write(levelDB);
+  .write(); // commit transaction
 
 levelDB.close(); // closing is a must!
 

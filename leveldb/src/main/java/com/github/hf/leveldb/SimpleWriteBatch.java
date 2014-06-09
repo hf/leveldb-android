@@ -43,7 +43,9 @@ package com.github.hf.leveldb;
  */
 
 import com.github.hf.leveldb.exception.LevelDBException;
+import com.github.hf.leveldb.exception.LevelDBNotFoundException;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -100,6 +102,11 @@ public class SimpleWriteBatch implements WriteBatch {
         }
     }
 
+    /**
+     * A {@link java.lang.ref.WeakReference} is used to allow for the easy and timely garbage collection of the {@link
+     * com.github.hf.leveldb.LevelDB} instance by the GC, in case a WriteBatch reference wanders off.
+     */
+    private WeakReference<LevelDB> levelDBWR;
     private LinkedList<WriteBatch.Operation> operations;
 
     /**
@@ -108,10 +115,14 @@ public class SimpleWriteBatch implements WriteBatch {
      * Use {@link LevelDB#write(com.github.hf.leveldb.WriteBatch, boolean)} or {@link
      * com.github.hf.leveldb.SimpleWriteBatch#write(LevelDB, boolean)} to write it to the database.
      */
-    public SimpleWriteBatch() {
+    public SimpleWriteBatch(LevelDB levelDB) {
+        levelDBWR = new WeakReference<LevelDB>(levelDB);
         operations = new LinkedList<WriteBatch.Operation>();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public SimpleWriteBatch put(byte[] key, byte[] value) {
         operations.add(Operation.put(key, value));
@@ -119,6 +130,9 @@ public class SimpleWriteBatch implements WriteBatch {
         return this;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public SimpleWriteBatch del(byte[] key) {
         operations.add(Operation.del(key));
@@ -126,6 +140,9 @@ public class SimpleWriteBatch implements WriteBatch {
         return this;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public SimpleWriteBatch insert(WriteBatch.Operation operation) {
         operations.add(operation);
@@ -133,37 +150,116 @@ public class SimpleWriteBatch implements WriteBatch {
         return this;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Iterator<WriteBatch.Operation> iterator() {
         return operations.iterator();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Collection<WriteBatch.Operation> getAllOperations() {
         return new ArrayList<WriteBatch.Operation>(operations);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void write(LevelDB levelDB, boolean sync) throws LevelDBException {
         levelDB.write(this, sync);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void write(LevelDB levelDB) throws LevelDBException {
         write(levelDB, false);
     }
 
+    /**
+     * Writes to the bound database object. (The one that created this {@link com.github.hf.leveldb.SimpleWriteBatch}
+     * instance.)
+     *
+     * @param sync
+     * @throws LevelDBException
+     * @see #write(LevelDB, boolean)
+     * @see #isBound()
+     */
+    public void write(boolean sync) throws LevelDBException {
+        LevelDB db = levelDBWR.get();
+
+        if (db == null) {
+            throw new LevelDBNotFoundException("The LevelDB object is not reachable.");
+        }
+
+        write(db, sync);
+    }
+
+    /**
+     * Like {@link #write(boolean)} but asynchronously.
+     *
+     * @throws LevelDBException
+     * @see #write(boolean)
+     */
+    public void write() throws LevelDBException {
+        write(false);
+    }
+
+    /**
+     * Convenience method for {@link java.lang.String}s.
+     *
+     * @param key
+     * @param value
+     * @return
+     * @see #put(byte[], byte[])
+     */
     public SimpleWriteBatch put(String key, byte[] value) {
         put(key.getBytes(), value);
 
         return this;
     }
 
+    /**
+     * Convenience method for {@link java.lang.String}s.
+     *
+     * @param key
+     * @param value
+     * @return
+     * @see #put(byte[], byte[])
+     */
     public SimpleWriteBatch put(String key, String value) {
         return put(key, value.getBytes());
     }
 
+    /**
+     * Convenience method for {@link java.lang.String}s.
+     *
+     * @param key
+     * @return
+     * @see #del(byte[])
+     */
     public SimpleWriteBatch del(String key) {
         return del(key.getBytes());
+    }
+
+    /**
+     * Whether this {@link com.github.hf.leveldb.SimpleWriteBatch} object is bound to its creating {@link
+     * com.github.hf.leveldb.LevelDB} instance.
+     *
+     * You cannot use {@link #write(boolean)} or variants on a non-bound instance since the database object does not
+     * exist.
+     *
+     * @return
+     * @see #write(boolean)
+     * @see com.github.hf.leveldb.LevelDB#write(WriteBatch, boolean)
+     */
+    public boolean isBound() {
+        return levelDBWR != null && levelDBWR.get() != null;
     }
 }

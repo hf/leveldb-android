@@ -144,11 +144,10 @@ public class LevelDB implements Closeable {
     /**
      * Opens a new LevelDB database.
      *
-     * @see com.github.hf.leveldb.LevelDB.Configuration
-     *
-     * @param path            the path to the database
-     * @param configuration   configuration for this database
+     * @param path          the path to the database
+     * @param configuration configuration for this database
      * @throws LevelDBException
+     * @see com.github.hf.leveldb.LevelDB.Configuration
      */
     public LevelDB(String path, Configuration configuration) throws LevelDBException {
         if (configuration == null) {
@@ -262,7 +261,7 @@ public class LevelDB implements Closeable {
      * Writes a {@link com.github.hf.leveldb.WriteBatch} to the database.
      *
      * @param writeBatch the WriteBatch to write
-     * @param sync whether this is a synchronous (true) or asynchronous (false) write
+     * @param sync       whether this is a synchronous (true) or asynchronous (false) write
      * @throws LevelDBException
      */
     public void write(WriteBatch writeBatch, boolean sync) throws LevelDBException {
@@ -293,7 +292,7 @@ public class LevelDB implements Closeable {
      * @return
      */
     public SimpleWriteBatch writeBatch() {
-        return new SimpleWriteBatch();
+        return new SimpleWriteBatch(this);
     }
 
     /**
@@ -432,8 +431,8 @@ public class LevelDB implements Closeable {
     /**
      * Creates a new {@link com.github.hf.leveldb.Iterator} that iterates over this database.
      *
-     * The returned iterator is not thread safe and must be closed with {@link Iterator#close()}
-     * before closing this database.
+     * The returned iterator is not thread safe and must be closed with {@link Iterator#close()} before closing this
+     * database.
      *
      * @param fillCache whether iterating fills the internal cache
      * @return a new iterator
@@ -448,10 +447,9 @@ public class LevelDB implements Closeable {
     /**
      * Creates a new iterator that fills the cache.
      *
-     * @see #iterator(boolean)
-     *
-     * @returna new iterator
      * @throws LevelDBClosedException
+     * @returna new iterator
+     * @see #iterator(boolean)
      */
     public Iterator iterator() throws LevelDBClosedException {
         return iterator(true);

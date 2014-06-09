@@ -47,8 +47,8 @@ import com.github.hf.leveldb.exception.LevelDBClosedException;
 import java.io.Closeable;
 
 /**
- * An iterator is used to iterator over the entries in the database according to the total sort order
- * imposed by the comparator.
+ * An iterator is used to iterator over the entries in the database according to the total sort order imposed by the
+ * comparator.
  */
 public class Iterator implements Closeable {
 
@@ -121,9 +121,9 @@ public class Iterator implements Closeable {
     }
 
     /**
-     * @see #seek(byte[])
      * @param key
      * @throws LevelDBClosedException
+     * @see #seek(byte[])
      */
     public void seek(String key) throws LevelDBClosedException {
         if (key == null) {
@@ -268,12 +268,16 @@ public class Iterator implements Closeable {
     private static native boolean nvalid(long nit);
 
     private static native void nseek(long nit, byte[] key);
+
     private static native void nseekToFirst(long nit);
+
     private static native void nseekToLast(long nit);
 
     private static native void nnext(long nit);
+
     private static native void nprev(long nit);
 
     private static native byte[] nkey(long nit);
+
     private static native byte[] nvalue(long nit);
 }
