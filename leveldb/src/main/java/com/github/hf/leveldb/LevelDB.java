@@ -202,6 +202,16 @@ public class LevelDB implements Closeable {
      * @throws LevelDBException
      */
     public void put(byte[] key, byte[] value, boolean sync) throws LevelDBException {
+        if (value == null) {
+            del(key, sync);
+
+            return;
+        }
+
+        if (key == null) {
+            throw new IllegalArgumentException("Key must not be null!");
+        }
+
         checkIfClosed();
 
         nput(ndb, sync, key, value);
@@ -303,6 +313,10 @@ public class LevelDB implements Closeable {
      * @throws LevelDBException
      */
     public byte[] getBytes(byte[] key) throws LevelDBException {
+        if (key == null) {
+            throw new IllegalArgumentException("Key must not be null!");
+        }
+
         checkIfClosed();
 
         return nget(ndb, key);
@@ -346,6 +360,10 @@ public class LevelDB implements Closeable {
      * @throws LevelDBException
      */
     public void del(byte[] key, boolean sync) throws LevelDBException {
+        if (key == null) {
+            throw new IllegalArgumentException("Key must not be null.");
+        }
+
         checkIfClosed();
 
         ndelete(ndb, sync, key);
