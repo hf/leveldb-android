@@ -44,6 +44,7 @@ package com.github.hf.leveldb;
 
 import com.github.hf.leveldb.exception.LevelDBException;
 import com.github.hf.leveldb.exception.LevelDBNotFoundException;
+import com.github.hf.leveldb.LevelDB;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -112,8 +113,8 @@ public class SimpleWriteBatch implements WriteBatch {
     /**
      * Creates a new empty SimpleWriteBatch.
      *
-     * Use {@link LevelDB#write(com.github.hf.leveldb.WriteBatch, boolean)} or {@link
-     * com.github.hf.leveldb.SimpleWriteBatch#write(LevelDB, boolean)} to write it to the database.
+     * Use {@link com.github.hf.leveldb.LevelDB#write(com.github.hf.leveldb.WriteBatch, boolean)} or {@link
+     * SimpleWriteBatch#write(LevelDB, boolean)} to write it to the database.
      */
     public SimpleWriteBatch(LevelDB levelDB) {
         levelDBWR = new WeakReference<LevelDB>(levelDB);
@@ -183,7 +184,7 @@ public class SimpleWriteBatch implements WriteBatch {
     }
 
     /**
-     * Writes to the bound database object. (The one that created this {@link com.github.hf.leveldb.SimpleWriteBatch}
+     * Writes to the bound database object. (The one that created this {@link SimpleWriteBatch}
      * instance.)
      *
      * @param sync
@@ -249,7 +250,7 @@ public class SimpleWriteBatch implements WriteBatch {
     }
 
     /**
-     * Whether this {@link com.github.hf.leveldb.SimpleWriteBatch} object is bound to its creating {@link
+     * Whether this {@link SimpleWriteBatch} object is bound to its creating {@link
      * com.github.hf.leveldb.LevelDB} instance.
      *
      * You cannot use {@link #write(boolean)} or variants on a non-bound instance since the database object does not

@@ -40,12 +40,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "com_github_hf_leveldb_WriteBatch_Native.h"
+#include "com_github_hf_leveldb_implementation_NativeWriteBatch.h"
 
 #include "leveldb/options.h"
 #include "leveldb/write_batch.h"
 
-JNIEXPORT jlong JNICALL Java_com_github_hf_leveldb_WriteBatch_00024Native_ncreate
+JNIEXPORT jlong JNICALL Java_com_github_hf_leveldb_implementation_NativeWriteBatch_ncreate
 (JNIEnv *env, jclass cself) {
 
   leveldb::WriteBatch* WriteBatchImplementation = new leveldb::WriteBatch();
@@ -53,7 +53,7 @@ JNIEXPORT jlong JNICALL Java_com_github_hf_leveldb_WriteBatch_00024Native_ncreat
   return (jlong) WriteBatchImplementation;
 }
 
-JNIEXPORT void JNICALL Java_com_github_hf_leveldb_WriteBatch_00024Native_nput
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeWriteBatch_nput
 (JNIEnv *env, jclass cself, jlong nwb, jbyteArray key, jbyteArray value) {
 
   leveldb::WriteBatch* wb = (leveldb::WriteBatch*) nwb;
@@ -70,7 +70,7 @@ JNIEXPORT void JNICALL Java_com_github_hf_leveldb_WriteBatch_00024Native_nput
   env->ReleaseByteArrayElements(value, (jbyte*) valueData, 0);
 }
 
-JNIEXPORT void JNICALL Java_com_github_hf_leveldb_WriteBatch_00024Native_ndelete
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeWriteBatch_ndelete
 (JNIEnv *env, jclass cself, jlong nwb, jbyteArray key) {
 
   leveldb::WriteBatch* wb = (leveldb::WriteBatch*) nwb;
@@ -83,7 +83,7 @@ JNIEXPORT void JNICALL Java_com_github_hf_leveldb_WriteBatch_00024Native_ndelete
   env->ReleaseByteArrayElements(key, (jbyte*) keyData, 0);
 }
 
-JNIEXPORT void JNICALL Java_com_github_hf_leveldb_WriteBatch_00024Native_nclose
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeWriteBatch_nclose
 (JNIEnv *env, jclass cself, jlong nwb) {
   if (nwb != 0) {
     delete ((leveldb::WriteBatch*) nwb);

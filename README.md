@@ -113,12 +113,13 @@ Until Google (or someone else) fixes the Android Gradle build tools to properly
 support NDK, this is the way to build this project.
 
 1. Install the [NDK](https://developer.android.com/tools/sdk/ndk/index.html)
-. (Tested with ndk-r9d.)
+. (Tested with ndk-r10d.)
 2. Add NDK to `$PATH`.
 3. Build with Gradle (`preBuild` depends on `preBuildLevelDB`)
 
 ## TODO
 
+* Mock implementation for faster tests (like in Robolectric)
 * ~~WriteBatch API~~
 * Publish on Maven
 * ~~Iteration API~~

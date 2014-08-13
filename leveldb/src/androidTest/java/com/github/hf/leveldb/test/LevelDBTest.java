@@ -47,6 +47,7 @@ import android.util.Log;
 import com.github.hf.leveldb.Iterator;
 import com.github.hf.leveldb.LevelDB;
 import com.github.hf.leveldb.SimpleWriteBatch;
+import com.github.hf.leveldb.WriteBatch;
 import com.github.hf.leveldb.exception.LevelDBException;
 
 import java.io.File;
@@ -64,7 +65,7 @@ public class LevelDBTest extends InstrumentationTestCase {
         boolean threwException = false;
 
         try {
-            new LevelDB(getPath("leveldb-test"), LevelDB.configure().createIfMissing(false));
+            LevelDB.open(getPath("leveldb-test"), LevelDB.configure().createIfMissing(false));
         } catch (LevelDBException e) {
             threwException = true;
         }
@@ -73,7 +74,7 @@ public class LevelDBTest extends InstrumentationTestCase {
     }
 
     public void testOpenAndDestroy() throws Exception {
-        LevelDB levelDB = new LevelDB(getPath("leveldb-test"));
+        LevelDB levelDB = LevelDB.open(getPath("leveldb-test"));
 
         levelDB.close();
 
@@ -82,7 +83,7 @@ public class LevelDBTest extends InstrumentationTestCase {
         boolean threwException = false;
 
         try {
-            new LevelDB(getPath("leveldb-test"), LevelDB.configure().createIfMissing(false));
+            LevelDB.open(getPath("leveldb-test"), LevelDB.configure().createIfMissing(false));
         } catch (LevelDBException e) {
             threwException = true;
         }
@@ -91,7 +92,7 @@ public class LevelDBTest extends InstrumentationTestCase {
     }
 
     public void testGetPutDeleteString() throws Exception {
-        LevelDB levelDB = new LevelDB(getPath("leveldb-test"));
+        LevelDB levelDB = LevelDB.open(getPath("leveldb-test"));
 
         long start = System.currentTimeMillis();
         levelDB.put("key", "value");
@@ -113,14 +114,14 @@ public class LevelDBTest extends InstrumentationTestCase {
     }
 
     public void testWriteBatch() throws Exception {
-        LevelDB levelDB = new LevelDB(getPath("leveldb-test"));
+        LevelDB levelDB = LevelDB.open(getPath("leveldb-test"));
 
-        levelDB.writeBatch().put("key", "value").put("data", "store").write(levelDB);
+        new SimpleWriteBatch(levelDB).put("key", "value").put("data", "store").write(levelDB);
 
         assertEquals("value", levelDB.get("key"));
         assertEquals("store", levelDB.get("data"));
 
-        levelDB.writeBatch().put("key", "value1").del("data").write(levelDB);
+        new SimpleWriteBatch(levelDB).put("key", "value1").del("data").write(levelDB);
 
         assertEquals("value1", levelDB.get("key"));
         assertNull(levelDB.get("data"));
@@ -142,9 +143,9 @@ public class LevelDBTest extends InstrumentationTestCase {
     };
 
     public void testIteration() throws Exception {
-        LevelDB levelDB = new LevelDB(getPath("leveldb-test"));
+        LevelDB levelDB = LevelDB.open(getPath("leveldb-test"));
 
-        SimpleWriteBatch writeBatch = levelDB.writeBatch();
+        SimpleWriteBatch writeBatch = new SimpleWriteBatch(levelDB);
 
         for (String i : ITERATION) {
             writeBatch.put(i, i);

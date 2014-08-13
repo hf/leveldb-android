@@ -42,107 +42,14 @@ package com.github.hf.leveldb;
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import android.util.Log;
 import com.github.hf.leveldb.exception.LevelDBException;
 
-import java.io.Closeable;
 import java.util.Collection;
 
 /**
  * Holds a batch write operation. (Something like a transaction.)
  */
 public interface WriteBatch extends Iterable<WriteBatch.Operation> {
-
-    /**
-     * Native object a-la <tt>leveldb::WriteBatch</tt>.
-     *
-     * Make sure after use you call {@link SimpleWriteBatch.Native#close()}.
-     */
-    public static class Native implements Closeable {
-        static {
-            System.loadLibrary("leveldb");
-        }
-
-        // Don't touch this. If you do, something somewhere dies.
-        private long nwb;
-
-        protected Native(WriteBatch writeBatch) {
-            nwb = ncreate();
-
-            for (WriteBatch.Operation operation : writeBatch) {
-
-                if (operation.isPut()) {
-                    nput(nwb, operation.getKey(), operation.getValue());
-                } else {
-                    ndelete(nwb, operation.getKey());
-                }
-            }
-        }
-
-        /**
-         * Returns the native object's pointer, to be used when calling a native function.
-         *
-         * @return the native pointer
-         */
-        protected long nativePointer() {
-            return nwb;
-        }
-
-        /**
-         * Close this object. You may call this multiple times.
-         *
-         * Use of this object is illegal after calling this.
-         */
-        @Override
-        public void close() {
-            if (!isClosed()) {
-                nclose(nwb);
-                nwb = 0;
-            } else {
-                Log.i("org.leveldb", "Native WriteBatch is already closed.");
-            }
-        }
-
-        /**
-         * Whether this object is closed.
-         *
-         * @return
-         */
-        public boolean isClosed() {
-            return nwb == 0;
-        }
-
-        /**
-         * Native create. Corresponds to: <tt>new leveldb::SimpleWriteBatch()</tt>
-         *
-         * @return pointer to native structure
-         */
-        private static native long ncreate();
-
-        /**
-         * Native SimpleWriteBatch put. Pointer is unchecked.
-         *
-         * @param nwb   native structure pointer
-         * @param key
-         * @param value
-         */
-        private static native void nput(long nwb, byte[] key, byte[] value);
-
-        /**
-         * Native SimpleWriteBatch delete. Pointer is unchecked.
-         *
-         * @param nwb native structure pointer
-         * @param key
-         */
-        private static native void ndelete(long nwb, byte[] key);
-
-        /**
-         * Native close. Releases all memory. Pointer is unchecked.
-         *
-         * @param nwb native structure pointer
-         */
-        private static native void nclose(long nwb);
-    }
 
     /**
      * Interace for a WriteBatch operation. LevelDB supports puts and deletions.
@@ -212,7 +119,7 @@ public interface WriteBatch extends Iterable<WriteBatch.Operation> {
     /**
      * Commit this WriteBatch to the database.
      *
-     * @param levelDB the {@link com.github.hf.leveldb.LevelDB} database to write to
+     * @param levelDB the {@link com.github.hf.leveldb.implementation.NativeLevelDB} database to write to
      * @param sync    whether this is a synchronous (true) or asynchronous (false) write
      * @throws LevelDBException
      */
@@ -221,7 +128,7 @@ public interface WriteBatch extends Iterable<WriteBatch.Operation> {
     /**
      * Commit this WriteBatch to the database asynchronously.
      *
-     * @param levelDB the {@link com.github.hf.leveldb.LevelDB} database to write to
+     * @param levelDB the {@link com.github.hf.leveldb.implementation.NativeLevelDB} database to write to
      * @throws LevelDBException
      */
     public void write(LevelDB levelDB) throws LevelDBException;

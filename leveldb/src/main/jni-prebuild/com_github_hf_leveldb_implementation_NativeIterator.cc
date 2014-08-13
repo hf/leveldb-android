@@ -40,7 +40,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "com_github_hf_leveldb_Iterator.h"
+#include "com_github_hf_leveldb_implementation_NativeIterator.h"
 #include "leveldb/iterator.h"
 #include "leveldb/slice.h"
 #include "leveldb/options.h"
@@ -48,7 +48,7 @@
 
 #include <android/log.h>
 
-JNIEXPORT void JNICALL Java_com_github_hf_leveldb_Iterator_nclose
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeIterator_nclose
 (JNIEnv *env, jclass cself, jlong nit) {
   if (nit == 0) {
     return;
@@ -65,7 +65,7 @@ JNIEXPORT void JNICALL Java_com_github_hf_leveldb_Iterator_nclose
   delete it;
 }
 
-JNIEXPORT jboolean JNICALL Java_com_github_hf_leveldb_Iterator_nvalid
+JNIEXPORT jboolean JNICALL Java_com_github_hf_leveldb_implementation_NativeIterator_nvalid
 (JNIEnv *env, jclass cself, jlong nit) {
   leveldb::Iterator* it = (leveldb::Iterator*) nit;
 
@@ -82,7 +82,7 @@ JNIEXPORT jboolean JNICALL Java_com_github_hf_leveldb_Iterator_nvalid
   return retval;
 }
 
-JNIEXPORT void JNICALL Java_com_github_hf_leveldb_Iterator_nseek
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeIterator_nseek
 (JNIEnv *env, jclass cself, jlong nit, jbyteArray key) {
   leveldb::Iterator* it = (leveldb::Iterator*) nit;
 
@@ -102,7 +102,7 @@ JNIEXPORT void JNICALL Java_com_github_hf_leveldb_Iterator_nseek
   }
 }
 
-JNIEXPORT void JNICALL Java_com_github_hf_leveldb_Iterator_nseekToFirst
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeIterator_nseekToFirst
 (JNIEnv *env, jclass cself, jlong nit) {
   leveldb::Iterator* it = (leveldb::Iterator*) nit;
 
@@ -117,7 +117,7 @@ JNIEXPORT void JNICALL Java_com_github_hf_leveldb_Iterator_nseekToFirst
   }
 }
 
-JNIEXPORT void JNICALL Java_com_github_hf_leveldb_Iterator_nseekToLast
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeIterator_nseekToLast
 (JNIEnv *env, jclass cself, jlong nit) {
   leveldb::Iterator* it = (leveldb::Iterator*) nit;
 
@@ -132,7 +132,7 @@ JNIEXPORT void JNICALL Java_com_github_hf_leveldb_Iterator_nseekToLast
   }
 }
 
-JNIEXPORT void JNICALL Java_com_github_hf_leveldb_Iterator_nnext
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeIterator_nnext
 (JNIEnv *env, jclass cself, jlong nit) {
   leveldb::Iterator* it = (leveldb::Iterator*) nit;
 
@@ -147,7 +147,7 @@ JNIEXPORT void JNICALL Java_com_github_hf_leveldb_Iterator_nnext
   }
 }
 
-JNIEXPORT void JNICALL Java_com_github_hf_leveldb_Iterator_nprev
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeIterator_nprev
 (JNIEnv *env, jclass cself, jlong nit) {
   leveldb::Iterator* it = (leveldb::Iterator*) nit;
 
@@ -162,7 +162,7 @@ JNIEXPORT void JNICALL Java_com_github_hf_leveldb_Iterator_nprev
   }
 }
 
-JNIEXPORT jbyteArray JNICALL Java_com_github_hf_leveldb_Iterator_nkey
+JNIEXPORT jbyteArray JNICALL Java_com_github_hf_leveldb_implementation_NativeIterator_nkey
 (JNIEnv *env, jclass cself, jlong nit) {
   leveldb::Iterator* it = (leveldb::Iterator*) nit;
 
@@ -189,7 +189,7 @@ JNIEXPORT jbyteArray JNICALL Java_com_github_hf_leveldb_Iterator_nkey
   return retval;
 }
 
-JNIEXPORT jbyteArray JNICALL Java_com_github_hf_leveldb_Iterator_nvalue
+JNIEXPORT jbyteArray JNICALL Java_com_github_hf_leveldb_implementation_NativeIterator_nvalue
 (JNIEnv *env, jclass cself, jlong nit) {
   leveldb::Iterator* it = (leveldb::Iterator*) nit;
 

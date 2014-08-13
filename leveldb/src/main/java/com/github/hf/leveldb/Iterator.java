@@ -47,143 +47,32 @@ import com.github.hf.leveldb.exception.LevelDBClosedException;
 import java.io.Closeable;
 
 /**
- * An iterator is used to iterator over the entries in the database according to the total sort order imposed by the
- * comparator.
+ * Created by hermann on 8/13/14.
  */
-public class Iterator implements Closeable {
+public abstract class Iterator implements Closeable {
+    public abstract boolean isValid() throws LevelDBClosedException;
 
-    // Don't touch this or all hell breaks loose.
-    private long nit;
+    public abstract void seekToFirst() throws LevelDBClosedException;
 
-    /**
-     * Protected constructor used in {@link com.github.hf.leveldb.LevelDB#iterator(boolean)}.
-     *
-     * @param nit the native pointer
-     */
-    protected Iterator(long nit) {
-        if (nit == 0) {
-            throw new IllegalArgumentException("Native iterator pointer must not be NULL!");
-        }
+    public abstract void seekToLast() throws LevelDBClosedException;
 
-        this.nit = nit;
-    }
+    public abstract void seek(byte[] key) throws LevelDBClosedException;
 
-    /**
-     * Whether this pointer is valid. An iterator is valid iff it is positioned over a key-value pair.
-     *
-     * @return whether the iterator is valid
-     * @throws LevelDBClosedException
-     */
-    public boolean isValid() throws LevelDBClosedException {
-        checkIfClosed();
+    public abstract void seek(String key) throws LevelDBClosedException;
 
-        return nvalid(this.nit);
-    }
+    public abstract void next() throws LevelDBClosedException;
+
+    public abstract void previous() throws LevelDBClosedException;
+
+    public abstract byte[] keyBytes() throws LevelDBClosedException;
 
     /**
-     * Seeks to the first key-value pair in the database.
-     *
-     * @throws LevelDBClosedException
-     */
-    public void seekToFirst() throws LevelDBClosedException {
-        checkIfClosed();
-
-        nseekToFirst(this.nit);
-    }
-
-    /**
-     * Seeks to the last key-value pair in the database.
-     *
-     * NB: Reverse iteration is somewhat slower than forward iteration.
-     *
-     * @throws LevelDBClosedException
-     */
-    public void seekToLast() throws LevelDBClosedException {
-        checkIfClosed();
-
-        nseekToLast(this.nit);
-    }
-
-    /**
-     * Seek to the given key, or right after it.
-     *
-     * @param key the key, never <tt>null</tt>
-     * @throws LevelDBClosedException
-     */
-    public void seek(byte[] key) throws LevelDBClosedException {
-        checkIfClosed();
-
-        if (key == null) {
-            throw new IllegalArgumentException("Seek key must never be null!");
-        }
-
-        nseek(nit, key);
-    }
-
-    /**
-     * @param key
-     * @throws LevelDBClosedException
-     * @see #seek(byte[])
-     */
-    public void seek(String key) throws LevelDBClosedException {
-        if (key == null) {
-            throw new IllegalArgumentException("Seek key must never be null!");
-        }
-
-        seek(key.getBytes());
-    }
-
-    /**
-     * Advance the iterator forward.
-     *
-     * Requires: {@link #isValid()}
-     *
-     * @throws LevelDBClosedException
-     */
-    public void next() throws LevelDBClosedException {
-        checkIfClosed();
-
-        nnext(nit);
-    }
-
-    /**
-     * Advance the iterator backward.
-     *
-     * Requires: {@link #isValid()}
-     *
-     * @throws LevelDBClosedException
-     */
-    public void previous() throws LevelDBClosedException {
-        checkIfClosed();
-
-        nprev(nit);
-    }
-
-    /**
-     * Get the key under the iterator.
+     * Get the key under the iterator as a {@link String}.
      *
      * Requires: {@link #isValid()}
      *
      * @return the key under the iterator, <tt>null</tt> if invalid
-     * @throws LevelDBClosedException
-     */
-    public byte[] keyBytes() throws LevelDBClosedException {
-        checkIfClosed();
-
-        if (!isValid()) {
-            return null;
-        }
-
-        return nkey(nit);
-    }
-
-    /**
-     * Get the key under the iterator as a {@link java.lang.String}.
-     *
-     * Requires: {@link #isValid()}
-     *
-     * @return the key under the iterator, <tt>null</tt> if invalid
-     * @throws LevelDBClosedException
+     * @throws com.github.hf.leveldb.exception.LevelDBClosedException
      */
     public String key() throws LevelDBClosedException {
         byte[] key = keyBytes();
@@ -195,29 +84,13 @@ public class Iterator implements Closeable {
         return null;
     }
 
-    /**
-     * Get the value under the iterator.
-     *
-     * Requires: {@link #isValid()}
-     *
-     * @return the value under the iterator, <tt>null</tt> if invalid
-     * @throws LevelDBClosedException
-     */
-    public byte[] valueBytes() throws LevelDBClosedException {
-        checkIfClosed();
-
-        if (!isValid()) {
-            return null;
-        }
-
-        return nvalue(nit);
-    }
+    public abstract byte[] valueBytes() throws LevelDBClosedException;
 
     /**
-     * Gets the value under the iterator as a {@link java.lang.String}.
+     * Gets the value under the iterator as a {@link String}.
      *
      * @return the value under the iterator, <tt>null</tt> if invalid
-     * @throws LevelDBClosedException
+     * @throws com.github.hf.leveldb.exception.LevelDBClosedException
      */
     public String value() throws LevelDBClosedException {
         byte[] value = valueBytes();
@@ -229,55 +102,8 @@ public class Iterator implements Closeable {
         return null;
     }
 
-    /**
-     * Whether this iterator has been closed.
-     *
-     * @return
-     */
-    public boolean isClosed() {
-        return nit == 0;
-    }
+    public abstract boolean isClosed();
 
-    /**
-     * Closes this iterator. It will be almost unusable after.
-     *
-     * Always close the iterator before closing the database.
-     */
     @Override
-    public void close() {
-        if (!isClosed()) {
-            nclose(nit);
-        }
-
-        nit = 0;
-    }
-
-    /**
-     * Checks if this iterator has been closed.
-     *
-     * @throws LevelDBClosedException
-     */
-    private void checkIfClosed() throws LevelDBClosedException {
-        if (isClosed()) {
-            throw new LevelDBClosedException("Iterator has been closed.");
-        }
-    }
-
-    private static native void nclose(long nit);
-
-    private static native boolean nvalid(long nit);
-
-    private static native void nseek(long nit, byte[] key);
-
-    private static native void nseekToFirst(long nit);
-
-    private static native void nseekToLast(long nit);
-
-    private static native void nnext(long nit);
-
-    private static native void nprev(long nit);
-
-    private static native byte[] nkey(long nit);
-
-    private static native byte[] nvalue(long nit);
+    public abstract void close();
 }
