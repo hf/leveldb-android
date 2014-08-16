@@ -45,6 +45,7 @@ package com.github.hf.leveldb;
 import com.github.hf.leveldb.exception.LevelDBClosedException;
 import com.github.hf.leveldb.exception.LevelDBException;
 import com.github.hf.leveldb.implementation.NativeLevelDB;
+import com.github.hf.leveldb.implementation.mock.MockLevelDB;
 
 import java.io.Closeable;
 
@@ -84,6 +85,10 @@ public abstract class LevelDB implements Closeable {
 
     public static LevelDB open(String path) throws LevelDBException {
         return open(path, configure());
+    }
+
+    public static LevelDB mock() {
+        return new MockLevelDB();
     }
 
     /**
