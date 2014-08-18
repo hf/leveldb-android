@@ -1,16 +1,7 @@
-package com.github.hf.leveldb;
+package com.github.hf.leveldb.util;
 
 /*
  * Stojan Dimitrovski
- *
- * 2014
- *
- * In the original BSD license, the occurrence of "copyright holder" in the 3rd
- * clause read "ORGANIZATION", placeholder for "University of California". In the
- * original BSD license, both occurrences of the phrase "COPYRIGHT HOLDERS AND
- * CONTRIBUTORS" in the disclaimer read "REGENTS AND CONTRIBUTORS".
- *
- * Here is the license template:
  *
  * Copyright (c) 2014, Stojan Dimitrovski <sdimitrovski@gmail.com>
  *
@@ -35,13 +26,14 @@ package com.github.hf.leveldb;
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
  * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OFz SUBSTITUTE GOODS OR SERVICES;
  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
  * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import com.github.hf.leveldb.WriteBatch;
 import com.github.hf.leveldb.exception.LevelDBException;
 import com.github.hf.leveldb.exception.LevelDBNotFoundException;
 import com.github.hf.leveldb.LevelDB;
@@ -83,12 +75,12 @@ public class SimpleWriteBatch implements WriteBatch {
         }
 
         @Override
-        public byte[] getKey() {
+        public byte[] key() {
             return key;
         }
 
         @Override
-        public byte[] getValue() {
+        public byte[] value() {
             return value;
         }
 
@@ -110,6 +102,10 @@ public class SimpleWriteBatch implements WriteBatch {
     private WeakReference<LevelDB> levelDBWR;
     private LinkedList<WriteBatch.Operation> operations;
 
+    public SimpleWriteBatch() {
+        this(null);
+    }
+
     /**
      * Creates a new empty SimpleWriteBatch.
      *
@@ -126,6 +122,14 @@ public class SimpleWriteBatch implements WriteBatch {
      */
     @Override
     public SimpleWriteBatch put(byte[] key, byte[] value) {
+        if (value == null) {
+            return del(key);
+        }
+
+        if (key == null) {
+            throw new IllegalArgumentException("Key must not be null.");
+        }
+
         operations.add(Operation.put(key, value));
 
         return this;
@@ -136,6 +140,10 @@ public class SimpleWriteBatch implements WriteBatch {
      */
     @Override
     public SimpleWriteBatch del(byte[] key) {
+        if (key == null) {
+            throw new IllegalArgumentException("Key must not be null.");
+        }
+
         operations.add(Operation.del(key));
 
         return this;
@@ -146,6 +154,10 @@ public class SimpleWriteBatch implements WriteBatch {
      */
     @Override
     public SimpleWriteBatch insert(WriteBatch.Operation operation) {
+        if (operation == null) {
+            throw new IllegalArgumentException("Operation must not be null.");
+        }
+
         operations.add(operation);
 
         return this;
@@ -210,43 +222,6 @@ public class SimpleWriteBatch implements WriteBatch {
      */
     public void write() throws LevelDBException {
         write(false);
-    }
-
-    /**
-     * Convenience method for {@link java.lang.String}s.
-     *
-     * @param key
-     * @param value
-     * @return
-     * @see #put(byte[], byte[])
-     */
-    public SimpleWriteBatch put(String key, byte[] value) {
-        put(key.getBytes(), value);
-
-        return this;
-    }
-
-    /**
-     * Convenience method for {@link java.lang.String}s.
-     *
-     * @param key
-     * @param value
-     * @return
-     * @see #put(byte[], byte[])
-     */
-    public SimpleWriteBatch put(String key, String value) {
-        return put(key, value.getBytes());
-    }
-
-    /**
-     * Convenience method for {@link java.lang.String}s.
-     *
-     * @param key
-     * @return
-     * @see #del(byte[])
-     */
-    public SimpleWriteBatch del(String key) {
-        return del(key.getBytes());
     }
 
     /**

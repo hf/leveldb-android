@@ -3,15 +3,6 @@ package com.github.hf.leveldb;
 /*
  * Stojan Dimitrovski
  *
- * 2014
- *
- * In the original BSD license, the occurrence of "copyright holder" in the 3rd
- * clause read "ORGANIZATION", placeholder for "University of California". In the
- * original BSD license, both occurrences of the phrase "COPYRIGHT HOLDERS AND
- * CONTRIBUTORS" in the disclaimer read "REGENTS AND CONTRIBUTORS".
- *
- * Here is the license template:
- *
  * Copyright (c) 2014, Stojan Dimitrovski <sdimitrovski@gmail.com>
  *
  * All rights reserved.
@@ -35,7 +26,7 @@ package com.github.hf.leveldb;
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
  * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OFz SUBSTITUTE GOODS OR SERVICES;
  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
  * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
@@ -43,67 +34,82 @@ package com.github.hf.leveldb;
  */
 
 import com.github.hf.leveldb.exception.LevelDBClosedException;
+import com.github.hf.leveldb.exception.LevelDBIteratorNotValidException;
 
 import java.io.Closeable;
 
-/**
- * Created by hermann on 8/13/14.
- */
 public abstract class Iterator implements Closeable {
+    /**
+     * Checks if there is a key-value pair over the current position of the iterator.
+     *
+     * @throws LevelDBClosedException
+     */
     public abstract boolean isValid() throws LevelDBClosedException;
 
+    /**
+     * Moves to the first key-value pair in the database.
+     *
+     * @throws LevelDBClosedException
+     */
     public abstract void seekToFirst() throws LevelDBClosedException;
 
+    /**
+     * Moves to the last key-value pair in the database.
+     *
+     * @throws LevelDBClosedException
+     */
     public abstract void seekToLast() throws LevelDBClosedException;
 
+    /**
+     * Moves on top of, or just after key, in the database.
+     *
+     * @param key the key to seek, if null throws an {@link java.lang.IllegalArgumentException}
+     * @throws LevelDBClosedException
+     */
     public abstract void seek(byte[] key) throws LevelDBClosedException;
 
-    public abstract void seek(String key) throws LevelDBClosedException;
-
-    public abstract void next() throws LevelDBClosedException;
-
-    public abstract void previous() throws LevelDBClosedException;
-
-    public abstract byte[] keyBytes() throws LevelDBClosedException;
+    /**
+     * Moves to the next entry in the database.
+     *
+     * @throws LevelDBIteratorNotValidException if not {@link #isValid()}
+     * @throws LevelDBClosedException
+     */
+    public abstract void next() throws LevelDBIteratorNotValidException, LevelDBClosedException;
 
     /**
-     * Get the key under the iterator as a {@link String}.
+     * Moves to the previous entry in the database.
      *
-     * Requires: {@link #isValid()}
-     *
-     * @return the key under the iterator, <tt>null</tt> if invalid
-     * @throws com.github.hf.leveldb.exception.LevelDBClosedException
+     * @throws LevelDBIteratorNotValidException if not {@link #isValid()}
+     * @throws LevelDBClosedException
      */
-    public String key() throws LevelDBClosedException {
-        byte[] key = keyBytes();
-
-        if (key != null) {
-            return new String(key);
-        }
-
-        return null;
-    }
-
-    public abstract byte[] valueBytes() throws LevelDBClosedException;
+    public abstract void previous() throws LevelDBIteratorNotValidException, LevelDBClosedException;
 
     /**
-     * Gets the value under the iterator as a {@link String}.
+     * Returns the key under the iterator.
      *
-     * @return the value under the iterator, <tt>null</tt> if invalid
-     * @throws com.github.hf.leveldb.exception.LevelDBClosedException
+     * @return the key
+     * @throws LevelDBIteratorNotValidException if not {@link #isValid()}
+     * @throws LevelDBClosedException
      */
-    public String value() throws LevelDBClosedException {
-        byte[] value = valueBytes();
+    public abstract byte[] key() throws LevelDBIteratorNotValidException, LevelDBClosedException;
 
-        if (value != null) {
-            return new String(value);
-        }
+    /**
+     * Returns the value under the iterator.
+     *
+     * @return the value
+     * @throws LevelDBIteratorNotValidException if not {@link #isValid()}
+     * @throws LevelDBClosedException
+     */
+    public abstract byte[] value() throws LevelDBClosedException;
 
-        return null;
-    }
-
+    /**
+     * Checks whether this iterator has been closed.
+     */
     public abstract boolean isClosed();
 
+    /**
+     * Closes this iterator if it has not been. It is usually unusable after a call to this method.
+     */
     @Override
     public abstract void close();
 }

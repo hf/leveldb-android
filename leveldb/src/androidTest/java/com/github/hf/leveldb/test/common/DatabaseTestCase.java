@@ -1,4 +1,4 @@
-package com.github.hf.leveldb.exception;
+package com.github.hf.leveldb.test.common;
 
 /*
  * Stojan Dimitrovski
@@ -33,11 +33,39 @@ package com.github.hf.leveldb.exception;
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import android.test.InstrumentationTestCase;
+import com.github.hf.leveldb.LevelDB;
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
- * Created by hermann on 5/21/14.
+ * Created by hermann on 8/18/14.
  */
-public class LevelDBCorruptionException extends LevelDBException {
-    public LevelDBCorruptionException(String detailMessage) {
-        super(detailMessage);
+public abstract class DatabaseTestCase extends InstrumentationTestCase {
+    protected File dbFile;
+
+    @Override
+    public void setUp() throws Exception {
+        super.setUp();
+
+        dbFile = new File(getInstrumentation().getContext().getCacheDir(), String.format("%20f", Math.random() * 100000d));
+
+        if (dbFile.exists()) {
+            assertThat(FileUtils.deleteQuietly(dbFile)).isTrue();
+        }
     }
+
+    @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
+
+        if (dbFile.exists()) {
+            assertThat(FileUtils.deleteQuietly(dbFile)).isTrue();
+        }
+    }
+
+    protected abstract LevelDB obtainLevelDB() throws Exception;
 }

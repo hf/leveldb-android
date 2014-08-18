@@ -1,15 +1,6 @@
 /*
  * Stojan Dimitrovski
  *
- * 2014
- *
- * In the original BSD license, the occurrence of "copyright holder" in the 3rd
- * clause read "ORGANIZATION", placeholder for "University of California". In the
- * original BSD license, both occurrences of the phrase "COPYRIGHT HOLDERS AND
- * CONTRIBUTORS" in the disclaimer read "REGENTS AND CONTRIBUTORS".
- *
- * Here is the license template:
- *
  * Copyright (c) 2014, Stojan Dimitrovski <sdimitrovski@gmail.com>
  *
  * All rights reserved.

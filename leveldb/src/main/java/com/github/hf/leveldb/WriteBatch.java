@@ -3,15 +3,6 @@ package com.github.hf.leveldb;
 /*
  * Stojan Dimitrovski
  *
- * 2014
- *
- * In the original BSD license, the occurrence of "copyright holder" in the 3rd
- * clause read "ORGANIZATION", placeholder for "University of California". In the
- * original BSD license, both occurrences of the phrase "COPYRIGHT HOLDERS AND
- * CONTRIBUTORS" in the disclaimer read "REGENTS AND CONTRIBUTORS".
- *
- * Here is the license template:
- *
  * Copyright (c) 2014, Stojan Dimitrovski <sdimitrovski@gmail.com>
  *
  * All rights reserved.
@@ -35,7 +26,7 @@ package com.github.hf.leveldb;
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
  * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OFz SUBSTITUTE GOODS OR SERVICES;
  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
  * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
@@ -60,14 +51,14 @@ public interface WriteBatch extends Iterable<WriteBatch.Operation> {
          *
          * @return the key, never null
          */
-        public byte[] getKey();
+        public byte[] key();
 
         /**
-         * The value to associate with {@link #getKey()}.
+         * The value to associate with {@link #key()}.
          *
          * @return could be <tt>null</tt>, especially if {@link #isDel()} <tt>== true</tt>
          */
-        public byte[] getValue();
+        public byte[] value();
 
         /**
          * Whether this operation is a put.

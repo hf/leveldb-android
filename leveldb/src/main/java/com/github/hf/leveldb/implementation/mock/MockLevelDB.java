@@ -3,15 +3,6 @@ package com.github.hf.leveldb.implementation.mock;
 /*
  * Stojan Dimitrovski
  *
- * 2014
- *
- * In the original BSD license, the occurrence of "copyright holder" in the 3rd
- * clause read "ORGANIZATION", placeholder for "University of California". In the
- * original BSD license, both occurrences of the phrase "COPYRIGHT HOLDERS AND
- * CONTRIBUTORS" in the disclaimer read "REGENTS AND CONTRIBUTORS".
- *
- * Here is the license template:
- *
  * Copyright (c) 2014, Stojan Dimitrovski <sdimitrovski@gmail.com>
  *
  * All rights reserved.
@@ -35,13 +26,14 @@ package com.github.hf.leveldb.implementation.mock;
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
  * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OFz SUBSTITUTE GOODS OR SERVICES;
  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
  * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import android.util.Log;
 import com.github.hf.leveldb.Iterator;
 import com.github.hf.leveldb.LevelDB;
 import com.github.hf.leveldb.WriteBatch;
@@ -63,11 +55,33 @@ public class MockLevelDB extends LevelDB {
 
     @Override
     public void close() {
-        closed = true;
+        boolean multipleClose = false;
+
+        synchronized (this) {
+            if (closed) {
+                multipleClose = true;
+            } else {
+                closed = true;
+            }
+        }
+
+        if (multipleClose) {
+            Log.i(MockLevelDB.class.getName(), "Trying to close Mock LevelDB multiple times.");
+        }
     }
 
     @Override
     public synchronized void put(byte[] key, byte[] value, boolean sync) throws LevelDBException {
+        if (value == null) {
+            del(key, sync);
+
+            return;
+        }
+
+        if (key == null) {
+            throw new IllegalArgumentException("Key must not be null.");
+        }
+
         checkIfClosed();
 
         map.put(key, value);
@@ -75,19 +89,27 @@ public class MockLevelDB extends LevelDB {
 
     @Override
     public synchronized void write(WriteBatch writeBatch, boolean sync) throws LevelDBException {
+        if (writeBatch == null) {
+            throw new IllegalArgumentException("Write batch must not be null.");
+        }
+
         checkIfClosed();
 
         for (WriteBatch.Operation operation : writeBatch.getAllOperations()) {
             if (operation.isDel()) {
-                map.remove(operation.getKey());
+                map.remove(operation.key());
             } else {
-                map.put(operation.getKey(), operation.getValue());
+                map.put(operation.key(), operation.value());
             }
         }
     }
 
     @Override
-    public synchronized byte[] getBytes(byte[] key) throws LevelDBException {
+    public synchronized byte[] get(byte[] key) throws LevelDBException {
+        if (key == null) {
+            throw new IllegalArgumentException("Key must not be null.");
+        }
+
         checkIfClosed();
 
         return map.get(key);
@@ -95,6 +117,10 @@ public class MockLevelDB extends LevelDB {
 
     @Override
     public synchronized void del(byte[] key, boolean sync) throws LevelDBException {
+        if (key == null) {
+            throw new IllegalArgumentException("Key must not be null.");
+        }
+
         checkIfClosed();
 
         map.remove(key);
@@ -117,7 +143,7 @@ public class MockLevelDB extends LevelDB {
 
     @Override
     protected void setPath(String path) {
-
+        // No-op.
     }
 
     @Override

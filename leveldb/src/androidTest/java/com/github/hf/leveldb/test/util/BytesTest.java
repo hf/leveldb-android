@@ -1,4 +1,4 @@
-package com.github.hf.leveldb.exception;
+package com.github.hf.leveldb.test.util;
 
 /*
  * Stojan Dimitrovski
@@ -33,11 +33,25 @@ package com.github.hf.leveldb.exception;
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import com.github.hf.leveldb.util.Bytes;
+import junit.framework.TestCase;
+
 /**
- * Created by hermann on 5/21/14.
+ * Created by hermann on 8/16/14.
  */
-public class LevelDBCorruptionException extends LevelDBException {
-    public LevelDBCorruptionException(String detailMessage) {
-        super(detailMessage);
+public class BytesTest extends TestCase {
+
+    public void testLexicographicComparison() throws Exception {
+        byte[] a = new byte[] { 1, 2, 3, 0, 0, 0 };
+        byte[] b = new byte[] { (byte) 0xFF, 0, 0 }; // { 255 }
+
+        assertTrue(Bytes.lexicographicCompare(a, b) < 0);
+        assertTrue(Bytes.lexicographicCompare(b, a) > 0);
+
+        a = new byte[] { 1, 2, 3, 0, 0, 0 };
+        b = new byte[] { 1, 2, 3 };
+
+        assertTrue(Bytes.lexicographicCompare(a, b) == 0);
+        assertTrue(Bytes.lexicographicCompare(b, a) == 0);
     }
 }

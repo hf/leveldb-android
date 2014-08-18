@@ -3,15 +3,6 @@ package com.github.hf.leveldb.implementation;
 /*
  * Stojan Dimitrovski
  *
- * 2014
- *
- * In the original BSD license, the occurrence of "copyright holder" in the 3rd
- * clause read "ORGANIZATION", placeholder for "University of California". In the
- * original BSD license, both occurrences of the phrase "COPYRIGHT HOLDERS AND
- * CONTRIBUTORS" in the disclaimer read "REGENTS AND CONTRIBUTORS".
- *
- * Here is the license template:
- *
  * Copyright (c) 2014, Stojan Dimitrovski <sdimitrovski@gmail.com>
  *
  * All rights reserved.
@@ -35,7 +26,7 @@ package com.github.hf.leveldb.implementation;
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
  * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OFz SUBSTITUTE GOODS OR SERVICES;
  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
  * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
@@ -45,31 +36,36 @@ package com.github.hf.leveldb.implementation;
 import android.util.Log;
 import com.github.hf.leveldb.Iterator;
 import com.github.hf.leveldb.LevelDB;
-import com.github.hf.leveldb.SimpleWriteBatch;
 import com.github.hf.leveldb.WriteBatch;
 import com.github.hf.leveldb.exception.LevelDBClosedException;
 import com.github.hf.leveldb.exception.LevelDBException;
 
 /**
- * Object for interacting with the native LevelDB.
+ * Object for interacting with the native LevelDB implementation.
  */
 public class NativeLevelDB extends LevelDB {
     static {
         System.loadLibrary("leveldb");
     }
 
+    /**
+     * @see com.github.hf.leveldb.LevelDB#destroy(String)
+     */
     public static void destroy(String path) throws LevelDBException {
         ndestroy(path);
     }
 
+    /**
+     * @see com.github.hf.leveldb.LevelDB#repair(String)
+     */
     public static void repair(String path) throws LevelDBException {
         nrepair(path);
     }
 
     // This is the underlying pointer. If you touch this, all hell breaks loose and everyone dies.
-    private long ndb;
+    private volatile long ndb;
 
-    private String path;
+    private volatile String path;
 
     /**
      * Opens a new LevelDB database.
@@ -105,16 +101,24 @@ public class NativeLevelDB extends LevelDB {
     }
 
     /**
-     * Closes this database, i.e. releases native resources. You may call this multiple times. You cannot use any other
+     * Closes this database, i.e. releases nat resources. You may call this multiple times. You cannot use any other
      * method on this object after closing it.
      */
     @Override
     public void close() {
-        if (ndb != 0) {
-            nclose(ndb);
-            ndb = 0;
-        } else {
-            Log.i("com.github.hf.leveldb.LevelDB", "Trying to close database multiple times.");
+        boolean closeMultiple = false;
+
+        synchronized (this) {
+            if (ndb != 0) {
+                nclose(ndb);
+                ndb = 0;
+            } else {
+                closeMultiple = true;
+            }
+        }
+
+        if (closeMultiple) {
+            Log.i(NativeLevelDB.class.getName(), "Trying to close database multiple times.");
         }
     }
 
@@ -143,9 +147,11 @@ public class NativeLevelDB extends LevelDB {
             throw new IllegalArgumentException("Key must not be null!");
         }
 
-        checkIfClosed();
+        synchronized (this) {
+            checkIfClosed();
 
-        nput(ndb, sync, key, value);
+            nput(ndb, sync, key, value);
+        }
     }
 
     /**
@@ -157,15 +163,22 @@ public class NativeLevelDB extends LevelDB {
      */
     @Override
     public void write(WriteBatch writeBatch, boolean sync) throws LevelDBException {
-        checkIfClosed();
+        if (writeBatch == null) {
+            throw new IllegalArgumentException("Write batch must not be null.");
+        }
 
-        NativeWriteBatch nativeWriteBatch = new NativeWriteBatch(writeBatch);
+        synchronized (this) {
+            checkIfClosed();
 
-        nwrite(ndb, sync, nativeWriteBatch.nativePointer());
+            NativeWriteBatch nativeWriteBatch = new NativeWriteBatch(writeBatch);
 
-        nativeWriteBatch.close();
-
-        nativeWriteBatch = null;
+            try {
+                nwrite(ndb, sync, nativeWriteBatch.nativePointer());
+            } finally {
+                nativeWriteBatch.close();
+                nativeWriteBatch = null;
+            }
+        }
     }
 
     /**
@@ -176,14 +189,16 @@ public class NativeLevelDB extends LevelDB {
      * @throws LevelDBException
      */
     @Override
-    public byte[] getBytes(byte[] key) throws LevelDBException {
+    public byte[] get(byte[] key) throws LevelDBException {
         if (key == null) {
             throw new IllegalArgumentException("Key must not be null!");
         }
 
-        checkIfClosed();
+        synchronized (this) {
+            checkIfClosed();
 
-        return nget(ndb, key);
+            return nget(ndb, key);
+        }
     }
 
     /**
@@ -199,9 +214,11 @@ public class NativeLevelDB extends LevelDB {
             throw new IllegalArgumentException("Key must not be null.");
         }
 
-        checkIfClosed();
+        synchronized (this) {
+            checkIfClosed();
 
-        ndelete(ndb, sync, key);
+            ndelete(ndb, sync, key);
+        }
     }
 
     /**
@@ -226,9 +243,15 @@ public class NativeLevelDB extends LevelDB {
      */
     @Override
     public byte[] getPropertyBytes(byte[] key) throws LevelDBClosedException {
-        checkIfClosed();
+        if (key == null) {
+            throw new IllegalArgumentException("Key must not be null.");
+        }
 
-        return ngetProperty(ndb, key);
+        synchronized (this) {
+            checkIfClosed();
+
+            return ngetProperty(ndb, key);
+        }
     }
 
     /**
@@ -243,9 +266,11 @@ public class NativeLevelDB extends LevelDB {
      */
     @Override
     public Iterator iterator(boolean fillCache) throws LevelDBClosedException {
-        checkIfClosed();
+        synchronized (this) {
+            checkIfClosed();
 
-        return new NativeIterator(niterate(ndb, fillCache));
+            return new NativeIterator(niterate(ndb, fillCache));
+        }
     }
 
     /**
@@ -281,7 +306,9 @@ public class NativeLevelDB extends LevelDB {
     /**
      * Checks if this database has been closed. If it has, throws a {@link com.github.hf.leveldb.exception.LevelDBClosedException}.
      *
-     * Use before calling any of the native functions that require the ndb pointer.
+     * Use before calling any of the nat functions that require the ndb pointer.
+     *
+     * Don't call this outside a synchronized context.
      *
      * @throws LevelDBClosedException
      */
@@ -296,7 +323,7 @@ public class NativeLevelDB extends LevelDB {
      *
      * @param createIfMissing
      * @param path
-     * @return the native structure pointer
+     * @return the nat structure pointer
      * @throws LevelDBException
      */
     private static native long nopen(boolean createIfMissing, int cacheSize, int blockSize, int writeBufferSize, String path) throws LevelDBException;

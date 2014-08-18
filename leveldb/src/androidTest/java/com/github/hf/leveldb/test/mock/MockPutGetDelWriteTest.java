@@ -1,4 +1,4 @@
-package com.github.hf.leveldb.exception;
+package com.github.hf.leveldb.test.mock;
 
 /*
  * Stojan Dimitrovski
@@ -33,11 +33,16 @@ package com.github.hf.leveldb.exception;
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import com.github.hf.leveldb.LevelDB;
+import com.github.hf.leveldb.implementation.mock.MockLevelDB;
+import com.github.hf.leveldb.test.common.PutGetDelWriteTest;
+
 /**
- * Created by hermann on 5/21/14.
- */
-public class LevelDBCorruptionException extends LevelDBException {
-    public LevelDBCorruptionException(String detailMessage) {
-        super(detailMessage);
+* Created by hermann on 8/18/14.
+*/
+public final class MockPutGetDelWriteTest extends PutGetDelWriteTest {
+    @Override
+    protected LevelDB obtainLevelDB() throws Exception {
+        return new MockLevelDB();
     }
 }

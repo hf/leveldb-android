@@ -3,15 +3,6 @@ package com.github.hf.leveldb.implementation;
 /*
  * Stojan Dimitrovski
  *
- * 2014
- *
- * In the original BSD license, the occurrence of "copyright holder" in the 3rd
- * clause read "ORGANIZATION", placeholder for "University of California". In the
- * original BSD license, both occurrences of the phrase "COPYRIGHT HOLDERS AND
- * CONTRIBUTORS" in the disclaimer read "REGENTS AND CONTRIBUTORS".
- *
- * Here is the license template:
- *
  * Copyright (c) 2014, Stojan Dimitrovski <sdimitrovski@gmail.com>
  *
  * All rights reserved.
@@ -35,7 +26,7 @@ package com.github.hf.leveldb.implementation;
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
  * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OFz SUBSTITUTE GOODS OR SERVICES;
  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
  * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
@@ -44,6 +35,7 @@ package com.github.hf.leveldb.implementation;
 
 import com.github.hf.leveldb.Iterator;
 import com.github.hf.leveldb.exception.LevelDBClosedException;
+import com.github.hf.leveldb.exception.LevelDBIteratorNotValidException;
 
 /**
  * An iterator is used to iterator over the entries in the database according to the total sort order imposed by the
@@ -57,7 +49,7 @@ public class NativeIterator extends Iterator {
     /**
      * Protected constructor used in {@link NativeLevelDB#iterator(boolean)}.
      *
-     * @param nit the native pointer
+     * @param nit the nat pointer
      */
     protected NativeIterator(long nit) {
         if (nit == 0) {
@@ -120,27 +112,18 @@ public class NativeIterator extends Iterator {
     }
 
     /**
-     * @param key
-     * @throws com.github.hf.leveldb.exception.LevelDBClosedException
-     * @see #seek(byte[])
-     */
-    @Override public void seek(String key) throws LevelDBClosedException {
-        if (key == null) {
-            throw new IllegalArgumentException("Seek key must never be null!");
-        }
-
-        seek(key.getBytes());
-    }
-
-    /**
      * Advance the iterator forward.
      *
      * Requires: {@link #isValid()}
      *
      * @throws com.github.hf.leveldb.exception.LevelDBClosedException
      */
-    @Override public void next() throws LevelDBClosedException {
+    @Override public void next() throws LevelDBIteratorNotValidException, LevelDBClosedException {
         checkIfClosed();
+
+        if (!isValid()) {
+            throw new LevelDBIteratorNotValidException();
+        }
 
         nnext(nit);
     }
@@ -152,8 +135,12 @@ public class NativeIterator extends Iterator {
      *
      * @throws com.github.hf.leveldb.exception.LevelDBClosedException
      */
-    @Override public void previous() throws LevelDBClosedException {
+    @Override public void previous() throws LevelDBIteratorNotValidException, LevelDBClosedException {
         checkIfClosed();
+
+        if (!isValid()) {
+            throw new LevelDBIteratorNotValidException();
+        }
 
         nprev(nit);
     }
@@ -166,11 +153,11 @@ public class NativeIterator extends Iterator {
      * @return the key under the iterator, <tt>null</tt> if invalid
      * @throws com.github.hf.leveldb.exception.LevelDBClosedException
      */
-    @Override public byte[] keyBytes() throws LevelDBClosedException {
+    @Override public byte[] key() throws LevelDBIteratorNotValidException, LevelDBClosedException {
         checkIfClosed();
 
         if (!isValid()) {
-            return null;
+            throw new LevelDBIteratorNotValidException();
         }
 
         return nkey(nit);
@@ -184,11 +171,11 @@ public class NativeIterator extends Iterator {
      * @return the value under the iterator, <tt>null</tt> if invalid
      * @throws com.github.hf.leveldb.exception.LevelDBClosedException
      */
-    @Override public byte[] valueBytes() throws LevelDBClosedException {
+    @Override public byte[] value() throws LevelDBIteratorNotValidException, LevelDBClosedException {
         checkIfClosed();
 
         if (!isValid()) {
-            return null;
+            throw new LevelDBIteratorNotValidException();
         }
 
         return nvalue(nit);

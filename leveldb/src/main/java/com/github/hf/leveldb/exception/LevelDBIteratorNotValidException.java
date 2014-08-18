@@ -33,11 +33,13 @@ package com.github.hf.leveldb.exception;
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/**
- * Created by hermann on 5/21/14.
- */
-public class LevelDBCorruptionException extends LevelDBException {
-    public LevelDBCorruptionException(String detailMessage) {
+public class LevelDBIteratorNotValidException extends RuntimeException {
+
+    public LevelDBIteratorNotValidException() {
+        this("Iterator is not valid.");
+    }
+
+    public LevelDBIteratorNotValidException(String detailMessage) {
         super(detailMessage);
     }
 }

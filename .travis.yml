@@ -11,8 +11,8 @@ android:
 before_install:
   - echo no | android create avd --force -n test -t android-16 --abi $ANDROID_ABI
   - emulator -avd test -no-skin -no-audio -no-window &
-  - wget http://dl.google.com/android/ndk/android-ndk-r9d-linux-x86_64.tar.bz2
-  - tar -xf android-ndk-r9d-linux-x86_64.tar.bz2
+  - wget http://dl.google.com/android/ndk/android-ndk32-r10-linux-x86_64.tar.bz2
+  - tar -xf android-ndk32-r10-linux-x86_64.tar.bz2
   - export PATH=$PATH:$PWD/android-ndk-r9d
 
 before_script:

@@ -3,15 +3,6 @@ package com.github.hf.leveldb.implementation.mock;
 /*
  * Stojan Dimitrovski
  *
- * 2014
- *
- * In the original BSD license, the occurrence of "copyright holder" in the 3rd
- * clause read "ORGANIZATION", placeholder for "University of California". In the
- * original BSD license, both occurrences of the phrase "COPYRIGHT HOLDERS AND
- * CONTRIBUTORS" in the disclaimer read "REGENTS AND CONTRIBUTORS".
- *
- * Here is the license template:
- *
  * Copyright (c) 2014, Stojan Dimitrovski <sdimitrovski@gmail.com>
  *
  * All rights reserved.
@@ -35,7 +26,7 @@ package com.github.hf.leveldb.implementation.mock;
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
  * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OFz SUBSTITUTE GOODS OR SERVICES;
  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
  * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
@@ -44,6 +35,7 @@ package com.github.hf.leveldb.implementation.mock;
 
 import com.github.hf.leveldb.Iterator;
 import com.github.hf.leveldb.exception.LevelDBClosedException;
+import com.github.hf.leveldb.exception.LevelDBIteratorNotValidException;
 import com.github.hf.leveldb.util.Bytes;
 
 import java.util.*;
@@ -100,15 +92,12 @@ public class MockIterator extends Iterator {
     }
 
     @Override
-    public void seek(String key) throws LevelDBClosedException {
-        checkIfClosed();
-
-        seek(key.getBytes());
-    }
-
-    @Override
     public void next() throws LevelDBClosedException {
         checkIfClosed();
+
+        if (!isValid()) {
+            throw new LevelDBIteratorNotValidException();
+        }
 
         position++;
     }
@@ -117,23 +106,31 @@ public class MockIterator extends Iterator {
     public void previous() throws LevelDBClosedException {
         checkIfClosed();
 
+        if (!isValid()) {
+            throw new LevelDBIteratorNotValidException();
+        }
+
         position--;
     }
 
     @Override
-    public byte[] keyBytes() throws LevelDBClosedException {
+    public byte[] key() throws LevelDBClosedException {
         checkIfClosed();
 
         if (!isValid()) {
-            return null;
+            throw new LevelDBIteratorNotValidException();
         }
 
         return keys.get(position);
     }
 
     @Override
-    public byte[] valueBytes() throws LevelDBClosedException {
+    public byte[] value() throws LevelDBClosedException {
         checkIfClosed();
+
+        if (!isValid()) {
+            throw new LevelDBIteratorNotValidException();
+        }
 
         return snapshot.get(keys.get(position));
     }

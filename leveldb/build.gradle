@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.9.+'
+        classpath 'com.android.tools.build:gradle:0.10.+'
     }
 }
 
@@ -32,7 +32,8 @@ android {
 }
 
 dependencies {
-
+    androidTestCompile 'commons-io:commons-io:2.+'
+    androidTestCompile 'org.assertj:assertj-core:1.6.+'
 }
 
 task preBuildLevelDB {

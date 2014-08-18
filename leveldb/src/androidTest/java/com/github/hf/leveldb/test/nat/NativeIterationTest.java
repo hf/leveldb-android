@@ -1,4 +1,4 @@
-package com.github.hf.leveldb.exception;
+package com.github.hf.leveldb.test.nat;
 
 /*
  * Stojan Dimitrovski
@@ -33,11 +33,16 @@ package com.github.hf.leveldb.exception;
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import com.github.hf.leveldb.LevelDB;
+import com.github.hf.leveldb.implementation.NativeLevelDB;
+import com.github.hf.leveldb.test.common.IterationTest;
+
 /**
- * Created by hermann on 5/21/14.
- */
-public class LevelDBCorruptionException extends LevelDBException {
-    public LevelDBCorruptionException(String detailMessage) {
-        super(detailMessage);
+* Created by hermann on 8/18/14.
+*/
+public final class NativeIterationTest extends IterationTest {
+    @Override
+    protected LevelDB obtainLevelDB() throws Exception {
+        return new NativeLevelDB(dbFile.getAbsolutePath(), LevelDB.configure().createIfMissing(true));
     }
 }

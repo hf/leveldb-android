@@ -3,15 +3,6 @@ package com.github.hf.leveldb;
 /*
  * Stojan Dimitrovski
  *
- * 2014
- *
- * In the original BSD license, the occurrence of "copyright holder" in the 3rd
- * clause read "ORGANIZATION", placeholder for "University of California". In the
- * original BSD license, both occurrences of the phrase "COPYRIGHT HOLDERS AND
- * CONTRIBUTORS" in the disclaimer read "REGENTS AND CONTRIBUTORS".
- *
- * Here is the license template:
- *
  * Copyright (c) 2014, Stojan Dimitrovski <sdimitrovski@gmail.com>
  *
  * All rights reserved.
@@ -35,7 +26,7 @@ package com.github.hf.leveldb;
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
  * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OFz SUBSTITUTE GOODS OR SERVICES;
  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
  * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
@@ -49,10 +40,50 @@ import com.github.hf.leveldb.implementation.mock.MockLevelDB;
 
 import java.io.Closeable;
 
-/**
- * Created by hermann on 8/13/14.
- */
 public abstract class LevelDB implements Closeable {
+    /**
+     * Opens a new native (real) LevelDB at path with specified configuration.
+     *
+     * @param path the path to the database
+     * @param configuration configuration for the database, or null
+     * @return a new {@link com.github.hf.leveldb.implementation.NativeLevelDB}
+     * @throws LevelDBException
+     */
+    public static LevelDB open(String path, Configuration configuration) throws LevelDBException {
+        return new NativeLevelDB(path, configuration);
+    }
+
+    /**
+     * Convenience for {@link #open(String, com.github.hf.leveldb.LevelDB.Configuration)}
+     *
+     * @param path the path to the database
+     * @return a new {@link com.github.hf.leveldb.implementation.NativeLevelDB} instance
+     * @throws LevelDBException
+     */
+    public static LevelDB open(String path) throws LevelDBException {
+        return open(path, configure());
+    }
+
+    /**
+     * Use this method to obtain a {@link com.github.hf.leveldb.LevelDB.Configuration} object.
+     *
+     * @return a new {@link com.github.hf.leveldb.LevelDB.Configuration} object
+     */
+    public static Configuration configure() {
+        return new Configuration();
+    }
+
+    /**
+     * Creates a new {@link com.github.hf.leveldb.implementation.mock.MockLevelDB} useful in
+     * testing in non-Android environments such as Robolectric. It does not access the filesystem,
+     * and is in-memory only.
+     *
+     * @return a new {@link com.github.hf.leveldb.implementation.mock.MockLevelDB}
+     */
+    public static LevelDB mock() {
+        return new MockLevelDB();
+    }
+
     /**
      * Destroys the contents of a LevelDB database.
      *
@@ -79,163 +110,94 @@ public abstract class LevelDB implements Closeable {
         NativeLevelDB.repair(path);
     }
 
-    public static Configuration configure() {
-        return new Configuration();
-    }
-
-    public static LevelDB open(String path) throws LevelDBException {
-        return open(path, configure());
-    }
-
-    public static LevelDB mock() {
-        return new MockLevelDB();
-    }
-
     /**
-     * Opens a new database.
-     *
-     * @see com.github.hf.leveldb.implementation.NativeLevelDB(String, com.github.hf.leveldb.LevelDB.Configuration)
-     *
-     * @param path
-     * @param configuration
-     * @return
-     * @throws LevelDBException
+     * Closes this LevelDB instance. Database is usually not usable after a call to this method.
      */
-    public static LevelDB open(String path, Configuration configuration) throws LevelDBException {
-        return new NativeLevelDB(path, configuration);
-    }
-
     @Override
     public abstract void close();
 
+    /**
+     * Writes the key-value pair in the database.
+     *
+     * @param key non-null, if null throws {@link java.lang.IllegalArgumentException}
+     * @param value non-null, if null same as {@link #del(byte[], boolean)}
+     * @param sync whether this write will be forced to disk
+     * @throws LevelDBException
+     */
     public abstract void put(byte[] key, byte[] value, boolean sync) throws LevelDBException;
 
     /**
-     * Convenience function.
+     * Asynchronous {@link #put(byte[], byte[], boolean)}.
      *
-     * @param key   key to use, converted to byte using the system's default encoding
-     * @param value the value
-     * @param sync  whether this is a synchronous (true) or asynchronous (false) write
-     * @throws com.github.hf.leveldb.exception.LevelDBException
-     * @see com.github.hf.leveldb.LevelDB#put(byte[], byte[], boolean)
+     * @param key
+     * @param value
+     * @throws LevelDBException
      */
-    public void put(String key, byte[] value, boolean sync) throws LevelDBException {
-        put(key.getBytes(), value, sync);
-    }
-
-    /**
-     * Convenience function. Writes are async.
-     *
-     * @param key   key to use, converted to byte using the system's default encoding
-     * @param value the value
-     * @throws com.github.hf.leveldb.exception.LevelDBException
-     * @see com.github.hf.leveldb.LevelDB#put(byte[], byte[], boolean)
-     */
-    public void put(String key, byte[] value) throws LevelDBException {
+    public void put(byte[] key, byte[] value) throws LevelDBException {
         put(key, value, false);
     }
 
     /**
-     * Convenience function.
+     * Writes a {@link com.github.hf.leveldb.WriteBatch} to the database.
      *
-     * @param key   key to use, converted to byte using the system's default encoding
-     * @param value the value
-     * @param sync  whether this is a synchronous (true) or asynchronous (false) write
-     * @throws com.github.hf.leveldb.exception.LevelDBException
-     * @see com.github.hf.leveldb.LevelDB#put(byte[], byte[], boolean)
+     * @param writeBatch non-null, if null throws {@link java.lang.IllegalArgumentException}
+     * @param sync whether this write will be forced to disk
+     * @throws LevelDBException
      */
-    public void put(String key, String value, boolean sync) throws LevelDBException {
-        put(key.getBytes(), value.getBytes(), sync);
-    }
-
-    /**
-     * Convenience function. Writes are async.
-     *
-     * @param key   key to use, converted to byte using the system's default encoding
-     * @param value the value
-     * @throws com.github.hf.leveldb.exception.LevelDBException
-     * @see com.github.hf.leveldb.LevelDB#put(byte[], byte[], boolean)
-     */
-    public void put(String key, String value) throws LevelDBException {
-        put(key, value, false);
-    }
-
     public abstract void write(WriteBatch writeBatch, boolean sync) throws LevelDBException;
 
     /**
-     * Writes a {@link WriteBatch} to the database, asynchronously.
+     * Asynchronous {@link #write(WriteBatch, boolean)}.
      *
-     * @param writeBatch the WriteBatch to write
-     * @throws com.github.hf.leveldb.exception.LevelDBException
+     * @param writeBatch
+     * @throws LevelDBException
      */
     public void write(WriteBatch writeBatch) throws LevelDBException {
         write(writeBatch, false);
     }
 
-    public abstract byte[] getBytes(byte[] key) throws LevelDBException;
+    /**
+     * Retrieves key from the database.
+     *
+     * @param key non-null, if null throws {@link java.lang.IllegalArgumentException}
+     * @return data for the key, or null
+     * @throws LevelDBException
+     */
+    public abstract byte[] get(byte[] key) throws LevelDBException;
 
     /**
-     * Gets the value associated with the key, or <tt>null</tt>.
+     * Deletes key from database, if it exists.
      *
-     * @param key the key, encoded with the system's encoding
-     * @return the value, or <tt>null</tt>
-     * @throws com.github.hf.leveldb.exception.LevelDBException
-     * @see com.github.hf.leveldb.LevelDB#getBytes(String)
+     * @param key non-null, if null throws {@link java.lang.IllegalArgumentException}
+     * @param sync whether this write will be forced to disk
+     * @throws LevelDBException
      */
-    public byte[] getBytes(String key) throws LevelDBException {
-        return getBytes(key.getBytes());
-    }
-
-    /**
-     * Gets the string value associated with the key, or <tt>null</tt>.
-     *
-     * @param key the key, encoded with the system's encoding
-     * @return the value, decoded with the system's default encoding, or <tt>null</tt>
-     * @throws com.github.hf.leveldb.exception.LevelDBException
-     * @see com.github.hf.leveldb.LevelDB#getBytes(byte[])
-     */
-    public String get(String key) throws LevelDBException {
-        byte[] value = getBytes(key);
-
-        if (value == null) {
-            return null;
-        }
-
-        return new String(value);
-    }
-
     public abstract void del(byte[] key, boolean sync) throws LevelDBException;
 
     /**
-     * Convenience function.
+     * Asynchronous {@link #del(byte[], boolean)}.
      *
-     * @param key  the key, encoded with the system's encoding
-     * @param sync whether this is a synchronous (true) or asynchronous (false) delete
-     * @throws com.github.hf.leveldb.exception.LevelDBException
-     * @see com.github.hf.leveldb.LevelDB#del(byte[], boolean)
+     * @param key
+     * @throws LevelDBException
      */
-    public void del(String key, boolean sync) throws LevelDBException {
-        del(key.getBytes(), sync);
+    public void del(byte[] key) throws LevelDBException {
+        del(key, false);
     }
 
     /**
-     * Convenience function. Deletion is asynchronous.
+     * Raw form of {@link #getProperty(String)}.
      *
-     * @param key the key, encoded with the system's encoding
-     * @throws com.github.hf.leveldb.exception.LevelDBException
+     * Retrieves the LevelDB property entry specified with key.
+     *
+     * @param key non-null, if null throws {@link java.lang.IllegalArgumentException}
+     * @return property bytes
+     * @throws LevelDBClosedException
      */
-    public void del(String key) throws LevelDBException {
-        del(key.getBytes(), false);
-    }
-
     public abstract byte[] getPropertyBytes(byte[] key) throws LevelDBClosedException;
 
     /**
      * Convenience function.
      *
-     * @param key the key
-     * @return property data encoded with the system's default encoding, or <tt>null</tt>
-     * @throws com.github.hf.leveldb.exception.LevelDBClosedException
      * @see com.github.hf.leveldb.LevelDB#getPropertyBytes(byte[])
      */
     public String getProperty(byte[] key) throws LevelDBClosedException {
@@ -251,31 +213,51 @@ public abstract class LevelDB implements Closeable {
     /**
      * Convenience function.
      *
-     * @param key the key, encoded with the system's encoding
-     * @return property data encoded with the system's default encoding, or <tt>null</tt>
-     * @throws com.github.hf.leveldb.exception.LevelDBClosedException
+     * @see com.github.hf.leveldb.LevelDB#getPropertyBytes(byte[])
      */
     public String getProperty(String key) throws LevelDBClosedException {
-        return getProperty(key.getBytes());
+        return getProperty(key == null ? null : key.getBytes());
     }
 
+    /**
+     * Creates a new {@link com.github.hf.leveldb.Iterator} for this database.
+     *
+     * Data seen by the iterator will be consistent (like a snapshot). Closing the iterator is a must.
+     * The database implementation will not close iterators automatically when closed, which may
+     * result in memory leaks.
+     *
+     * @param fillCache whether to fill the internal cache while iterating over the database
+     * @return new iterator
+     * @throws LevelDBClosedException
+     */
     public abstract Iterator iterator(boolean fillCache) throws LevelDBClosedException;
 
     /**
      * Creates a new iterator that fills the cache.
      *
      * @throws com.github.hf.leveldb.exception.LevelDBClosedException
-     * @returna new iterator
+     * @return a new iterator
      * @see #iterator(boolean)
      */
     public Iterator iterator() throws LevelDBClosedException {
         return iterator(true);
     }
 
+    /**
+     * The path of this LevelDB. Usually a filesystem path, but may be something else
+     * (eg: {@link com.github.hf.leveldb.implementation.mock.MockLevelDB#getPath()}.
+     *
+     * @return the path of this database, may be null
+     */
     public abstract String getPath();
 
     protected abstract void setPath(String path);
 
+    /**
+     * Atomically check if this database has been closed.
+     *
+     * @return whether it's been closed
+     */
     public abstract boolean isClosed();
 
     /**
