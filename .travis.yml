@@ -13,7 +13,7 @@ before_install:
   - emulator -avd test -no-skin -no-audio -no-window &
   - wget http://dl.google.com/android/ndk/android-ndk32-r10-linux-x86_64.tar.bz2
   - tar -xf android-ndk32-r10-linux-x86_64.tar.bz2
-  - export PATH=$PATH:$PWD/android-ndk-r9d
+  - export PATH=$PATH:$PWD/android-ndk-r10d
 
 before_script:
   - ./ci/wait_for_emulator.sh
