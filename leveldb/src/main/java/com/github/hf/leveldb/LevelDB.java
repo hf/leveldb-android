@@ -35,6 +35,7 @@ package com.github.hf.leveldb;
 
 import com.github.hf.leveldb.exception.LevelDBClosedException;
 import com.github.hf.leveldb.exception.LevelDBException;
+import com.github.hf.leveldb.exception.LevelDBSnapshotOwnershipException;
 import com.github.hf.leveldb.implementation.NativeLevelDB;
 import com.github.hf.leveldb.implementation.mock.MockLevelDB;
 
@@ -157,13 +158,23 @@ public abstract class LevelDB implements Closeable {
     }
 
     /**
-     * Retrieves key from the database.
+     * Retrieves key from the database, possibly from a snapshot state.
      *
      * @param key non-null, if null throws {@link java.lang.IllegalArgumentException}
+     * @param snapshot the snapshot from which to read the entry, may be null
      * @return data for the key, or null
      * @throws LevelDBException
      */
-    public abstract byte[] get(byte[] key) throws LevelDBException;
+    public abstract byte[] get(byte[] key, Snapshot snapshot) throws LevelDBSnapshotOwnershipException, LevelDBException;
+
+    /**
+     * Retrieves key from the database with an implicit snapshot.
+     *
+     * @see #get(byte[], Snapshot)
+     */
+    public byte[] get(byte[] key) throws LevelDBException {
+        return get(key, null);
+    }
 
     /**
      * Deletes key from database, if it exists.
@@ -227,10 +238,36 @@ public abstract class LevelDB implements Closeable {
      * result in memory leaks.
      *
      * @param fillCache whether to fill the internal cache while iterating over the database
+     * @param snapshot the snapshot from which to read the entries, may be null
      * @return new iterator
      * @throws LevelDBClosedException
      */
-    public abstract Iterator iterator(boolean fillCache) throws LevelDBClosedException;
+    public abstract Iterator iterator(boolean fillCache, Snapshot snapshot) throws LevelDBSnapshotOwnershipException, LevelDBClosedException;
+
+    /**
+     * Iterate over the database with an implicit snapshot created at the time of creation
+     * of the iterator.
+     *
+     * @param fillCache whether to fill the internal cache while iterating over the database
+     * @return a new iterator
+     * @throws LevelDBClosedException
+     */
+    public Iterator iterator(boolean fillCache) throws LevelDBClosedException {
+        return iterator(fillCache, null);
+    }
+
+    /**
+     * Iterate over the entries from snapshot while filling the cache.
+     *
+     *
+     * @param snapshot the snapshot from which to read the entries, may be null
+     * @return a new iterator
+     * @throws LevelDBSnapshotOwnershipException
+     * @throws LevelDBClosedException
+     */
+    public Iterator iterator(Snapshot snapshot) throws LevelDBSnapshotOwnershipException, LevelDBClosedException {
+        return iterator(true, snapshot);
+    }
 
     /**
      * Creates a new iterator that fills the cache.
@@ -259,6 +296,26 @@ public abstract class LevelDB implements Closeable {
      * @return whether it's been closed
      */
     public abstract boolean isClosed();
+
+    /**
+     * Obtains a new snapshot of this database's data.
+     *
+     * Make sure you call {@link #releaseSnapshot(Snapshot)} when you are done with it.
+      *
+     * @return a new snapshot
+     */
+    public abstract Snapshot obtainSnapshot() throws LevelDBClosedException;
+
+    /**
+     * Releases a previously obtained snapshot. It is not an error to release a snapshot
+     * multiple times.
+     *
+     * If this database does not own the snapshot, a {@link com.github.hf.leveldb.exception.LevelDBSnapshotOwnershipException}
+     * will be thrown at runtime.
+     *
+     * @param snapshot the snapshot to release, if null throws a {@link java.lang.IllegalArgumentException}
+     */
+    public abstract void releaseSnapshot(Snapshot snapshot) throws LevelDBSnapshotOwnershipException, LevelDBClosedException;
 
     /**
      * Specifies a configuration to open the database with.

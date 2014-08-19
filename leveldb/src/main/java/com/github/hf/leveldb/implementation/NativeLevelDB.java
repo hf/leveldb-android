@@ -36,9 +36,11 @@ package com.github.hf.leveldb.implementation;
 import android.util.Log;
 import com.github.hf.leveldb.Iterator;
 import com.github.hf.leveldb.LevelDB;
+import com.github.hf.leveldb.Snapshot;
 import com.github.hf.leveldb.WriteBatch;
 import com.github.hf.leveldb.exception.LevelDBClosedException;
 import com.github.hf.leveldb.exception.LevelDBException;
+import com.github.hf.leveldb.exception.LevelDBSnapshotOwnershipException;
 
 /**
  * Object for interacting with the native LevelDB implementation.
@@ -185,19 +187,30 @@ public class NativeLevelDB extends LevelDB {
      * Gets the value associated with the key, or <tt>null</tt>.
      *
      * @param key the key
+     * @param snapshot the snapshot from which to read the pair, or null
      * @return the value, or <tt>null</tt>
      * @throws LevelDBException
      */
     @Override
-    public byte[] get(byte[] key) throws LevelDBException {
+    public byte[] get(byte[] key, Snapshot snapshot) throws LevelDBSnapshotOwnershipException, LevelDBException {
         if (key == null) {
             throw new IllegalArgumentException("Key must not be null!");
+        }
+
+        if (snapshot != null) {
+            if (!(snapshot instanceof NativeSnapshot)) {
+                throw new LevelDBSnapshotOwnershipException();
+            }
+
+            if (!((NativeSnapshot) snapshot).checkOwner(this)) {
+                throw new LevelDBSnapshotOwnershipException();
+            }
         }
 
         synchronized (this) {
             checkIfClosed();
 
-            return nget(ndb, key);
+            return nget(ndb, key, snapshot == null ? 0 : ((NativeSnapshot) snapshot).id());
         }
     }
 
@@ -265,11 +278,21 @@ public class NativeLevelDB extends LevelDB {
      * @throws LevelDBClosedException
      */
     @Override
-    public Iterator iterator(boolean fillCache) throws LevelDBClosedException {
+    public Iterator iterator(boolean fillCache, Snapshot snapshot) throws LevelDBSnapshotOwnershipException, LevelDBClosedException {
+        if (snapshot != null) {
+            if (!(snapshot instanceof NativeSnapshot)) {
+                throw new LevelDBSnapshotOwnershipException();
+            }
+
+            if (((NativeSnapshot) snapshot).checkOwner(this)) {
+                throw new LevelDBSnapshotOwnershipException();
+            }
+        }
+
         synchronized (this) {
             checkIfClosed();
 
-            return new NativeIterator(niterate(ndb, fillCache));
+            return new NativeIterator(niterate(ndb, fillCache, snapshot == null ? 0 : ((NativeSnapshot) snapshot).id()));
         }
     }
 
@@ -301,6 +324,32 @@ public class NativeLevelDB extends LevelDB {
     @Override
     public boolean isClosed() {
         return ndb == 0;
+    }
+
+    @Override
+    public Snapshot obtainSnapshot() throws LevelDBClosedException {
+        return new NativeSnapshot(this, nsnapshot(ndb));
+    }
+
+    @Override
+    public void releaseSnapshot(Snapshot snapshot) throws LevelDBSnapshotOwnershipException, LevelDBClosedException {
+        if (snapshot == null) {
+            throw new IllegalArgumentException("Snapshot must not be null.");
+        }
+
+        if (!(snapshot instanceof NativeSnapshot)) {
+            throw new LevelDBSnapshotOwnershipException();
+        }
+
+        if (!((NativeSnapshot) snapshot).checkOwner(this)) {
+            throw new LevelDBSnapshotOwnershipException();
+        }
+
+        synchronized (this) {
+            checkIfClosed();
+
+            nreleaseSnapshot(ndb, ((NativeSnapshot) snapshot).release());
+        }
     }
 
     /**
@@ -366,7 +415,7 @@ public class NativeLevelDB extends LevelDB {
      * @return
      * @throws LevelDBException
      */
-    private static native byte[] nget(long ndb, byte[] key) throws LevelDBException;
+    private static native byte[] nget(long ndb, byte[] key, long nsnapshot) throws LevelDBException;
 
     /**
      * Natively gets LevelDB property. Pointer is unchecked.
@@ -400,5 +449,8 @@ public class NativeLevelDB extends LevelDB {
      * @param fillCache
      * @return
      */
-    private static native long niterate(long ndb, boolean fillCache);
+    private static native long niterate(long ndb, boolean fillCache, long nsnapshot);
+
+    private static native long nsnapshot(long ndb);
+    private static native void nreleaseSnapshot(long ndb, long nsnapshot);
 }

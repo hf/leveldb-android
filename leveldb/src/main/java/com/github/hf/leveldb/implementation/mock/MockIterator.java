@@ -53,7 +53,7 @@ public class MockIterator extends Iterator {
     int position = 0;
 
     public MockIterator(SortedMap<byte[], byte[]> map) {
-        this.snapshot = Collections.unmodifiableSortedMap(map);
+        this.snapshot = Collections.unmodifiableSortedMap(new TreeMap<byte[], byte[]>(map));
         this.keys = new ArrayList<byte[]>(map.keySet());
 
         Collections.sort(this.keys, Bytes.COMPARATOR);

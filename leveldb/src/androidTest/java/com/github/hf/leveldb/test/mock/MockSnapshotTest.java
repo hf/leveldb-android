@@ -1,4 +1,4 @@
-package com.github.hf.leveldb.test.nat;
+package com.github.hf.leveldb.test.mock;
 
 /*
  * Stojan Dimitrovski
@@ -34,64 +34,15 @@ package com.github.hf.leveldb.test.nat;
  */
 
 import com.github.hf.leveldb.LevelDB;
-import com.github.hf.leveldb.exception.LevelDBException;
-import com.github.hf.leveldb.implementation.NativeLevelDB;
-import com.github.hf.leveldb.test.common.DatabaseTestCase;
+import com.github.hf.leveldb.implementation.mock.MockSnapshot;
+import com.github.hf.leveldb.test.common.SnapshotTest;
 
 /**
- * Created by hermann on 8/16/14.
+ * Created by hermann on 8/19/14.
  */
-public class NativeOpenCloseTest extends DatabaseTestCase {
-
+public class MockSnapshotTest extends SnapshotTest {
     @Override
     protected LevelDB obtainLevelDB() throws Exception {
-        throw new UnsupportedOperationException("This is a nat-only test case. Shouldn't use this method.");
-    }
-
-    public void testCreateAndOpenNonExistingDatabase() throws Exception {
-        assertFalse(dbFile.exists());
-
-        NativeLevelDB ndb = new NativeLevelDB(dbFile.getAbsolutePath(), LevelDB.configure().createIfMissing(true));
-
-        ndb.close();
-
-        assertTrue(dbFile.exists());
-    }
-
-    public void testOpenAnExistingDatabase() throws Exception {
-        assertFalse(dbFile.exists());
-
-        NativeLevelDB ndb = new NativeLevelDB(dbFile.getAbsolutePath(), LevelDB.configure().createIfMissing(true));
-
-        ndb.close();
-
-        assertTrue(dbFile.exists());
-
-        ndb = new NativeLevelDB(dbFile.getAbsolutePath(), LevelDB.configure().createIfMissing(false));
-
-        ndb.close();
-
-        assertTrue(dbFile.exists());
-    }
-
-    public void testTwiceOpenADatabase() throws Exception {
-        assertFalse(dbFile.exists());
-
-        boolean threw = false;
-
-        NativeLevelDB ndbA = new NativeLevelDB(dbFile.getAbsolutePath(), LevelDB.configure().createIfMissing(true));
-
-        try {
-            NativeLevelDB ndbB = new NativeLevelDB(dbFile.getAbsolutePath(), LevelDB.configure().createIfMissing(true));
-        } catch (LevelDBException e) {
-            threw = true;
-        }
-
-        assertTrue(threw);
-
-        ndbA.close();
-        ndbA.close();
-
-        assertTrue(dbFile.exists());
+        return LevelDB.mock();
     }
 }

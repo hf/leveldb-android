@@ -50,10 +50,10 @@ JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeLevelDB_n
 /*
  * Class:     com_github_hf_leveldb_implementation_NativeLevelDB
  * Method:    nget
- * Signature: (J[B)[B
+ * Signature: (J[BJ)[B
  */
 JNIEXPORT jbyteArray JNICALL Java_com_github_hf_leveldb_implementation_NativeLevelDB_nget
-  (JNIEnv *, jclass, jlong, jbyteArray);
+  (JNIEnv *, jclass, jlong, jbyteArray, jlong);
 
 /*
  * Class:     com_github_hf_leveldb_implementation_NativeLevelDB
@@ -82,10 +82,26 @@ JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeLevelDB_n
 /*
  * Class:     com_github_hf_leveldb_implementation_NativeLevelDB
  * Method:    niterate
- * Signature: (JZ)J
+ * Signature: (JZJ)J
  */
 JNIEXPORT jlong JNICALL Java_com_github_hf_leveldb_implementation_NativeLevelDB_niterate
-  (JNIEnv *, jclass, jlong, jboolean);
+  (JNIEnv *, jclass, jlong, jboolean, jlong);
+
+/*
+ * Class:     com_github_hf_leveldb_implementation_NativeLevelDB
+ * Method:    nsnapshot
+ * Signature: (J)J
+ */
+JNIEXPORT jlong JNICALL Java_com_github_hf_leveldb_implementation_NativeLevelDB_nsnapshot
+  (JNIEnv *, jclass, jlong);
+
+/*
+ * Class:     com_github_hf_leveldb_implementation_NativeLevelDB
+ * Method:    nreleaseSnapshot
+ * Signature: (JJ)V
+ */
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeLevelDB_nreleaseSnapshot
+  (JNIEnv *, jclass, jlong, jlong);
 
 #ifdef __cplusplus
 }

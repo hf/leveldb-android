@@ -36,17 +36,16 @@ package com.github.hf.leveldb.implementation.mock;
 import android.util.Log;
 import com.github.hf.leveldb.Iterator;
 import com.github.hf.leveldb.LevelDB;
+import com.github.hf.leveldb.Snapshot;
 import com.github.hf.leveldb.WriteBatch;
 import com.github.hf.leveldb.exception.LevelDBClosedException;
 import com.github.hf.leveldb.exception.LevelDBException;
+import com.github.hf.leveldb.exception.LevelDBSnapshotOwnershipException;
 import com.github.hf.leveldb.util.Bytes;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-/**
- * Created by hermann on 8/16/14.
- */
 public class MockLevelDB extends LevelDB {
 
     protected volatile boolean closed;
@@ -105,14 +104,30 @@ public class MockLevelDB extends LevelDB {
     }
 
     @Override
-    public synchronized byte[] get(byte[] key) throws LevelDBException {
+    public byte[] get(byte[] key, Snapshot snapshot) throws LevelDBSnapshotOwnershipException, LevelDBException {
         if (key == null) {
             throw new IllegalArgumentException("Key must not be null.");
         }
 
-        checkIfClosed();
+        if (snapshot != null) {
+            if (!(snapshot instanceof MockSnapshot)) {
+                throw new LevelDBSnapshotOwnershipException();
+            }
 
-        return map.get(key);
+            if (!((MockSnapshot) snapshot).checkOwnership(this)) {
+                throw new LevelDBSnapshotOwnershipException();
+            }
+        }
+
+        synchronized (this) {
+            checkIfClosed();
+
+            if (snapshot != null) {
+                return ((MockSnapshot) snapshot).getSnapshot().get(key);
+            }
+
+            return map.get(key);
+        }
     }
 
     @Override
@@ -129,6 +144,26 @@ public class MockLevelDB extends LevelDB {
     @Override
     public byte[] getPropertyBytes(byte[] key) throws LevelDBClosedException {
         throw new UnsupportedOperationException("Mock LevelDB does not support properties.");
+    }
+
+    @Override
+    public Iterator iterator(boolean fillCache, Snapshot snapshot) throws LevelDBSnapshotOwnershipException, LevelDBClosedException {
+        if (snapshot != null) {
+            if (!(snapshot instanceof MockSnapshot)) {
+                throw new LevelDBSnapshotOwnershipException();
+            }
+
+            if (!((MockSnapshot) snapshot).checkOwnership(this)) {
+                throw new LevelDBSnapshotOwnershipException();
+            }
+
+            return new MockIterator(((MockSnapshot) snapshot).getSnapshot());
+        }
+
+
+        synchronized (this) {
+            return new MockIterator(this.map);
+        }
     }
 
     @Override
@@ -151,7 +186,33 @@ public class MockLevelDB extends LevelDB {
         return closed;
     }
 
-    protected void checkIfClosed()throws LevelDBClosedException {
+    @Override
+    public Snapshot obtainSnapshot() throws LevelDBClosedException {
+        return new MockSnapshot(this);
+    }
+
+    @Override
+    public void releaseSnapshot(Snapshot snapshot) throws LevelDBSnapshotOwnershipException, LevelDBClosedException {
+        if (snapshot == null) {
+            throw new IllegalArgumentException("Snapshot must not be null.");
+        }
+
+        if (!(snapshot instanceof MockSnapshot)) {
+            throw new LevelDBSnapshotOwnershipException();
+        }
+
+        if (!((MockSnapshot) snapshot).checkOwnership(this)) {
+            throw new LevelDBSnapshotOwnershipException();
+        }
+
+        synchronized (this) {
+            checkIfClosed();
+
+            ((MockSnapshot) snapshot).release();
+        }
+    }
+
+    protected void checkIfClosed() throws LevelDBClosedException {
         if (closed) {
             throw new LevelDBClosedException("Mock LevelDB has been closed.");
         }

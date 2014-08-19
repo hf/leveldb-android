@@ -57,6 +57,8 @@ public abstract class IterationTest extends DatabaseTestCase {
 
         Iterator iterator = db.iterator();
 
+        db.put(new byte[] { 0, 0, 0 }, new byte[] { 0 });
+
         iterator.seekToFirst();
 
         byte i = 1;
@@ -73,6 +75,9 @@ public abstract class IterationTest extends DatabaseTestCase {
             i++;
         }
 
+        assertThat(i & 0xFF).isEqualTo(4);
+
+        iterator.close();
         iterator.close();
 
         iterator = db.iterator();
@@ -94,6 +99,8 @@ public abstract class IterationTest extends DatabaseTestCase {
             iterator.previous();
             i--;
         }
+
+        assertThat(i & 0xFF).isEqualTo(255);
 
         boolean threw = false;
 

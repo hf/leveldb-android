@@ -104,6 +104,30 @@ iterator.close(); // closing is a must!
 This will start from the key `leveldb` if it exists, or from the one that
 follows (eg. `sql`, i.e. `l` < `s`).
 
+#### Snapshots
+
+Snapshots give you a consistent view of the data in the database at a given time.
+
+Here's a simple example demonstrating their use:
+
+```java
+LevelDB levelDB = LevelDB.open("path/to/leveldb");
+
+levelDB.put("hello".getBytes(), "world".getBytes());
+
+Snapshot helloWorld = levelDB.obtainSnapshot();
+
+levelDB.put("hello".getBytes(), "brave-new-world".getBytes());
+
+levelDB.get("hello".getBytes(), helloWorld); // == "world"
+
+levelDB.get("hello".getBytes()); // == "brave-new-world"
+
+levelDB.releaseSnapshot(); // release the snapshot
+
+levelDB.close(); // snapshots will automatically be released after this
+```
+
 ### Mock LevelDB
 
 The implementation also supplies a mock LevelDB implementation that is an in-memory 

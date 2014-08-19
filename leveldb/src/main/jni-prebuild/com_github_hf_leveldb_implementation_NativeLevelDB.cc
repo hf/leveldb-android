@@ -190,13 +190,15 @@ JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeLevelDB_n
 }
 
 JNIEXPORT jbyteArray JNICALL Java_com_github_hf_leveldb_implementation_NativeLevelDB_nget
-(JNIEnv *env, jclass cself, jlong ndb, jbyteArray key) {
+(JNIEnv *env, jclass cself, jlong ndb, jbyteArray key, jlong nsnapshot) {
 
   NDBHolder* holder = (NDBHolder*) ndb;
 
   leveldb::DB* db = holder->db;
 
   leveldb::ReadOptions readOptions;
+
+  readOptions.snapshot = (leveldb::Snapshot*) nsnapshot;
 
   const char* keyData = (char*) env->GetByteArrayElements(key, 0);
 
@@ -307,16 +309,41 @@ JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeLevelDB_n
 }
 
 JNIEXPORT jlong JNICALL Java_com_github_hf_leveldb_implementation_NativeLevelDB_niterate
-(JNIEnv *env, jclass cself, jlong ndb, jboolean fillCache) {
+(JNIEnv *env, jclass cself, jlong ndb, jboolean fillCache, jlong nsnapshot) {
   NDBHolder* holder = (NDBHolder*) ndb;
 
   leveldb::DB* db = holder->db;
 
   leveldb::ReadOptions options;
 
+  options.snapshot = (leveldb::Snapshot*) nsnapshot;
+
   options.fill_cache = (bool) fillCache;
 
   leveldb::Iterator* it = db->NewIterator(options);
 
   return (jlong) it;
+}
+
+JNIEXPORT jlong JNICALL Java_com_github_hf_leveldb_implementation_NativeLevelDB_nsnapshot
+  (JNIEnv *env, jclass cself, jlong ndb) {
+
+  NDBHolder* holder = (NDBHolder*) ndb;
+
+  leveldb::DB* db = holder->db;
+
+  return (jlong) db->GetSnapshot();
+}
+
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeLevelDB_nreleaseSnapshot
+  (JNIEnv *env, jclass cself, jlong ndb, jlong nsnapshot) {
+  if (nsnapshot == 0) {
+    return;
+  }
+
+  NDBHolder* holder = (NDBHolder*) ndb;
+
+  leveldb::DB* db = holder->db;
+
+  db->ReleaseSnapshot((leveldb::Snapshot*) nsnapshot);
 }
