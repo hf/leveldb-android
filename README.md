@@ -21,14 +21,13 @@ LevelDB's native log output is tagged: `com.github.hf.leveldb:N`
 ### Opening, Closing, Putting, Deleting
 
 ```java
-LevelDB levelDB =
-    new LevelDB("path/to/leveldb", LevelDB.configure().createIfMissing(true));
+LevelDB levelDB = LevelDB.open("path/to/leveldb", LevelDB.configure().createIfMissing(true));
 
-levelDB.put("leveldb", "Is awesome!");
-String value = levelDB.get("leveldb");
+levelDB.put("leveldb".getBytes(), "Is awesome!".getBytes());
+String value = levelDB.get("leveldb".getBytes());
 
-leveldb.put("magic", new byte[] { 0, 1, 2, 3, 4 });
-byte[] magic = levelDB.getBytes("magic");
+leveldb.put("magic".getBytes(), new byte[] { 0, 1, 2, 3, 4 });
+byte[] magic = levelDB.getBytes("magic".getBytes());
 
 levelDB.close(); // closing is a must!
 ```
@@ -36,14 +35,14 @@ levelDB.close(); // closing is a must!
 ### WriteBatch (a.k.a. Transactions)
 
 ```java
-LevelDB levelDB = new LevelDB("path/to/leveldb"); // createIfMissing == true
+LevelDB levelDB = LevelDB.open("path/to/leveldb"); // createIfMissing == true
 
-levelDB.put("sql", "is lovely!");
+levelDB.put("sql".getBytes(), "is lovely!".getBytes());
 
 levelDB.writeBatch()
-  .put("leveldb", "Is awesome!")
-  .put("magic", new byte[] { 0, 1, 2, 3, 4 })
-  .del("sql")
+  .put("leveldb".getBytes(), "Is awesome!".getBytes())
+  .put("magic".getBytes(), new byte[] { 0, 1, 2, 3, 4 })
+  .del("sql".getBytes())
   .write(); // commit transaction
 
 levelDB.close(); // closing is a must!
@@ -58,13 +57,13 @@ Every key-value pair inside LevelDB is ordered. Until the comparator wrapper API
 is finished you can iterate over your LevelDB in the key's lexicographical order.
 
 ```java
-LevelDB levelDB = new LevelDB("path/to/leveldb");
+LevelDB levelDB = LevelDB.open("path/to/leveldb");
 
 Iterator iterator = levelDB.iterator();
 
 for (iterator.seekToFirst(); iterator.isValid(); iterator.next()) {
-  String key   = iterator.key();
-  String value = iterator.value();
+  byte[] key   = iterator.key();
+  byte[] value = iterator.value();
 }
 
 iterator.close(); // closing is a must!
@@ -75,7 +74,7 @@ iterator.close(); // closing is a must!
 *It is somewhat slower than forward iteration.*
 
 ```java
-LevelDB levelDB = new LevelDB("path/to/leveldb");
+LevelDB levelDB = LevelDB.open("path/to/leveldb");
 
 Iterator iterator = levelDB.iterator();
 
@@ -90,11 +89,11 @@ iterator.close(); // closing is a must!
 #### Iterate from a Staring Position
 
 ```java
-LevelDB levelDB = new LevelDB("path/to/leveldb");
+LevelDB levelDB = LevelDB.open("path/to/leveldb");
 
 Iterator iterator = levelDB.iterator();
 
-for (iterator.seek("leveldb"); iterator.isValid(); iterator.next()) {
+for (iterator.seek("leveldb".getBytes()); iterator.isValid(); iterator.next()) {
   String key   = iterator.key();
   String value = iterator.value();
 }
@@ -105,7 +104,23 @@ iterator.close(); // closing is a must!
 This will start from the key `leveldb` if it exists, or from the one that
 follows (eg. `sql`, i.e. `l` < `s`).
 
-**Yes, the API needs more thought.**
+### Mock LevelDB
+
+The implementation also supplies a mock LevelDB implementation that is an in-memory 
+equivalent of the native LevelDB. It is meant to be used in testing environments,
+especially non-Android ones like Robolectric.
+
+There are a few of differences from the native implementation:
+
++ it is not configurable
++ it does not support properties (as in `LevelDB#getProperty()`)
++ it does not support paths, i.e. always returns `:MOCK:`
+
+Use it like so:
+
+```java
+LevelDB.mock();
+```
 
 ## Building
 
@@ -117,19 +132,13 @@ support NDK, this is the way to build this project.
 2. Add NDK to `$PATH`.
 3. Build with Gradle (`preBuild` depends on `preBuildLevelDB`)
 
-## TODO
+## Usage
 
-* Mock implementation for faster tests (like in Robolectric)
-* ~~WriteBatch API~~
-* Publish on Maven
-* ~~Iteration API~~
-* Snapshot API
-* Comparator API
-* Greater configurability
-* Compaction API
-* Snappy compression
-* Support Table API
-* `LevelDB#close()` in `Object#finalize()` (probably a very bad idea)
+Until I get this stable enough and well tested, you should use and follow master as 
+close as possible. I recommend using this as a submodule. This will be possible, however,
+only if you use the Gradle build system. 
+
+Version 0.1 is approaching soon, after which this repository will be published on Sonatype.
 
 ## License
 
