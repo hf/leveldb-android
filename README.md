@@ -86,7 +86,7 @@ for (iterator.seekToLast(); iterator.isValid(); iterator.previous()) {
 iterator.close(); // closing is a must!
 ```
 
-#### Iterate from a Staring Position
+#### Iterate from a Starting Position
 
 ```java
 LevelDB levelDB = LevelDB.open("path/to/leveldb");
@@ -123,7 +123,7 @@ levelDB.get("hello".getBytes(), helloWorld); // == "world"
 
 levelDB.get("hello".getBytes()); // == "brave-new-world"
 
-levelDB.releaseSnapshot(); // release the snapshot
+levelDB.releaseSnapshot(helloWorld); // release the snapshot
 
 levelDB.close(); // snapshots will automatically be released after this
 ```
