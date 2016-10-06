@@ -3,14 +3,11 @@
 # LevelDB for Android
 
 This is a Java wrapper for the amazing
-[LevelDB](https://code.google.com/p/leveldb/) by Google.
+[LevelDB](https://github.com/google/leveldb) by Google.
 
-LevelDB supports only ARM and X86 ABIs. MIPS is not supported. (Someone
-implement [port/atomic_pointer.h]
-(https://code.google.com/p/leveldb/source/browse/port/atomic_pointer.h) for
-MIPS.)
+LevelDB supports only ARM and X86 ABIs. MIPS is not supported. 
 
-Currently it does not use [Snappy](https://code.google.com/p/snappy/) for data
+Currently it does not use [Snappy](http://google.github.io/snappy/) for data
 compression. (There is really no need for this in Android, i.e. it's unnecessary
 overhead.)
 
