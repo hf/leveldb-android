@@ -1,15 +1,27 @@
 language: android
+
+jdk:
+  - oraclejdk8
+
 env:
   matrix:
     - ANDROID_ABI=armeabi-v7a
 
 android:
   components:
-    - build-tools-19.1.0
+    - tools
+    - platform-tools
+    - build-tools-23.0.3
+    - extra-google-m2repository
     - extra-android-m2repository
+    - android-24
+    - sys-img-armeabi-v7a-android-24
 
 before_install:
-  - echo no | android create avd --force -n test -t android-16 --abi $ANDROID_ABI
+  - jdk_switcher use oraclejdk8
+  - java -version
+  - android list targets
+  - echo no | android create avd --force -n test -t android-24 --abi $ANDROID_ABI
   - emulator -avd test -no-skin -no-audio -no-window &
   - wget http://dl.google.com/android/ndk/android-ndk32-r10-linux-x86_64.tar.bz2
   - tar -xf android-ndk32-r10-linux-x86_64.tar.bz2
