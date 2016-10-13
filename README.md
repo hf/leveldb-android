@@ -13,6 +13,26 @@ overhead.)
 
 LevelDB's native log output is tagged: `com.github.hf.leveldb:N`
 
+## Usage
+
+Add this to your build.gradle:
+
+```groovy
+repositories {
+  maven {
+    url "http://dl.bintray.com/stojan/android"
+  }
+}
+```
+
+And then this as a dependency:
+
+```groovy
+dependencies {
+  compile 'com.github.hf:leveldb:1.7.0@aar'
+}
+```
+
 ## Example
 
 ### Opening, Closing, Putting, Deleting
@@ -152,14 +172,6 @@ support NDK, this is the way to build this project.
 . (Tested with ndk-r10d.)
 2. Add NDK to `$PATH`.
 3. Build with Gradle (`preBuild` depends on `preBuildLevelDB`)
-
-## Usage
-
-Until I get this stable enough and well tested, you should use and follow master as 
-close as possible. I recommend using this as a submodule. This will be possible, however,
-only if you use the Gradle build system. 
-
-Version 0.1 is approaching soon, after which this repository will be published on Sonatype.
 
 ## License
 

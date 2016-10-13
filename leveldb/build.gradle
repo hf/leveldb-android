@@ -1,16 +1,77 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.0'
-    }
-}
-
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
 
 repositories {
     mavenCentral()
+}
+
+group 'com.github.hf'
+version '1.7.0'
+
+install {
+  repositories.mavenInstaller {
+    pom.project {
+      name 'leveldb'
+      description 'LevelDB bindings for Android.'
+      url 'https://github.com/hf/leveldb-android'
+      inceptionYear '2014'
+        
+      packaging 'aar'
+      groupId 'com.github.hf'
+      artifactId 'leveldb'
+      
+      version '1.7.0'
+      
+      licenses {
+        license {
+          name 'BSD 3-Clause'
+          url 'https://github.com/hf/leveldb-android/blob/master/LICENSE.txt'
+          distribution 'repo'
+        }
+      }
+     
+      scm {
+        connection 'https://github.com/hf/leveldb-android.git'
+        url 'https://github.com/hf/leveldb-android'
+      }
+      
+      developers {
+        developer {
+          name 'Stojan Dimitrovski'
+        }
+      }
+    }
+  }
+}
+
+bintray {
+  user = System.getenv('BINTRAY_USER')
+  key  = System.getenv('BINTRAY_KEY')
+
+  configurations = ['archives']
+
+  pkg {
+    repo = 'android'
+    name = 'leveldb-android'
+    licenses = ['BSD 3-Clause']
+    vcsUrl = 'https://github.com/hf/leveldb-android.git'
+    
+    userOrg = user
+    
+    websiteUrl = 'https://github.com/hf/leveldb-android'
+    issueTrackerUrl = 'https://github.com/hf/leveldb-android'
+    
+    githubRepo = 'hf/leveldb-android'
+    githubReleaseNotesFile = 'README.md'
+    
+    version {
+      name = '1.7.0'
+      desc = 'LevelDB (1.7) for Android.'
+      released = new Date()
+      vcsTag = 'leveldb-android-1.7.0'
+    }
+  }
 }
 
 android {
@@ -21,7 +82,7 @@ android {
         minSdkVersion 10
         targetSdkVersion 24 
         versionCode 1
-        versionName "1.0"
+        versionName "1.7.0"
 
         testApplicationId "com.github.hf.leveldb.test"
         testInstrumentationRunner "android.test.InstrumentationTestRunner"

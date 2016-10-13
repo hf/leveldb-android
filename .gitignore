@@ -1,9 +1,9 @@
-/.gradle
-/build
-/local.properties
-/test
-/target
-/log
+.gradle
+build
+local.properties
+test
+target
+log
 
 /.idea/workspace.xml
 /.idea/tasks.xml

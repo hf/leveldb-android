@@ -1,0 +1,37 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.0'
+    }
+}
+
+apply plugin: 'com.android.application'
+
+repositories {
+    mavenCentral()
+    maven { 
+      url "http://dl.bintray.com/stojan/android"
+    }
+}
+
+android {
+    compileSdkVersion 24 
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        minSdkVersion 10
+        targetSdkVersion 24 
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+dependencies {
+    androidTestCompile 'commons-io:commons-io:2.+'
+    androidTestCompile 'org.assertj:assertj-core:1.6.+'
+    
+    compile 'com.github.hf:leveldb:1.7.0@aar'
+}
+
