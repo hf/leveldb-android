@@ -1,5 +1,4 @@
-![Travis CI](https://travis-ci.org/hf/leveldb-android.svg?branch=master)
-
+![Travis CI](https://travis-ci.org/hf/leveldb-android.svg?branch=master) [![codecov](https://codecov.io/gh/hf/leveldb-android/branch/master/graph/badge.svg)](https://codecov.io/gh/hf/leveldb-android)
 # LevelDB for Android
 
 This is a Java wrapper for the amazing

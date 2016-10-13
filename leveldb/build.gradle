@@ -89,6 +89,12 @@ android {
         testHandleProfiling true
         testFunctionalTest true
     }
+    
+    buildTypes {
+        debug {
+            testCoverageEnabled = true
+        }
+    }
 }
 
 dependencies {
