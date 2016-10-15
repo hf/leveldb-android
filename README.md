@@ -28,7 +28,7 @@ And then this as a dependency:
 
 ```groovy
 dependencies {
-  compile 'com.github.hf:leveldb:1.7.0@aar'
+  compile 'com.github.hf:leveldb:1.17.0@aar'
 }
 ```
 
