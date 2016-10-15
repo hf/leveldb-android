@@ -2,13 +2,13 @@
 
 RELEASECMD='./gradlew leveldb:bintrayUpload'
 
-if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]
+if [[ ! -z "$TRAVIS_TAG" ]]
 then
-  echo "Performing release since on master and not a pull request."
+  echo "Performing release since this build is for a git tag ($TRAVIS_TAG)."
   echo
   
   echo "$RELEASECMD"
   eval "$RELEASECMD"
 else
-  echo "Not performing release since on branch '$TRAVIS_BRANCH' or a pull request ($TRAVIS_PULL_REQUEST)."
+  echo "Not performing release since this build is not for a git tag."
 fi
