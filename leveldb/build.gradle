@@ -69,8 +69,6 @@ bintray {
 
   configurations = ['archives']
 
-  dryRun = true
-
   pkg {
     repo = 'android'
     name = 'leveldb-android'
