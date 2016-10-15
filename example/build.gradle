@@ -32,6 +32,6 @@ dependencies {
     androidTestCompile 'commons-io:commons-io:2.+'
     androidTestCompile 'org.assertj:assertj-core:1.6.+'
     
-    compile 'com.github.hf:leveldb:1.7.0@aar'
+    compile 'com.github.hf:leveldb:1.17.0@aar'
 }
 

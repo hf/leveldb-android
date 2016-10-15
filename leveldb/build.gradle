@@ -19,10 +19,12 @@ def gitVersion = { ->
 def GIT_VERSION = gitVersion()
 def MAIN_VERSION = GIT_VERSION.replaceFirst(/-[a-z0A-Z-9]+$/, '')
 def VERSION = GIT_VERSION.replaceFirst(/^leveldb-android-/, '')
+def LEVELDB_VERSION = VERSION.replaceFirst(/[.][0-9]+(-.+)?$/, '')
 
 System.out.println "VERSION: ${VERSION}"
 System.out.println "GIT_VERSION: ${GIT_VERSION}"
 System.out.println "MAIN_VERSION: ${MAIN_VERSION}"
+System.out.println "LEVELDB_VERSION: ${LEVELDB_VERSION}"
 
 group 'com.github.hf'
 version VERSION
@@ -85,7 +87,7 @@ bintray {
     
     version {
       name = VERSION
-      desc = 'LevelDB (1.7) for Android.'
+      desc = "LevelDB (${LEVELDB_VERSION}) for Android."
       released = new Date()
       vcsTag = MAIN_VERSION
     }
