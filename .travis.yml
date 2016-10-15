@@ -5,7 +5,7 @@ jdk:
 
 env:
   matrix:
-    - ANDROID_ABI=armeabi-v7a
+    - ANDROID_ABI=x86_64
 
 android:
   components:
@@ -15,7 +15,7 @@ android:
     - extra-google-m2repository
     - extra-android-m2repository
     - android-24
-    - sys-img-armeabi-v7a-android-24
+    - sys-img-x86_64-android-24
 
 before_install:
   - jdk_switcher use oraclejdk8
@@ -23,9 +23,9 @@ before_install:
   - android list targets
   - echo no | android create avd --force -n test -t android-24 --abi $ANDROID_ABI
   - emulator -avd test -no-skin -no-audio -no-window &
-  - wget http://dl.google.com/android/ndk/android-ndk32-r10-linux-x86_64.tar.bz2
-  - tar -xf android-ndk32-r10-linux-x86_64.tar.bz2
-  - export PATH=$PATH:$PWD/android-ndk-r10
+  - wget https://dl.google.com/android/repository/android-ndk-r13-linux-x86_64.zip
+  - unzip -q android-ndk-r13-linux-x86_64.zip
+  - export PATH=$PATH:$PWD/android-ndk-r13
 
 before_script:
   - ./ci/wait_for_emulator.sh
