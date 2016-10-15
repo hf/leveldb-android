@@ -34,3 +34,4 @@ script: ./gradlew connectedCheck
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  - ./ci/release.sh

@@ -6,8 +6,26 @@ repositories {
     mavenCentral()
 }
 
+def gitVersion = { ->
+  def stdout = new ByteArrayOutputStream()
+  exec {
+    commandLine 'git', 'describe', '--tags'
+    standardOutput = stdout
+  }
+
+  return stdout.toString().trim()
+}
+
+def GIT_VERSION = gitVersion()
+def MAIN_VERSION = GIT_VERSION.replaceFirst(/-[a-z0A-Z-9]+$/, '')
+def VERSION = GIT_VERSION.replaceFirst(/^leveldb-android-/, '')
+
+System.out.println "VERSION: ${VERSION}"
+System.out.println "GIT_VERSION: ${GIT_VERSION}"
+System.out.println "MAIN_VERSION: ${MAIN_VERSION}"
+
 group 'com.github.hf'
-version '1.7.0'
+version VERSION
 
 install {
   repositories.mavenInstaller {
@@ -21,7 +39,7 @@ install {
       groupId 'com.github.hf'
       artifactId 'leveldb'
       
-      version '1.7.0'
+      version VERSION
       
       licenses {
         license {
@@ -51,6 +69,8 @@ bintray {
 
   configurations = ['archives']
 
+  dryRun = true
+
   pkg {
     repo = 'android'
     name = 'leveldb-android'
@@ -66,10 +86,10 @@ bintray {
     githubReleaseNotesFile = 'README.md'
     
     version {
-      name = '1.7.0'
+      name = VERSION
       desc = 'LevelDB (1.7) for Android.'
       released = new Date()
-      vcsTag = 'leveldb-android-1.7.0'
+      vcsTag = MAIN_VERSION
     }
   }
 }
@@ -81,8 +101,6 @@ android {
     defaultConfig {
         minSdkVersion 10
         targetSdkVersion 24 
-        versionCode 1
-        versionName "1.7.0"
 
         testApplicationId "com.github.hf.leveldb.test"
         testInstrumentationRunner "android.test.InstrumentationTestRunner"
