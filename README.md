@@ -4,8 +4,6 @@
 This is a Java wrapper for the amazing
 [LevelDB](https://github.com/google/leveldb) by Google.
 
-LevelDB supports only ARM and X86 ABIs. MIPS is not supported. 
-
 Currently it does not use [Snappy](http://google.github.io/snappy/) for data
 compression. (There is really no need for this in Android, i.e. it's unnecessary
 overhead.)
@@ -28,7 +26,7 @@ And then this as a dependency:
 
 ```groovy
 dependencies {
-  compile 'com.github.hf:leveldb:1.17.0@aar'
+  compile 'com.github.hf:leveldb:1.19.0@aar'
 }
 ```
 
