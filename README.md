@@ -1,4 +1,4 @@
-![Travis CI](https://travis-ci.org/hf/leveldb-android.svg?branch=master) [![codecov](https://codecov.io/gh/hf/leveldb-android/branch/master/graph/badge.svg)](https://codecov.io/gh/hf/leveldb-android)
+[![Build Status](https://travis-ci.org/hf/leveldb-android.svg?branch=master)](https://travis-ci.org/hf/leveldb-android) [![codecov](https://codecov.io/gh/hf/leveldb-android/branch/master/graph/badge.svg)](https://codecov.io/gh/hf/leveldb-android) [![Download](https://api.bintray.com/packages/stojan/android/leveldb-android/images/download.svg)](https://bintray.com/stojan/android/leveldb-android/_latestVersion)
 # LevelDB for Android
 
 This is a Java wrapper for the amazing
