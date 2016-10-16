@@ -30,6 +30,14 @@ dependencies {
 }
 ```
 
+ProGuard rules:
+
+```
+-keep class com.github.hf.leveldb.** { *; }
+```
+
+If you really want to obfuscate LevelDB, then make sure that the exceptions are not obfuscated since those are used within JNI code and will not be resolved properly at runtime.
+
 ## Example
 
 ### Opening, Closing, Putting, Deleting
