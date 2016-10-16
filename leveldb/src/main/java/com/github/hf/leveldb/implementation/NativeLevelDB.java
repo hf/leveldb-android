@@ -83,9 +83,13 @@ public class NativeLevelDB extends LevelDB {
         }
 
         ndb = nopen(configuration.createIfMissing(),
+                configuration.paranoidChecks(),
+                configuration.reuseLogs(),
+                configuration.exceptionIfExists(),
                 configuration.cacheSize(),
                 configuration.blockSize(),
                 configuration.writeBufferSize(),
+                configuration.maxOpenFiles(),
                 path);
 
         setPath(path);
@@ -375,7 +379,7 @@ public class NativeLevelDB extends LevelDB {
      * @return the nat structure pointer
      * @throws LevelDBException
      */
-    private static native long nopen(boolean createIfMissing, int cacheSize, int blockSize, int writeBufferSize, String path) throws LevelDBException;
+    private static native long nopen(boolean createIfMissing, boolean paranoidChecks, boolean reuseLogs, boolean exceptionIfExists, int cacheSize, int blockSize, int writeBufferSize, int maxOpenFiles, String path) throws LevelDBException;
 
     /**
      * Natively closes pointers and memory. Pointer is unchecked.

@@ -319,15 +319,31 @@ public abstract class LevelDB implements Closeable {
 
     /**
      * Specifies a configuration to open the database with.
+     * </p>
+     * Defaults:
+     * <ul>
+     *  <li>createIfMissing (true)</li>
+     *  <li>paranoidChecks (false)</li>
+     *  <li>reuseLogs (true)</li>
+     *  <li>cacheSize (8MB)</li>
+     *  <li>blockSize (4K)</li>
+     *  <li>writeBufferSize (4MB)</li>
+     *  <li>maxOpenFiles (1000)</li>
+     * </ul>
      */
     public static final class Configuration {
-        private boolean createIfMissing;
-        private int cacheSize;
-        private int blockSize;
-        private int writeBufferSize;
+        private boolean createIfMissing = true;
+        private boolean paranoidChecks = false;
+        private boolean reuseLogs = true;
+        private boolean exceptionIfExists = false;
+
+        private int cacheSize = 8 * 1024 * 1024;
+        private int blockSize = 4 * 1024;
+        private int writeBufferSize = 4 * 1024 * 1024;
+        private int maxOpenFiles = 1000;
 
         private Configuration() {
-            createIfMissing = true;
+          // No-op.
         }
 
         public boolean createIfMissing() {
@@ -368,6 +384,46 @@ public abstract class LevelDB implements Closeable {
             this.writeBufferSize = writeBufferSize;
 
             return this;
+        }
+
+        public Configuration paranoidChecks(boolean paranoidChecks) {
+            this.paranoidChecks = paranoidChecks;
+
+            return this;
+        }
+
+        public boolean paranoidChecks() {
+            return paranoidChecks;
+        }
+        
+        public int maxOpenFiles() {
+            return maxOpenFiles;
+        }
+
+        public Configuration maxOpenFiles(int maxOpenFiles) {
+            this.maxOpenFiles = maxOpenFiles;
+            
+            return this;
+        }
+
+        public boolean reuseLogs() {
+            return reuseLogs;
+        }
+
+        public Configuration reuseLogs(boolean reuseLogs) {
+            this.reuseLogs = reuseLogs;
+
+            return this;
+        }
+
+        public Configuration exceptionIfExists(boolean exceptionIfExists) {
+            this.exceptionIfExists = exceptionIfExists;
+
+            return this;
+        }
+
+        public boolean exceptionIfExists() {
+            return exceptionIfExists;
         }
     }
 }

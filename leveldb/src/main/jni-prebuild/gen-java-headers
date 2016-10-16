@@ -5,4 +5,4 @@ JAVA_SOURCES_DIR=$JNI_PREBUILD_DIR/../java
 
 NATIVE_SOURCES='com.github.hf.leveldb.implementation.NativeLevelDB com.github.hf.leveldb.implementation.NativeWriteBatch com.github.hf.leveldb.implementation.NativeIterator'
 
-/usr/java/latest/bin/javah -d $JNI_PREBUILD_DIR -classpath $JAVA_SOURCES_DIR $NATIVE_SOURCES
+javah -d $JNI_PREBUILD_DIR -classpath $JAVA_SOURCES_DIR $NATIVE_SOURCES
