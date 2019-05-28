@@ -17,7 +17,7 @@ Add this to your build.gradle:
 ```groovy
 repositories {
   maven {
-    url "http://dl.bintray.com/stojan/android"
+    url "https://dl.bintray.com/stojan/android"
   }
 }
 ```
