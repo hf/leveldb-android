@@ -37,7 +37,9 @@ import com.github.hf.leveldb.LevelDB;
 import com.github.hf.leveldb.implementation.NativeLevelDB;
 import com.github.hf.leveldb.test.common.PutGetDelWriteTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 /**
 * Created by hermann on 8/18/14.
@@ -48,6 +50,7 @@ public final class NativePutGetDelWriteTest extends PutGetDelWriteTest {
         return new NativeLevelDB(dbFile.getAbsolutePath(), LevelDB.configure().createIfMissing(true));
     }
 
+    @Test
     public void testProperties() throws Exception {
         LevelDB levelDB = obtainLevelDB();
 

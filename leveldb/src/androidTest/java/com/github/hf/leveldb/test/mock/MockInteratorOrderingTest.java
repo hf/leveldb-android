@@ -38,7 +38,7 @@ import com.github.hf.leveldb.implementation.mock.MockLevelDB;
 import com.github.hf.leveldb.util.Bytes;
 import junit.framework.TestCase;
 
-import static org.assertj.core.api.Assertions.*;
+import static com.google.common.truth.Truth.assertThat;
 
 
 /**

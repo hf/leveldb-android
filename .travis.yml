@@ -1,33 +1,55 @@
 language: android
-
-jdk:
-  - oraclejdk8
+dist: trusty
+sudo: required
+jdk: oraclejdk8
 
 env:
-  matrix:
-    - ANDROID_ABI=armeabi-v7a
+  global:
+  - ANDROID_API_LEVEL=28
+  - ANDROID_BUILD_TOOLS_VERSION=28.0.3
+  - ANDROID_ABI=armeabi-v7a
 
 android:
   components:
     - tools
     - platform-tools
-    - build-tools-23.0.3
+    - tools
+    - build-tools-25.0.2
+    - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
     - android-24
-    - sys-img-armeabi-v7a-android-24
+    - android-22
+    - sys-img-armeabi-v7a-android-22
+  licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
 
 before_install:
-  - jdk_switcher use oraclejdk8
-  - java -version
-  - android list targets
-  - echo no | android create avd --force -n test -t android-24 --abi $ANDROID_ABI
+  - touch $HOME/.android/repositories.cfg
+  - yes | sdkmanager "platforms;android-28"
+  - yes | sdkmanager "build-tools;28.0.3"
+  - echo no | android create avd --force -n test -t android-22 --abi $ANDROID_ABI -c 32M
   - emulator -avd test -no-skin -no-audio -no-window &
-  - wget https://dl.google.com/android/repository/android-ndk-r13-linux-x86_64.zip
-  - unzip -q android-ndk-r13-linux-x86_64.zip
-  - export PATH=$PATH:$PWD/android-ndk-r13
+
+install:
+  - echo y | sdkmanager "ndk-bundle"
+  - echo y | sdkmanager --channel=3 --channel=1 "cmake;3.10.2.4988404"
+  - echo y | sdkmanager "lldb;3.1"
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
+  - $HOME/.android/build-cache
 
 before_script:
+  - chmod +x gradlew
   - ./ci/wait_for_emulator.sh
 
 script: ./gradlew connectedCheck

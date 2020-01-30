@@ -42,7 +42,7 @@ import junit.framework.TestCase;
  */
 public class SimpleWriteBatchTest extends TestCase {
 
-    public void testOperations() throws Exception {
+    public void testOperations() {
         SimpleWriteBatch writeBatch = new SimpleWriteBatch();
 
         writeBatch.put(new byte[]{ 1, 2, 3 }, new byte[]{ 1, 2, 3 });
@@ -76,7 +76,7 @@ public class SimpleWriteBatchTest extends TestCase {
         boolean threw = false;
 
         try {
-            writeBatch.put((byte[]) null, null);
+            writeBatch.put(null, null);
         } catch (IllegalArgumentException e) {
             threw = true;
         }
@@ -87,7 +87,7 @@ public class SimpleWriteBatchTest extends TestCase {
         threw = false;
 
         try {
-            writeBatch.del((byte[]) null);
+            writeBatch.del(null);
         } catch (IllegalArgumentException e) {
             threw = true;
         }
@@ -98,7 +98,7 @@ public class SimpleWriteBatchTest extends TestCase {
         threw = false;
 
         try {
-            writeBatch.put(null, (byte[]) null);
+            writeBatch.put(null, null);
         } catch (IllegalArgumentException e) {
             threw = true;
         }

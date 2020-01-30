@@ -42,7 +42,7 @@ import com.github.hf.leveldb.test.common.PutGetDelWriteTest;
 */
 public final class MockPutGetDelWriteTest extends PutGetDelWriteTest {
     @Override
-    protected LevelDB obtainLevelDB() throws Exception {
+    protected LevelDB obtainLevelDB() {
         return new MockLevelDB();
     }
 }

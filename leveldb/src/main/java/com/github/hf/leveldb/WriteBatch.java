@@ -45,34 +45,34 @@ public interface WriteBatch extends Iterable<WriteBatch.Operation> {
     /**
      * Interace for a WriteBatch operation. LevelDB supports puts and deletions.
      */
-    public interface Operation {
+    interface Operation {
         /**
          * The key to put or delete.
          *
          * @return the key, never null
          */
-        public byte[] key();
+        byte[] key();
 
         /**
          * The value to associate with {@link #key()}.
          *
          * @return could be <tt>null</tt>, especially if {@link #isDel()} <tt>== true</tt>
          */
-        public byte[] value();
+        byte[] value();
 
         /**
          * Whether this operation is a put.
          *
          * @return
          */
-        public boolean isPut();
+        boolean isPut();
 
         /**
          * Whether this operation is a delete.
          *
          * @return
          */
-        public boolean isDel();
+        boolean isDel();
     }
 
     /**
@@ -82,7 +82,7 @@ public interface WriteBatch extends Iterable<WriteBatch.Operation> {
      * @param value the value to write
      * @return this WriteBatch for chaining
      */
-    public WriteBatch put(byte[] key, byte[] value);
+    WriteBatch put(byte[] key, byte[] value);
 
     /**
      * Delete the key from the database.
@@ -90,7 +90,7 @@ public interface WriteBatch extends Iterable<WriteBatch.Operation> {
      * @param key the key to delete
      * @return this WriteBatch for chaining
      */
-    public WriteBatch del(byte[] key);
+    WriteBatch del(byte[] key);
 
     /**
      * Insert a {@link com.github.hf.leveldb.WriteBatch.Operation} in this WriteBatch.
@@ -98,14 +98,14 @@ public interface WriteBatch extends Iterable<WriteBatch.Operation> {
      * @param operation the operation to insert
      * @return this WriteBatch for chaining
      */
-    public WriteBatch insert(Operation operation);
+    WriteBatch insert(Operation operation);
 
     /**
      * Get all operations in this WriteBatch.
      *
      * @return never null
      */
-    public Collection<Operation> getAllOperations();
+    Collection<Operation> getAllOperations();
 
     /**
      * Commit this WriteBatch to the database.
@@ -114,7 +114,7 @@ public interface WriteBatch extends Iterable<WriteBatch.Operation> {
      * @param sync    whether this is a synchronous (true) or asynchronous (false) write
      * @throws LevelDBException
      */
-    public void write(LevelDB levelDB, boolean sync) throws LevelDBException;
+    void write(LevelDB levelDB, boolean sync) throws LevelDBException;
 
     /**
      * Commit this WriteBatch to the database asynchronously.
@@ -122,5 +122,5 @@ public interface WriteBatch extends Iterable<WriteBatch.Operation> {
      * @param levelDB the {@link com.github.hf.leveldb.implementation.NativeLevelDB} database to write to
      * @throws LevelDBException
      */
-    public void write(LevelDB levelDB) throws LevelDBException;
+    void write(LevelDB levelDB) throws LevelDBException;
 }

@@ -33,35 +33,36 @@ package com.github.hf.leveldb.test.common;
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import android.test.InstrumentationTestCase;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
+
 import com.github.hf.leveldb.LevelDB;
+
 import org.apache.commons.io.FileUtils;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.runner.RunWith;
 
 import java.io.File;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static com.google.common.truth.Truth.assertThat;
 
-/**
- * Created by hermann on 8/18/14.
- */
-public abstract class DatabaseTestCase extends InstrumentationTestCase {
+@RunWith(AndroidJUnit4.class)
+public abstract class DatabaseTestCase {
+
     protected File dbFile;
 
-    @Override
-    public void setUp() throws Exception {
-        super.setUp();
-
-        dbFile = new File(getInstrumentation().getContext().getCacheDir(), String.format("%20f", Math.random() * 100000d));
+    @Before
+    public void setUp() {
+        dbFile = new File(InstrumentationRegistry.getInstrumentation().getContext().getCacheDir(), String.format("%20f", Math.random() * 100000d));
 
         if (dbFile.exists()) {
             assertThat(FileUtils.deleteQuietly(dbFile)).isTrue();
         }
     }
 
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-
+    @After
+    public void tearDown() {
         if (dbFile.exists()) {
             assertThat(FileUtils.deleteQuietly(dbFile)).isTrue();
         }

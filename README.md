@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/hf/leveldb-android.svg?branch=master)](https://travis-ci.org/hf/leveldb-android) [![codecov](https://codecov.io/gh/hf/leveldb-android/branch/master/graph/badge.svg)](https://codecov.io/gh/hf/leveldb-android) [![Download](https://api.bintray.com/packages/stojan/android/leveldb-android/images/download.svg)](https://bintray.com/stojan/android/leveldb-android/_latestVersion)
+[![Build Status](https://travis-ci.org/proxain/leveldb-android.svg?branch=master)](https://travis-ci.org/proxain/leveldb-android) [![codecov](https://codecov.io/gh/proxain/leveldb-android/branch/master/graph/badge.svg)](https://codecov.io/gh/proxain/leveldb-android) [![Download](https://api.bintray.com/packages/stojan/android/leveldb-android/images/download.svg)](https://bintray.com/stojan/android/leveldb-android/_latestVersion)
 # LevelDB for Android
 
 **LOOKING FOR A MAINTAINER. PLEASE WRITE [HERE](https://github.com/hf/leveldb-android/issues/12) IF INTERESTED.**
@@ -172,13 +172,7 @@ LevelDB.mock();
 
 ## Building
 
-Until Google (or someone else) fixes the Android Gradle build tools to properly
-support NDK, this is the way to build this project.
-
-1. Install the [NDK](https://developer.android.com/tools/sdk/ndk/index.html)
-. (Tested with ndk-r10d.)
-2. Add NDK to `$PATH`.
-3. Build with Gradle (`preBuild` depends on `preBuildLevelDB`)
+Project can be build with ndk-bundle and cmake installed from Android Studio SDK Manager.
 
 ## License
 

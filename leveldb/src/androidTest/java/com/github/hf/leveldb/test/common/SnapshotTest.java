@@ -41,10 +41,13 @@ import com.github.hf.leveldb.implementation.mock.MockLevelDB;
 import com.github.hf.leveldb.implementation.mock.MockSnapshot;
 import com.github.hf.leveldb.util.Bytes;
 
-import static org.assertj.core.api.Assertions.*;
+import org.junit.Test;
 
+import static com.google.common.truth.Truth.assertThat;
 
 public abstract class SnapshotTest extends DatabaseTestCase {
+
+    @Test
     public void testObtainReleaseSnapshot() throws Exception {
         LevelDB db = obtainLevelDB();
 
@@ -105,6 +108,7 @@ public abstract class SnapshotTest extends DatabaseTestCase {
         assertThat(snapshot.isReleased()).isTrue();
     }
 
+    @Test
     public void testGet() throws Exception {
         LevelDB db = obtainLevelDB();
 
@@ -154,6 +158,7 @@ public abstract class SnapshotTest extends DatabaseTestCase {
         db.close();
     }
 
+    @Test
     public void testIteration() throws Exception {
 
 

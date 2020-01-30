@@ -42,7 +42,7 @@ import com.github.hf.leveldb.test.common.IterationTest;
 */
 public final class MockIterationTest extends IterationTest {
     @Override
-    protected LevelDB obtainLevelDB() throws Exception {
+    protected LevelDB obtainLevelDB() {
         return new MockLevelDB();
     }
 }

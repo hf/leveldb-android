@@ -39,9 +39,11 @@ import junit.framework.TestCase;
 /**
  * Created by hermann on 8/16/14.
  */
+
+
 public class BytesTest extends TestCase {
 
-    public void testLexicographicComparison() throws Exception {
+    public void testLexicographicComparison() {
         byte[] a = new byte[] { 1, 2, 3, 0, 0, 0 };
         byte[] b = new byte[] { (byte) 0xFF, 0, 0 }; // { 255 }
 
@@ -51,7 +53,7 @@ public class BytesTest extends TestCase {
         a = new byte[] { 1, 2, 3, 0, 0, 0 };
         b = new byte[] { 1, 2, 3 };
 
-        assertTrue(Bytes.lexicographicCompare(a, b) == 0);
-        assertTrue(Bytes.lexicographicCompare(b, a) == 0);
+        assertEquals(0, Bytes.lexicographicCompare(a, b));
+        assertEquals(0, Bytes.lexicographicCompare(b, a));
     }
 }

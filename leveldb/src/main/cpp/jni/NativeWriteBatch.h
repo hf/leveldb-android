@@ -12,7 +12,7 @@ extern "C" {
  * Method:    ncreate
  * Signature: ()J
  */
-JNIEXPORT jlong JNICALL Java_com_github_hf_leveldb_implementation_NativeWriteBatch_ncreate
+JNIEXPORT jlong JNICALL Java_com_github_hf_leveldb_implementation_NativeWriteBatch_nativeCreate
   (JNIEnv *, jclass);
 
 /*
@@ -20,7 +20,7 @@ JNIEXPORT jlong JNICALL Java_com_github_hf_leveldb_implementation_NativeWriteBat
  * Method:    nput
  * Signature: (J[B[B)V
  */
-JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeWriteBatch_nput
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeWriteBatch_nativePut
   (JNIEnv *, jclass, jlong, jbyteArray, jbyteArray);
 
 /*
@@ -28,7 +28,7 @@ JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeWriteBatc
  * Method:    ndelete
  * Signature: (J[B)V
  */
-JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeWriteBatch_ndelete
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeWriteBatch_nativeDelete
   (JNIEnv *, jclass, jlong, jbyteArray);
 
 /*
@@ -36,7 +36,7 @@ JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeWriteBatc
  * Method:    nclose
  * Signature: (J)V
  */
-JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeWriteBatch_nclose
+JNIEXPORT void JNICALL Java_com_github_hf_leveldb_implementation_NativeWriteBatch_nativeClose
   (JNIEnv *, jclass, jlong);
 
 #ifdef __cplusplus

@@ -34,7 +34,6 @@ package com.github.hf.leveldb.test.mock;
  */
 
 import com.github.hf.leveldb.LevelDB;
-import com.github.hf.leveldb.implementation.mock.MockSnapshot;
 import com.github.hf.leveldb.test.common.SnapshotTest;
 
 /**
@@ -42,7 +41,7 @@ import com.github.hf.leveldb.test.common.SnapshotTest;
  */
 public class MockSnapshotTest extends SnapshotTest {
     @Override
-    protected LevelDB obtainLevelDB() throws Exception {
+    protected LevelDB obtainLevelDB() {
         return LevelDB.mock();
     }
 }

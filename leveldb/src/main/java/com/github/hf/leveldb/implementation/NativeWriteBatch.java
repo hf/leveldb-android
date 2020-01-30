@@ -45,21 +45,21 @@ import java.io.Closeable;
  */
 public class NativeWriteBatch implements Closeable {
     static {
-        System.loadLibrary("leveldb");
+        System.loadLibrary("leveldb-android");
     }
 
     // Don't touch this. If you do, something somewhere dies.
     private long nwb;
 
     public NativeWriteBatch(WriteBatch writeBatch) {
-        nwb = ncreate();
+        nwb = nativeCreate();
 
         for (WriteBatch.Operation operation : writeBatch) {
 
             if (operation.isPut()) {
-                nput(nwb, operation.key(), operation.value());
+                nativePut(nwb, operation.key(), operation.value());
             } else {
-                ndelete(nwb, operation.key());
+                nativeDelete(nwb, operation.key());
             }
         }
     }
@@ -81,7 +81,7 @@ public class NativeWriteBatch implements Closeable {
     @Override
     public void close() {
         if (!isClosed()) {
-            nclose(nwb);
+            nativeClose(nwb);
             nwb = 0;
         } else {
             Log.i("org.leveldb", "Native WriteBatch is already closed.");
@@ -102,7 +102,7 @@ public class NativeWriteBatch implements Closeable {
      *
      * @return pointer to nat structure
      */
-    private static native long ncreate();
+    private static native long nativeCreate();
 
     /**
      * Native SimpleWriteBatch put. Pointer is unchecked.
@@ -111,7 +111,7 @@ public class NativeWriteBatch implements Closeable {
      * @param key
      * @param value
      */
-    private static native void nput(long nwb, byte[] key, byte[] value);
+    private static native void nativePut(long nwb, byte[] key, byte[] value);
 
     /**
      * Native SimpleWriteBatch delete. Pointer is unchecked.
@@ -119,12 +119,12 @@ public class NativeWriteBatch implements Closeable {
      * @param nwb nat structure pointer
      * @param key
      */
-    private static native void ndelete(long nwb, byte[] key);
+    private static native void nativeDelete(long nwb, byte[] key);
 
     /**
      * Native close. Releases all memory. Pointer is unchecked.
      *
      * @param nwb nat structure pointer
      */
-    private static native void nclose(long nwb);
+    private static native void nativeClose(long nwb);
 }

@@ -33,18 +33,23 @@ package com.github.hf.leveldb.test.common;
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+
 import com.github.hf.leveldb.LevelDB;
-import com.github.hf.leveldb.util.SimpleWriteBatch;
 import com.github.hf.leveldb.exception.LevelDBClosedException;
 import com.github.hf.leveldb.util.Bytes;
+import com.github.hf.leveldb.util.SimpleWriteBatch;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
-import static org.assertj.core.api.Assertions.*;
+import static com.google.common.truth.Truth.assertThat;
 
 /**
  * Created by hermann on 8/16/14.
  */
 public abstract class PutGetDelWriteTest extends DatabaseTestCase {
 
+    @Test
     public void testPut() throws Exception {
         LevelDB db = obtainLevelDB();
 
@@ -56,7 +61,7 @@ public abstract class PutGetDelWriteTest extends DatabaseTestCase {
         boolean threw = false;
 
         try {
-            db.put((byte[]) null, null, false);
+            db.put(null, null, false);
         } catch (IllegalArgumentException e) {
             threw = true;
         }
@@ -76,6 +81,7 @@ public abstract class PutGetDelWriteTest extends DatabaseTestCase {
         assertThat(threw).isTrue();
     }
 
+    @Test
     public void testGet() throws Exception {
         LevelDB db = obtainLevelDB();
 
@@ -102,7 +108,7 @@ public abstract class PutGetDelWriteTest extends DatabaseTestCase {
         boolean threw = false;
 
         try {
-            db.get((byte[]) null);
+            db.get(null);
         } catch (IllegalArgumentException e) {
             threw = true;
         }
@@ -122,6 +128,7 @@ public abstract class PutGetDelWriteTest extends DatabaseTestCase {
         assertThat(threw).isTrue();
     }
 
+    @Test
     public void testDel() throws Exception {
         LevelDB db = obtainLevelDB();
 
@@ -144,7 +151,7 @@ public abstract class PutGetDelWriteTest extends DatabaseTestCase {
         boolean threw = false;
 
         try {
-            db.del((byte[]) null, false);
+            db.del(null, false);
         } catch (IllegalArgumentException e) {
             threw = true;
         }
@@ -164,6 +171,7 @@ public abstract class PutGetDelWriteTest extends DatabaseTestCase {
         assertThat(threw).isTrue();
     }
 
+    @Test
     public void testWrite() throws Exception {
         LevelDB db = obtainLevelDB();
 

@@ -35,15 +35,18 @@ package com.github.hf.leveldb.test.common;
 
 import com.github.hf.leveldb.Iterator;
 import com.github.hf.leveldb.LevelDB;
-import com.github.hf.leveldb.util.SimpleWriteBatch;
 import com.github.hf.leveldb.exception.LevelDBClosedException;
 import com.github.hf.leveldb.exception.LevelDBIteratorNotValidException;
 import com.github.hf.leveldb.util.Bytes;
+import com.github.hf.leveldb.util.SimpleWriteBatch;
 
-import static org.assertj.core.api.Assertions.*;
+import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public abstract class IterationTest extends DatabaseTestCase {
 
+    @Test
     public void testIteration() throws Exception {
         LevelDB db = obtainLevelDB();
 
@@ -127,6 +130,7 @@ public abstract class IterationTest extends DatabaseTestCase {
         db.close();
     }
 
+    @Test
     public void testClosed() throws Exception {
         LevelDB db = obtainLevelDB();
 

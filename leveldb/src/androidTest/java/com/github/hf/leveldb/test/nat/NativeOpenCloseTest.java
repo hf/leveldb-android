@@ -38,44 +38,50 @@ import com.github.hf.leveldb.exception.LevelDBException;
 import com.github.hf.leveldb.implementation.NativeLevelDB;
 import com.github.hf.leveldb.test.common.DatabaseTestCase;
 
+import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 /**
  * Created by hermann on 8/16/14.
  */
 public class NativeOpenCloseTest extends DatabaseTestCase {
 
     @Override
-    protected LevelDB obtainLevelDB() throws Exception {
+    protected LevelDB obtainLevelDB() {
         throw new UnsupportedOperationException("This is a nat-only test case. Shouldn't use this method.");
     }
 
+    @Test
     public void testCreateAndOpenNonExistingDatabase() throws Exception {
-        assertFalse(dbFile.exists());
+        assertThat(dbFile.exists()).isFalse();
 
         NativeLevelDB ndb = new NativeLevelDB(dbFile.getAbsolutePath(), LevelDB.configure().createIfMissing(true));
 
         ndb.close();
 
-        assertTrue(dbFile.exists());
+        assertThat(dbFile.exists()).isTrue();
     }
 
+    @Test
     public void testOpenAnExistingDatabase() throws Exception {
-        assertFalse(dbFile.exists());
+        assertThat(dbFile.exists()).isFalse();
 
         NativeLevelDB ndb = new NativeLevelDB(dbFile.getAbsolutePath(), LevelDB.configure().createIfMissing(true));
 
         ndb.close();
 
-        assertTrue(dbFile.exists());
+        assertThat(dbFile.exists()).isTrue();
 
         ndb = new NativeLevelDB(dbFile.getAbsolutePath(), LevelDB.configure().createIfMissing(false));
 
         ndb.close();
 
-        assertTrue(dbFile.exists());
+        assertThat(dbFile.exists()).isTrue();
     }
 
+    @Test
     public void testTwiceOpenADatabase() throws Exception {
-        assertFalse(dbFile.exists());
+        assertThat(dbFile.exists()).isFalse();
 
         boolean threw = false;
 
@@ -87,11 +93,11 @@ public class NativeOpenCloseTest extends DatabaseTestCase {
             threw = true;
         }
 
-        assertTrue(threw);
+        assertThat(threw).isTrue();
 
         ndbA.close();
         ndbA.close();
 
-        assertTrue(dbFile.exists());
+        assertThat(dbFile.exists()).isTrue();
     }
 }

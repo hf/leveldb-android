@@ -47,21 +47,21 @@ import com.github.hf.leveldb.exception.LevelDBSnapshotOwnershipException;
  */
 public class NativeLevelDB extends LevelDB {
     static {
-        System.loadLibrary("leveldb");
+        System.loadLibrary("leveldb-android");
     }
 
     /**
      * @see com.github.hf.leveldb.LevelDB#destroy(String)
      */
     public static void destroy(String path) throws LevelDBException {
-        ndestroy(path);
+        nativeDestroy(path);
     }
 
     /**
      * @see com.github.hf.leveldb.LevelDB#repair(String)
      */
     public static void repair(String path) throws LevelDBException {
-        nrepair(path);
+        nativeRepair(path);
     }
 
     // This is the underlying pointer. If you touch this, all hell breaks loose and everyone dies.
@@ -82,7 +82,7 @@ public class NativeLevelDB extends LevelDB {
             configuration = configure();
         }
 
-        ndb = nopen(configuration.createIfMissing(),
+        ndb = nativeOpen(configuration.createIfMissing(),
                 configuration.cacheSize(),
                 configuration.blockSize(),
                 configuration.writeBufferSize(),
@@ -112,7 +112,7 @@ public class NativeLevelDB extends LevelDB {
 
         synchronized (this) {
             if (ndb != 0) {
-                nclose(ndb);
+                nativeClose(ndb);
                 ndb = 0;
             } else {
                 closeMultiple = true;
@@ -152,7 +152,7 @@ public class NativeLevelDB extends LevelDB {
         synchronized (this) {
             checkIfClosed();
 
-            nput(ndb, sync, key, value);
+            nativePut(ndb, sync, key, value);
         }
     }
 
@@ -175,7 +175,7 @@ public class NativeLevelDB extends LevelDB {
             NativeWriteBatch nativeWriteBatch = new NativeWriteBatch(writeBatch);
 
             try {
-                nwrite(ndb, sync, nativeWriteBatch.nativePointer());
+                nativeWrite(ndb, sync, nativeWriteBatch.nativePointer());
             } finally {
                 nativeWriteBatch.close();
                 nativeWriteBatch = null;
@@ -210,7 +210,7 @@ public class NativeLevelDB extends LevelDB {
         synchronized (this) {
             checkIfClosed();
 
-            return nget(ndb, key, snapshot == null ? 0 : ((NativeSnapshot) snapshot).id());
+            return nativeGet(ndb, key, snapshot == null ? 0 : ((NativeSnapshot) snapshot).id());
         }
     }
 
@@ -230,7 +230,7 @@ public class NativeLevelDB extends LevelDB {
         synchronized (this) {
             checkIfClosed();
 
-            ndelete(ndb, sync, key);
+            nativeDelete(ndb, sync, key);
         }
     }
 
@@ -263,7 +263,7 @@ public class NativeLevelDB extends LevelDB {
         synchronized (this) {
             checkIfClosed();
 
-            return ngetProperty(ndb, key);
+            return nativeGetProperty(ndb, key);
         }
     }
 
@@ -292,7 +292,7 @@ public class NativeLevelDB extends LevelDB {
         synchronized (this) {
             checkIfClosed();
 
-            return new NativeIterator(niterate(ndb, fillCache, snapshot == null ? 0 : ((NativeSnapshot) snapshot).id()));
+            return new NativeIterator(nativeIterate(ndb, fillCache, snapshot == null ? 0 : ((NativeSnapshot) snapshot).id()));
         }
     }
 
@@ -328,7 +328,7 @@ public class NativeLevelDB extends LevelDB {
 
     @Override
     public Snapshot obtainSnapshot() throws LevelDBClosedException {
-        return new NativeSnapshot(this, nsnapshot(ndb));
+        return new NativeSnapshot(this, nativeSnapshot(ndb));
     }
 
     @Override
@@ -348,7 +348,7 @@ public class NativeLevelDB extends LevelDB {
         synchronized (this) {
             checkIfClosed();
 
-            nreleaseSnapshot(ndb, ((NativeSnapshot) snapshot).release());
+            nativeReleaseSnapshot(ndb, ((NativeSnapshot) snapshot).release());
         }
     }
 
@@ -375,14 +375,14 @@ public class NativeLevelDB extends LevelDB {
      * @return the nat structure pointer
      * @throws LevelDBException
      */
-    private static native long nopen(boolean createIfMissing, int cacheSize, int blockSize, int writeBufferSize, String path) throws LevelDBException;
+    private static native long nativeOpen(boolean createIfMissing, int cacheSize, int blockSize, int writeBufferSize, String path) throws LevelDBException;
 
     /**
      * Natively closes pointers and memory. Pointer is unchecked.
      *
      * @param ndb
      */
-    private static native void nclose(long ndb);
+    private static native void nativeClose(long ndb);
 
     /**
      * Natively writes key-value pair to the database. Pointer is unchecked.
@@ -393,7 +393,7 @@ public class NativeLevelDB extends LevelDB {
      * @param value
      * @throws LevelDBException
      */
-    private static native void nput(long ndb, boolean sync, byte[] key, byte[] value) throws LevelDBException;
+    private static native void nativePut(long ndb, boolean sync, byte[] key, byte[] value) throws LevelDBException;
 
     /**
      * Natively deletes key-value pair from the database. Pointer is unchecked.
@@ -403,9 +403,9 @@ public class NativeLevelDB extends LevelDB {
      * @param key
      * @throws LevelDBException
      */
-    private static native void ndelete(long ndb, boolean sync, byte[] key) throws LevelDBException;
+    private static native void nativeDelete(long ndb, boolean sync, byte[] key) throws LevelDBException;
 
-    private static native void nwrite(long ndb, boolean sync, long nwb) throws LevelDBException;
+    private static native void nativeWrite(long ndb, boolean sync, long nwb) throws LevelDBException;
 
     /**
      * Natively retrieves key-value pair from the database. Pointer is unchecked.
@@ -415,7 +415,7 @@ public class NativeLevelDB extends LevelDB {
      * @return
      * @throws LevelDBException
      */
-    private static native byte[] nget(long ndb, byte[] key, long nsnapshot) throws LevelDBException;
+    private static native byte[] nativeGet(long ndb, byte[] key, long nsnapshot) throws LevelDBException;
 
     /**
      * Natively gets LevelDB property. Pointer is unchecked.
@@ -424,7 +424,7 @@ public class NativeLevelDB extends LevelDB {
      * @param key
      * @return
      */
-    private static native byte[] ngetProperty(long ndb, byte[] key);
+    private static native byte[] nativeGetProperty(long ndb, byte[] key);
 
     /**
      * Natively destroys a database. Corresponds to: <tt>leveldb::DestroyDB()</tt>
@@ -432,7 +432,7 @@ public class NativeLevelDB extends LevelDB {
      * @param path
      * @throws LevelDBException
      */
-    private static native void ndestroy(String path) throws LevelDBException;
+    private static native void nativeDestroy(String path) throws LevelDBException;
 
     /**
      * Natively repairs a database. Corresponds to: <tt>leveldb::RepairDB()</tt>
@@ -440,7 +440,7 @@ public class NativeLevelDB extends LevelDB {
      * @param path
      * @throws LevelDBException
      */
-    private static native void nrepair(String path) throws LevelDBException;
+    private static native void nativeRepair(String path) throws LevelDBException;
 
     /**
      * Natively creates a new iterator. Corresponds to <tt>leveldb::DB->NewIterator()</tt>.
@@ -449,8 +449,8 @@ public class NativeLevelDB extends LevelDB {
      * @param fillCache
      * @return
      */
-    private static native long niterate(long ndb, boolean fillCache, long nsnapshot);
+    private static native long nativeIterate(long ndb, boolean fillCache, long nsnapshot);
 
-    private static native long nsnapshot(long ndb);
-    private static native void nreleaseSnapshot(long ndb, long nsnapshot);
+    private static native long nativeSnapshot(long ndb);
+    private static native void nativeReleaseSnapshot(long ndb, long nsnapshot);
 }

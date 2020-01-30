@@ -68,7 +68,7 @@ public class NativeIterator extends Iterator {
     @Override public boolean isValid() throws LevelDBClosedException {
         checkIfClosed();
 
-        return nvalid(this.nit);
+        return nativeValid(this.nit);
     }
 
     /**
@@ -79,7 +79,7 @@ public class NativeIterator extends Iterator {
     @Override public void seekToFirst() throws LevelDBClosedException {
         checkIfClosed();
 
-        nseekToFirst(this.nit);
+        nativeSeekToFirst(this.nit);
     }
 
     /**
@@ -92,7 +92,7 @@ public class NativeIterator extends Iterator {
     @Override public void seekToLast() throws LevelDBClosedException {
         checkIfClosed();
 
-        nseekToLast(this.nit);
+        nativeSeekToLast(this.nit);
     }
 
     /**
@@ -108,7 +108,7 @@ public class NativeIterator extends Iterator {
             throw new IllegalArgumentException("Seek key must never be null!");
         }
 
-        nseek(nit, key);
+        nativeSeek(nit, key);
     }
 
     /**
@@ -125,7 +125,7 @@ public class NativeIterator extends Iterator {
             throw new LevelDBIteratorNotValidException();
         }
 
-        nnext(nit);
+        nativeNext(nit);
     }
 
     /**
@@ -142,7 +142,7 @@ public class NativeIterator extends Iterator {
             throw new LevelDBIteratorNotValidException();
         }
 
-        nprev(nit);
+        nativePrev(nit);
     }
 
     /**
@@ -160,7 +160,7 @@ public class NativeIterator extends Iterator {
             throw new LevelDBIteratorNotValidException();
         }
 
-        return nkey(nit);
+        return nativeKey(nit);
     }
 
     /**
@@ -178,7 +178,7 @@ public class NativeIterator extends Iterator {
             throw new LevelDBIteratorNotValidException();
         }
 
-        return nvalue(nit);
+        return nativeValue(nit);
     }
 
     /**
@@ -198,7 +198,7 @@ public class NativeIterator extends Iterator {
     @Override
     public void close() {
         if (!isClosed()) {
-            nclose(nit);
+            nativeClose(nit);
         }
 
         nit = 0;
@@ -215,21 +215,21 @@ public class NativeIterator extends Iterator {
         }
     }
 
-    private static native void nclose(long nit);
+    private static native void nativeClose(long nit);
 
-    private static native boolean nvalid(long nit);
+    private static native boolean nativeValid(long nit);
 
-    private static native void nseek(long nit, byte[] key);
+    private static native void nativeSeek(long nit, byte[] key);
 
-    private static native void nseekToFirst(long nit);
+    private static native void nativeSeekToFirst(long nit);
 
-    private static native void nseekToLast(long nit);
+    private static native void nativeSeekToLast(long nit);
 
-    private static native void nnext(long nit);
+    private static native void nativeNext(long nit);
 
-    private static native void nprev(long nit);
+    private static native void nativePrev(long nit);
 
-    private static native byte[] nkey(long nit);
+    private static native byte[] nativeKey(long nit);
 
-    private static native byte[] nvalue(long nit);
+    private static native byte[] nativeValue(long nit);
 }
